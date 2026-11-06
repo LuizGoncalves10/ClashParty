@@ -149,6 +149,7 @@ body {
 
 .tabuleiro-grid {
     width: 100%;
+    max-height: 480px;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -156,30 +157,30 @@ body {
     padding: 15px;
     border-radius: 12px;
     border: 2px solid #000;
-    overflow-x: hidden;
+    overflow: auto;
+}
+
+.tabuleiro-grid::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+}
+
+.tabuleiro-grid::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.tabuleiro-grid::-webkit-scrollbar-thumb {
+    background: var(--dourado);
+    border-radius: 4px;
 }
 
 .trilha-jogador {
     display: flex;
     align-items: center;
     gap: 10px;
-    width: 100%;
-    overflow-x: auto;
+    min-width: max-content;
     padding-bottom: 5px;
-}
-
-.trilha-jogador::-webkit-scrollbar {
-    height: 6px;
-}
-
-.trilha-jogador::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-}
-
-.trilha-jogador::-webkit-scrollbar-thumb {
-    background: var(--dourado);
-    border-radius: 4px;
 }
 
 .nome-jogador-trilha {

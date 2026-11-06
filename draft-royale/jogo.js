@@ -44,7 +44,7 @@ async function carregarEClassificarTropas() {
             return nomeA.localeCompare(nomeB);
         });
     } catch (erro) {
-        alert("Erro ao carregar as tropas do jogo. Verifique o console (F12).");
+        alert("Erro ao carregar as tropas do jogo.");
     }
 }
 
