@@ -3,7 +3,7 @@ let nomesJogadores = JSON.parse(localStorage.getItem('draftRoyaleNomes')) || ["J
 
 let todasAsTropas = [];
 let indiceJogadorAtual = 0;
-let primeiroJogadorRodada = 0; // Guarda quem foi o sorteado para começar
+let primeiroJogadorRodada = 0;
 let cartaSelecionadaId = null;
 let escolhasDaRodada = {};
 
@@ -23,10 +23,16 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 async function carregarEClassificarTropas() {
     try {
-        let resposta = await fetch('../todas_as_cartas.json');
+        let resposta = await fetch('../../todas_as_cartas.json');
+        if (!resposta.ok) {
+            throw new Error(`Erro HTTP: ${resposta.status}`);
+        }
         let dadosBrutos = await resposta.json();
+        console.log("JSON carregado com sucesso. Total de cartas:", dadosBrutos.length);
 
-        todasAsTropas = dadosBrutos.filter(carta => carta.type === 'troop');
+        // Carrega todas as cartas do ficheiro para a selecção do draft
+        todasAsTropas = dadosBrutos; 
+        console.log("Tropas carregadas para o jogo:", todasAsTropas.length);
 
         todasAsTropas.sort((a, b) => {
             let pesoA = pesoRaridade[a.rarity] || 99;
@@ -41,14 +47,14 @@ async function carregarEClassificarTropas() {
         });
 
     } catch (erro) {
-        console.error("Erro ao carregar cartas:", erro);
-        alert("Erro ao carregar as tropas do jogo.");
+        console.error("Erro detalhado ao carregar cartas:", erro);
+        alert("Erro ao carregar as tropas do jogo. Verifique o console (F12).");
     }
 }
 
 function sortearPrimeiroJogador() {
     indiceJogadorAtual = Math.floor(Math.random() * nomesJogadores.length);
-    primeiroJogadorRodada = indiceJogadorAtual; // Marca quem começou
+    primeiroJogadorRodada = indiceJogadorAtual;
 }
 
 function renderizarInterfaceTurno() {
@@ -59,7 +65,6 @@ function renderizarInterfaceTurno() {
     let btnVoltar = document.getElementById('btn-voltar-draft');
     let totalEscolhidos = Object.keys(escolhasDaRodada).length;
     
-    // Regra do Botão Voltar: Só aparece se for o primeiro jogador a escolher E ninguém tiver escolhido nada ainda
     if (indiceJogadorAtual === primeiroJogadorRodada && totalEscolhidos === 0) {
         btnVoltar.style.display = "block";
     } else {
@@ -82,6 +87,11 @@ function renderizarInterfaceTurno() {
 function renderizarGridCartas() {
     let grid = document.getElementById('grid-escolha-cartas');
     grid.innerHTML = "";
+
+    if (todasAsTropas.length === 0) {
+        grid.innerHTML = "<p style='color: white; text-align: center; width: 100%; font-family: sans-serif;'>A carregar tropas ou ficheiro em falta...</p>";
+        return;
+    }
 
     let cartasJaEscolhidas = Object.values(escolhasDaRodada);
 
@@ -126,14 +136,12 @@ function confirmarEscolhaCarta() {
 
     if (Object.keys(escolhasDaRodada).length === nomesJogadores.length) {
         localStorage.setItem('draftRoyaleEscolhas', JSON.stringify(escolhasDaRodada));
-        alert("Todas as tropas foram escolhidas com sucesso! O jogo vai comecar.");
-        // Próxima etapa do tabuleiro físico do jogo futuramente
+        alert("Todas as tropas foram escolhidas com sucesso!");
     } else {
         renderizarInterfaceTurno();
     }
 }
 
-// Permite voltar para a tela de nomes caso seja o primeiro jogador antes de iniciar
 function voltarParaNomes() {
     window.location.href = "index.html";
 }
