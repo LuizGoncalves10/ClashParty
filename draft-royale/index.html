@@ -3,78 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Draft Royale | Configuração</title>
+    <title>Draft Royale | Arena</title>
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="config-header">
-        <img src="https://cdn.royaleapi.com/static/img/emotes/king_thumbs_up.png" alt="Rei" class="emote-rei">
-        <h1>Draft Royale</h1>
-        <p>Prepare a Arena</p>
-    </header>
 
-    <main class="config-container">
-        
-        <!-- Configuração de Jogadores e Casas -->
-        <div class="config-row">
-            <div class="config-box">
-                <label>Jogadores</label>
-                <div class="counter">
-                    <button class="btn-counter" onclick="alterarValor('jogadores', -1)">-</button>
-                    <span id="valor-jogadores">4</span>
-                    <button class="btn-counter" onclick="alterarValor('jogadores', 1)">+</button>
+    <!-- ETAPA 1: TELA DE CONFIGURAÇÃO -->
+    <div id="tela-config" class="screen active">
+        <header class="config-header">
+            <!-- Imagem do rei removida -->
+            <h1>Draft Royale</h1>
+            <p>Prepare a Arena</p>
+        </header>
+
+        <main class="config-container">
+            <div class="config-row">
+                <div class="config-box">
+                    <label>Jogadores</label>
+                    <div class="counter">
+                        <button class="btn-counter" onclick="alterarValor('jogadores', -1)">-</button>
+                        <span id="valor-jogadores">4</span>
+                        <button class="btn-counter" onclick="alterarValor('jogadores', 1)">+</button>
+                    </div>
+                </div>
+
+                <div class="config-box">
+                    <label>Casas</label>
+                    <div class="counter">
+                        <button class="btn-counter" onclick="alterarValor('casas', -1)">-</button>
+                        <span id="valor-casas">10</span>
+                        <button class="btn-counter" onclick="alterarValor('casas', 1)">+</button>
+                    </div>
                 </div>
             </div>
 
-            <div class="config-box">
-                <label>Casas no Tabuleiro</label>
-                <div class="counter">
-                    <button class="btn-counter" onclick="alterarValor('casas', -1)">-</button>
-                    <span id="valor-casas">10</span>
-                    <button class="btn-counter" onclick="alterarValor('casas', 1)">+</button>
+            <div class="config-section">
+                <label>Modo de Jogo</label>
+                <div class="mode-grid">
+                    <div class="mode-card selected" id="modo-aleatorio" onclick="selecionarModo('aleatorio')">
+                        <h3>🎲 Caos Aleatório</h3>
+                        <p>A roleta decide o atributo.</p>
+                    </div>
+                    <div class="mode-card" id="modo-escolha" onclick="selecionarModo('escolha')">
+                        <h3>🧠 Duelo Tático</h3>
+                        <p>O jogador escolhe o atributo.</p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Modo de Jogo -->
-        <div class="config-section">
-            <label>Modo de Jogo</label>
-            <div class="mode-grid">
-                <div class="mode-card selected" id="modo-aleatorio" onclick="selecionarModo('aleatorio')">
-                    <h3>🎲 Caos Aleatório</h3>
-                    <p>A roleta decide o atributo da rodada.</p>
-                </div>
-                <div class="mode-card" id="modo-escolha" onclick="selecionarModo('escolha')">
-                    <h3>🧠 Duelo Tático</h3>
-                    <p>O jogador da vez escolhe o atributo.</p>
+            <div class="config-section">
+                <label>Tipos de Ação</label>
+                <div class="rules-grid">
+                    <div class="rule-btn active" id="regra-avanco" onclick="alternarRegra('avanco')">
+                        👑 Avanço Solitário <br><small>(O vencedor avança)</small>
+                    </div>
+                    <div class="rule-btn active" id="regra-recuo" onclick="alternarRegra('recuo')">
+                        🌪️ Feitiço de Recuo <br><small>(O pior status volta)</small>
+                    </div>
+                    <div class="rule-btn active" id="regra-grupo" onclick="alternarRegra('grupo')">
+                        ⚔️ Fúria de Tropa <br><small>(Grupos específicos avançam)</small>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Tipos de Perguntas -->
-        <div class="config-section">
-            <label>Tipos de Ação (Ative ou Desative)</label>
-            <div class="rules-grid">
-                <div class="rule-btn active" id="regra-avanco" onclick="alternarRegra('avanco')">
-                    👑 Avanço Solitário <br><small>(O vencedor avança)</small>
-                </div>
-                <div class="rule-btn active" id="regra-recuo" onclick="alternarRegra('recuo')">
-                    🌪️ Feitiço de Recuo <br><small>(O pior status volta)</small>
-                </div>
-                <div class="rule-btn active" id="regra-grupo" onclick="alternarRegra('grupo')">
-                    ⚔️ Fúria de Tropa <br><small>(Grupos específicos avançam)</small>
-                </div>
+            <div class="nav-buttons">
+                <a href="../index.html" class="btn-supercell btn-voltar">VOLTAR</a>
+                <button class="btn-supercell btn-proximo" onclick="irParaTelaJogadores()">PRÓXIMO</button>
             </div>
-        </div>
+        </main>
+    </div>
 
-        <!-- Botões de Navegação -->
-        <div class="nav-buttons">
-            <a href="../index.html" class="btn-supercell btn-voltar">VOLTAR</a>
-            <button class="btn-supercell btn-proximo" onclick="salvarEAvancar()">PRÓXIMO</button>
-        </div>
+    <!-- ETAPA 2: TELA DE NOMEAR JOGADORES -->
+    <div id="tela-jogadores" class="screen">
+        <header class="config-header">
+            <h1>Participantes</h1>
+            <p>Personalize os nomes dos guerreiros</p>
+        </header>
 
-    </main>
+        <main class="config-container">
+            <div id="lista-jogadores" class="players-grid"></div>
+
+            <div class="nav-buttons" style="margin-top: 20px;">
+                <button class="btn-supercell btn-voltar" onclick="voltarParaConfig()">VOLTAR</button>
+                <button class="btn-supercell btn-proximo" onclick="iniciarJogoFinal()">JOGAR!</button>
+            </div>
+        </main>
+    </div>
 
     <script src="script.js"></script>
 </body>

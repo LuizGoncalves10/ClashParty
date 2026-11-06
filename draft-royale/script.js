@@ -1,31 +1,25 @@
-// Objeto que guardará as configurações da partida
 const configs = {
     jogadores: 4,
     casas: 10,
     modo: 'aleatorio',
     regras: {
-        avanco: true,   // Regra de avanço 1
-        recuo: true,    // Regra de recuo (opcional)
-        grupo: true     // Regra de avanço 2 (grupo)
+        avanco: true,
+        recuo: true,
+        grupo: true
     }
 };
 
-// Limites estabelecidos
 const LIMITES = {
     jogadores: { min: 2, max: 10 },
     casas: { min: 3, max: 15 }
 };
 
-// Executa assim que a página carrega para atualizar o estado inicial dos botões
 document.addEventListener("DOMContentLoaded", () => {
     atualizarBotoesLimites();
 });
 
-// Função para aumentar ou diminuir Jogadores e Casas com controle de extremos
 function alterarValor(tipo, variacao) {
     let novoValor = configs[tipo] + variacao;
-    
-    // Verifica se está dentro dos limites permitidos
     if (novoValor >= LIMITES[tipo].min && novoValor <= LIMITES[tipo].max) {
         configs[tipo] = novoValor;
         document.getElementById(`valor-${tipo}`).innerText = configs[tipo];
@@ -33,24 +27,18 @@ function alterarValor(tipo, variacao) {
     }
 }
 
-// Atualiza a opacidade/estado disabled dos botões de + e - nos extremos
 function atualizarBotoesLimites() {
-    // Para Jogadores
     const btnMenosJog = document.querySelector('.config-box:nth-child(1) .btn-counter:nth-child(1)');
     const btnMaisJog = document.querySelector('.config-box:nth-child(1) .btn-counter:nth-child(3)');
-    
     btnMenosJog.disabled = configs.jogadores <= LIMITES.jogadores.min;
     btnMaisJog.disabled = configs.jogadores >= LIMITES.jogadores.max;
 
-    // Para Casas
     const btnMenosCasas = document.querySelector('.config-box:nth-child(2) .btn-counter:nth-child(1)');
     const btnMaisCasas = document.querySelector('.config-box:nth-child(2) .btn-counter:nth-child(3)');
-    
     btnMenosCasas.disabled = configs.casas <= LIMITES.casas.min;
     btnMaisCasas.disabled = configs.casas >= LIMITES.casas.max;
 }
 
-// Função para trocar o modo de jogo
 function selecionarModo(modo) {
     configs.modo = modo;
     document.getElementById('modo-aleatorio').classList.remove('selected');
@@ -58,18 +46,11 @@ function selecionarModo(modo) {
     document.getElementById(`modo-${modo}`).classList.add('selected');
 }
 
-// Função para ativar/desativar as regras com validação silenciosa de avanço
 function alternarRegra(regra) {
-    // Se o usuário tentar desativar o 'avanco' e o 'grupo' também estiver desativado, bloqueia silenciosamente
-    if (regra === 'avanco' && configs.regras.avanco && !configs.regras.grupo) {
-        return; 
-    }
-    if (regra === 'grupo' && configs.regras.grupo && !configs.regras.avanco) {
-        return; 
-    }
+    if (regra === 'avanco' && configs.regras.avanco && !configs.regras.grupo) return;
+    if (regra === 'grupo' && configs.regras.grupo && !configs.regras.avanco) return;
 
     configs.regras[regra] = !configs.regras[regra];
-    
     const elemento = document.getElementById(`regra-${regra}`);
     if (configs.regras[regra]) {
         elemento.classList.add('active');
@@ -78,8 +59,49 @@ function alternarRegra(regra) {
     }
 }
 
-// Salva os dados no navegador e avança para o jogo
-function salvarEAvancar() {
+function irParaTelaJogadores() {
     localStorage.setItem('draftRoyaleConfig', JSON.stringify(configs));
-    alert("Configurações salvas com sucesso! Pronto para montar a Arena.");
+
+    const listaDiv = document.getElementById('lista-jogadores');
+    listaDiv.innerHTML = "";
+
+    for (let i = 1; i <= configs.jogadores; i++) {
+        listaDiv.innerHTML += `
+            <div class="player-input-card">
+                <div class="player-number">${i}</div>
+                <input type="text" id="jogador-${i}" value="Jogador ${i}" maxlength="12" placeholder="Nome do Jogador">
+            </div>
+        `;
+    }
+
+    document.getElementById('tela-config').classList.remove('active');
+    document.getElementById('tela-jogadores').classList.add('active');
+}
+
+function voltarParaConfig() {
+    document.getElementById('tela-jogadores').classList.remove('active');
+    document.getElementById('tela-config').classList.add('active');
+}
+
+// Inicia o jogo validando se há campos vazios
+function iniciarJogoFinal() {
+    let nomesJogadores = [];
+    
+    for (let i = 1; i <= configs.jogadores; i++) {
+        let inputField = document.getElementById(`jogador-${i}`);
+        let inputVal = inputField.value.trim();
+        
+        // Se o usuário deixar vazio, preenche automaticamente com o nome padrão e avisa/destaca o campo
+        if (inputVal === "") {
+            inputVal = `Jogador ${i}`;
+            inputField.value = inputVal;
+        }
+        
+        nomesJogadores.push(inputVal);
+    }
+
+    // Salva os nomes validados
+    localStorage.setItem('draftRoyaleNomes', JSON.stringify(nomesJogadores));
+
+    alert("Tudo pronto! Guerreiros definidos: " + nomesJogadores.join(', ') + ".");
 }

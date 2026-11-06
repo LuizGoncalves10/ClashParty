@@ -1,3 +1,16 @@
+/* Sistema de Abas / Telas */
+.screen {
+    display: none;
+    width: 100%;
+    max-width: 500px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.screen.active {
+    display: flex;
+}
+
 /* Layout Principal */
 .config-header {
     text-align: center;
@@ -12,7 +25,6 @@
 
 .config-container {
     width: 100%;
-    max-width: 500px;
     background-color: var(--madeira);
     border: 4px solid var(--madeira-escura);
     border-radius: 16px;
@@ -80,7 +92,6 @@ label {
     transform: scale(0.9);
 }
 
-/* Estilo para botões de contador desativados nos extremos */
 .btn-counter:disabled {
     background: #111b2b;
     color: #555;
@@ -129,7 +140,7 @@ label {
     box-shadow: inset 0 0 15px rgba(255, 204, 0, 0.3);
 }
 
-/* Botões de Regra (Ativar/Desativar) */
+/* Botões de Regra */
 .rules-grid {
     display: flex;
     flex-direction: column;
@@ -159,6 +170,56 @@ label {
     background: var(--azul-fundo);
     opacity: 1;
     filter: grayscale(0%);
+}
+
+/* Grid de Quadrados dos Jogadores (Etapa 2) */
+.players-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 320px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.player-input-card {
+    display: flex;
+    align-items: center;
+    background: var(--azul-fundo);
+    border: 3px solid #000;
+    border-radius: 10px;
+    padding: 10px 15px;
+    gap: 15px;
+}
+
+.player-number {
+    background: var(--dourado);
+    color: #000;
+    font-size: 1.2rem;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    border: 2px solid #000;
+}
+
+.player-input-card input {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid #335588;
+    border-radius: 6px;
+    color: #fff;
+    font-family: 'Lilita One', cursive;
+    font-size: 1.2rem;
+    padding: 8px 12px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.player-input-card input:focus {
+    border-color: var(--dourado);
 }
 
 /* Botões Inferiores */
