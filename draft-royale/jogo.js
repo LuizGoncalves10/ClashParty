@@ -7,7 +7,6 @@ let primeiroJogadorRodada = 0;
 let cartaSelecionadaId = null;
 let escolhasDaRodada = {};
 
-// Mapeamento exato com a raridade em minúsculas baseada no seu JSON
 const pesoRaridade = {
     "common": 1,
     "rare": 2,
@@ -31,7 +30,9 @@ async function carregarEClassificarTropas() {
         let dadosBrutos = await resposta.json();
         console.log("JSON carregado. Total de cartas:", dadosBrutos.length);
 
-        todasAsTropas = dadosBrutos; 
+        // Filtra estritamente apenas cartas do tipo "Troop" (Tropas)
+        todasAsTropas = dadosBrutos.filter(carta => carta.type && carta.type.toLowerCase() === 'troop');
+        console.log("Tropas filtradas:", todasAsTropas.length);
 
         // Ordenação rigorosa: 1º Raridade, 2º Elixir, 3º Ordem Alfabética
         todasAsTropas.sort((a, b) => {
@@ -108,7 +109,6 @@ function renderizarGridCartas() {
             cardDiv.onclick = () => selecionarCarta(tropa.name, cardDiv);
         }
 
-        // URL oficial da RoyaleAPI baseada na key da carta (ex: knight -> https://cdn.royaleapi.com/static/img/cards-150/knight.png)
         let imgUrl = `https://cdn.royaleapi.com/static/img/cards-150/${tropa.key}.png`;
         let elixir = tropa.elixir !== undefined ? tropa.elixir : '?';
 
