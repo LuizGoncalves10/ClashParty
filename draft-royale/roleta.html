@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draft Royale | Roleta da Batalha</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="roleta.css">
+</head>
+<body>
+    <header class="arena-header">
+        <h1>Sorteio do Turno</h1>
+        <p>Gire a roleta para definir o desafio desta rodada!</p>
+    </header>
+
+    <main class="roleta-wrapper">
+        <div class="roleta-container">
+            <!-- A setinha apontando para baixo -->
+            <div class="setinha"></div>
+            
+            <!-- A roda que vai girar (desenhada via JS) -->
+            <div id="roda" class="roda"></div>
+            
+            <!-- Pino central para ficar bonito -->
+            <div class="pino-central"></div>
+        </div>
+
+        <div class="botoes-container">
+            <button id="btn-girar" class="btn-supercell" onclick="girarRoleta()">GIRAR A ROLETA</button>
+        </div>
+
+        <!-- Caixa de Resultado que começa vazia/cinza -->
+        <div id="caixa-resultado" class="resultado-box vazia">
+            <p id="texto-pergunta" class="pergunta-texto">?</p>
+            <h2 id="texto-efeito" class="efeito-texto">Aguardando sorteio...</h2>
+        </div>
+    </main>
+
+    <!-- Importamos as perguntas que checam quem avança e quem recua -->
+    <script src="perguntas/individuais.js"></script>
+    <script src="perguntas/coletivas.js"></script>
+    <script src="roleta.js"></script>
+</body>
+</html>

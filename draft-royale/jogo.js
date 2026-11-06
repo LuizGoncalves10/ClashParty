@@ -205,5 +205,9 @@ function encerrarDeVez() {
 }
 
 function proximoTurno() {
-    alert("Indo para a roleta...");
+    // Salva as cartas para o JS da roleta poder saber quem tem o quê
+    localStorage.setItem('draftRoyaleCartasEscolhidas', JSON.stringify(escolhasDaRodada));
+    
+    // Redireciona para a página da Roleta
+    window.location.href = "roleta.html";
 }

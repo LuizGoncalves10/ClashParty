@@ -1,0 +1,22 @@
+const perguntasColetivas = [
+    { texto: "Todos os jogadores com Tropas Voadoras", checar: (cartas) => cartas.filter(item => item.carta.is_flying === true).map(item => item.jogador) },
+    { texto: "Todos os jogadores com Tropas Terrestres", checar: (cartas) => cartas.filter(item => item.carta.is_flying === false).map(item => item.jogador) },
+    { texto: "Todos os jogadores que invocam 3 ou mais tropas", checar: (cartas) => cartas.filter(item => item.carta.troop_count >= 3).map(item => item.jogador) },
+    { texto: "Todos os jogadores que invocam exatamente 1 tropa", checar: (cartas) => cartas.filter(item => item.carta.troop_count === 1).map(item => item.jogador) },
+    { texto: "Todos os jogadores com cartas que custam 5 ou mais de Elixir", checar: (cartas) => cartas.filter(item => item.carta.elixir >= 5).map(item => item.jogador) },
+    { texto: "Todos os jogadores com cartas que custam 3 ou menos de Elixir", checar: (cartas) => cartas.filter(item => item.carta.elixir <= 3).map(item => item.jogador) },
+    { texto: "Todos os jogadores com custo de Elixir PAR", checar: (cartas) => cartas.filter(item => item.carta.elixir % 2 === 0).map(item => item.jogador) },
+    { texto: "Todos os jogadores com custo de Elixir ÍMPAR", checar: (cartas) => cartas.filter(item => item.carta.elixir % 2 !== 0).map(item => item.jogador) },
+    { texto: "Todos os jogadores com cartas com mais de 1000 de Vida", checar: (cartas) => cartas.filter(item => item.carta.hp > 1000).map(item => item.jogador) },
+    { texto: "Todos os jogadores com cartas com menos de 500 de Vida", checar: (cartas) => cartas.filter(item => item.carta.hp < 500).map(item => item.jogador) },
+    { texto: "Todos os jogadores com cartas com DPS maior que 150", checar: (cartas) => cartas.filter(item => item.carta.dps > 150).map(item => item.jogador) },
+    { texto: "Todos os jogadores com cartas que causam mais de 200 de Dano por hit", checar: (cartas) => cartas.filter(item => item.carta.damage > 200).map(item => item.jogador) },
+    { texto: "Todas as tropas Muito Rápidas (Velocidade 90 ou superior)", checar: (cartas) => cartas.filter(item => item.carta.speed >= 90).map(item => item.jogador) },
+    { texto: "Todos os jogadores com cartas de longo alcance (Alcance maior que 2000)", checar: (cartas) => cartas.filter(item => item.carta.range > 2000).map(item => item.jogador) },
+    { texto: "Todos os jogadores com cartas Corpo a Corpo (Alcance 0)", checar: (cartas) => cartas.filter(item => item.carta.range === 0).map(item => item.jogador) },
+    { texto: "Todas as cartas de raridade Comum", checar: (cartas) => cartas.filter(item => item.carta.rarity.toLowerCase() === "common").map(item => item.jogador) },
+    { texto: "Todas as cartas de raridade Épica, Lendária ou Campeão", checar: (cartas) => cartas.filter(item => ["epic", "legendary", "champion"].includes(item.carta.rarity.toLowerCase())).map(item => item.jogador) },
+    { texto: "Cartas liberadas da Arena 10 para cima", checar: (cartas) => cartas.filter(item => item.carta.arena >= 10).map(item => item.jogador) },
+    { texto: "Cartas liberadas nas Arenas 0, 1 e 2", checar: (cartas) => cartas.filter(item => item.carta.arena <= 2).map(item => item.jogador) },
+    { texto: "Todas as cartas que atacam em menos de 1 segundo", checar: (cartas) => cartas.filter(item => item.carta.hit_speed > 0 && item.carta.hit_speed < 1000).map(item => item.jogador) }
+];
