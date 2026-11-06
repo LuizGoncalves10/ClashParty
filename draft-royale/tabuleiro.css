@@ -1,4 +1,3 @@
-/* Estilos Exclusivos da Arena e Draft */
 body {
     padding: 10px;
     align-items: center;
@@ -33,7 +32,6 @@ body {
     align-items: center;
 }
 
-/* Grid de Cartas para Escolha */
 .cards-selection-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
@@ -48,7 +46,6 @@ body {
     border: 2px solid #000;
 }
 
-/* Card Individual da Tropa */
 .tropa-card {
     background: var(--azul-fundo);
     border: 3px solid #335588;
@@ -83,7 +80,6 @@ body {
     text-overflow: ellipsis;
 }
 
-/* Indicador de Custo de Elixir */
 .elixir-badge {
     position: absolute;
     top: 4px;
@@ -101,7 +97,6 @@ body {
     text-shadow: 1px 1px 0 #000;
 }
 
-/* Estados da Carta */
 .tropa-card:hover:not(.escolhida-outros) {
     transform: scale(1.05);
     border-color: var(--dourado);
@@ -113,14 +108,12 @@ body {
     box-shadow: 0 0 10px var(--dourado);
 }
 
-/* Carta já escolhida por outro jogador */
 .tropa-card.escolhida-outros {
     opacity: 0.3;
     filter: grayscale(100%);
     cursor: not-allowed;
 }
 
-/* Container dos botões inferiores na arena */
 .arena-buttons-wrapper {
     display: flex;
     gap: 10px;
@@ -152,4 +145,109 @@ body {
     box-shadow: 0px 6px 0px #333 !important;
     cursor: not-allowed;
     opacity: 0.6;
+}
+
+.tabuleiro-grid {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    border-radius: 12px;
+    border: 2px solid #000;
+    overflow-x: hidden;
+}
+
+.trilha-jogador {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 5px;
+}
+
+.trilha-jogador::-webkit-scrollbar {
+    height: 6px;
+}
+
+.trilha-jogador::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.trilha-jogador::-webkit-scrollbar-thumb {
+    background: var(--dourado);
+    border-radius: 4px;
+}
+
+.nome-jogador-trilha {
+    min-width: 85px;
+    max-width: 85px;
+    font-size: 1rem;
+    color: #fff;
+    text-shadow: 1px 1px 0 #000;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.casa-torre {
+    min-width: 50px;
+    height: 50px;
+    background-image: url('../imagens/torre.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-radius: 4px;
+}
+
+.tropa-tabuleiro {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.8));
+    z-index: 2;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: var(--madeira);
+    border: 4px solid var(--madeira-escura);
+    border-radius: 16px;
+    padding: 25px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0px 10px 30px rgba(0,0,0,1);
+}
+
+.modal-content h2 {
+    color: var(--dourado);
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 0 #000;
+}
+
+.modal-content p {
+    color: #fff;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
 }

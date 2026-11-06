@@ -3,27 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Draft Royale | Escolha de Tropas</title>
+    <title>Draft Royale | Arena</title>
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="tabuleiro.css">
 </head>
 <body>
+    <div id="tela-draft" style="display: flex; flex-direction: column; width: 100%; align-items: center;">
+        <header class="arena-header">
+            <h1 id="titulo-vez"></h1>
+            <p id="subtitulo-vez">Escolha sua tropa para a batalha!</p>
+        </header>
+        <main class="arena-container">
+            <div id="grid-escolha-cartas" class="cards-selection-grid"></div>
+            <div id="botoes-acao-container" class="arena-buttons-wrapper">
+                <button id="btn-voltar-draft" class="btn-supercell btn-voltar-draft" onclick="voltarParaNomes()" style="display: none;">VOLTAR</button>
+                <button id="btn-acao-draft" class="btn-supercell btn-draft-action" onclick="confirmarEscolhaCarta()" disabled>ESCOLHA UMA CARTA</button>
+            </div>
+        </main>
+    </div>
 
-    <header class="arena-header">
-        <h1 id="titulo-vez">Vez do Jogador</h1>
-        <p id="subtitulo-vez">Escolha sua tropa para a batalha!</p>
-    </header>
+    <div id="tela-jogo" style="display: none; flex-direction: column; width: 100%; align-items: center;">
+        <header class="arena-header">
+            <h1 id="titulo-jogo">Arena de Batalha</h1>
+            <p id="subtitulo-jogo"></p>
+        </header>
+        <main class="arena-container" style="max-width: 800px;">
+            <div id="tabuleiro-casas" class="tabuleiro-grid"></div>
+            <div class="arena-buttons-wrapper">
+                <button class="btn-supercell btn-voltar-draft" onclick="abrirModalEncerrar()">ENCERRAR JOGO</button>
+                <button class="btn-supercell btn-draft-action" onclick="proximoTurno()">PRÓXIMO</button>
+            </div>
+        </main>
+    </div>
 
-    <main class="arena-container">
-        <!-- Grid de Cartas -->
-        <div id="grid-escolha-cartas" class="cards-selection-grid"></div>
-
-        <!-- Área dos Botões Inferiores -->
-        <div id="botoes-acao-container" class="arena-buttons-wrapper">
-            <button id="btn-voltar-draft" class="btn-supercell btn-voltar-draft" onclick="voltarParaNomes()" style="display: none;">VOLTAR</button>
-            <button id="btn-acao-draft" class="btn-supercell btn-draft-action" onclick="confirmarEscolhaCarta()" disabled>ESCOLHA UMA CARTA</button>
+    <div id="modal-encerrar" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <h2>Deseja abandonar a Arena?</h2>
+            <p>Todo o seu progresso nesta partida será perdido.</p>
+            <div class="arena-buttons-wrapper" style="margin-top: 20px;">
+                <button class="btn-supercell btn-voltar-draft" onclick="fecharModalEncerrar()">CANCELAR</button>
+                <button class="btn-supercell btn-draft-action" style="background-color: #ff4444 !important; box-shadow: 0px 6px 0px #cc0000 !important;" onclick="encerrarDeVez()">SIM, ENCERRAR</button>
+            </div>
         </div>
-    </main>
+    </div>
 
     <script src="jogo.js"></script>
 </body>
