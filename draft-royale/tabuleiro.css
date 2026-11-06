@@ -149,12 +149,14 @@ body {
 
 .tabuleiro-grid {
     width: 100%;
-    max-height: 480px;
+    min-height: 380px;
+    max-height: 550px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    justify-content: space-evenly;
+    gap: 20px;
     background: rgba(0, 0, 0, 0.3);
-    padding: 15px;
+    padding: 20px;
     border-radius: 12px;
     border: 2px solid #000;
     overflow-x: auto;
@@ -180,16 +182,17 @@ body {
 .trilha-jogador {
     display: flex;
     align-items: center;
-    gap: 12px;
+    justify-content: space-between;
+    gap: 15px;
     min-width: max-content;
     width: 100%;
     padding-bottom: 5px;
 }
 
 .nome-jogador-trilha {
-    flex: 0 0 90px;
-    max-width: 90px;
-    font-size: 1rem;
+    flex: 0 0 95px;
+    max-width: 95px;
+    font-size: 1.1rem;
     color: #fff;
     text-shadow: 1px 1px 0 #000;
     white-space: nowrap;
@@ -198,9 +201,10 @@ body {
 }
 
 .casa-torre {
+    flex: 1;
     width: 100%;
-    min-width: 55px;
-    max-width: 90px;
+    min-width: 65px;
+    max-width: 130px;
     aspect-ratio: 1 / 1;
     background-image: url('../imagens/torre.png');
     background-size: cover;
@@ -214,20 +218,20 @@ body {
 
 .numero-casa {
     font-family: 'Lilita One', cursive, sans-serif;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     color: #fff;
     text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 0px 3px 0 #000;
     z-index: 1;
-    margin-top: -5%;
+    margin-top: -18%;
 }
 
 .img-coroa {
-    width: 50%;
-    height: 50%;
+    width: 60%;
+    height: 60%;
     object-fit: contain;
     z-index: 1;
     filter: drop-shadow(0px 2px 1px rgba(0,0,0,0.8));
-    margin-top: -5%;
+    margin-top: -18%;
 }
 
 .tropa-tabuleiro {
