@@ -7,6 +7,7 @@ let primeiroJogadorRodada = 0;
 let cartaSelecionadaId = null;
 let escolhasDaRodada = {};
 
+// Mapeamento exato com a raridade em minúsculas baseada no seu JSON
 const pesoRaridade = {
     "common": 1,
     "rare": 2,
@@ -28,19 +29,21 @@ async function carregarEClassificarTropas() {
             throw new Error(`Erro HTTP: ${resposta.status}`);
         }
         let dadosBrutos = await resposta.json();
-        console.log("JSON carregado com sucesso. Total de cartas:", dadosBrutos.length);
+        console.log("JSON carregado. Total de cartas:", dadosBrutos.length);
 
-        // Carrega todas as cartas do ficheiro para a selecção do draft
         todasAsTropas = dadosBrutos; 
-        console.log("Tropas carregadas para o jogo:", todasAsTropas.length);
 
+        // Ordenação rigorosa: 1º Raridade, 2º Elixir, 3º Ordem Alfabética
         todasAsTropas.sort((a, b) => {
-            let pesoA = pesoRaridade[a.rarity] || 99;
-            let pesoB = pesoRaridade[b.rarity] || 99;
+            let rarityA = a.rarity ? a.rarity.toLowerCase() : "";
+            let rarityB = b.rarity ? b.rarity.toLowerCase() : "";
+
+            let pesoA = pesoRaridade[rarityA] || 99;
+            let pesoB = pesoRaridade[rarityB] || 99;
             if (pesoA !== pesoB) return pesoA - pesoB;
 
-            let elixirA = a.elixirCost !== undefined ? a.elixirCost : 0;
-            let elixirB = b.elixirCost !== undefined ? b.elixirCost : 0;
+            let elixirA = a.elixir !== undefined ? a.elixir : 0;
+            let elixirB = b.elixir !== undefined ? b.elixir : 0;
             if (elixirA !== elixirB) return elixirA - elixirB;
 
             return a.name.localeCompare(b.name);
@@ -89,7 +92,7 @@ function renderizarGridCartas() {
     grid.innerHTML = "";
 
     if (todasAsTropas.length === 0) {
-        grid.innerHTML = "<p style='color: white; text-align: center; width: 100%; font-family: sans-serif;'>A carregar tropas ou ficheiro em falta...</p>";
+        grid.innerHTML = "<p style='color: white; text-align: center; width: 100%; font-family: sans-serif;'>A carregar tropas...</p>";
         return;
     }
 
@@ -105,12 +108,13 @@ function renderizarGridCartas() {
             cardDiv.onclick = () => selecionarCarta(tropa.name, cardDiv);
         }
 
-        let imgUrl = tropa.iconUrls && tropa.iconUrls.medium ? tropa.iconUrls.medium : '';
-        let elixir = tropa.elixirCost !== undefined ? tropa.elixirCost : '?';
+        // URL oficial da RoyaleAPI baseada na key da carta (ex: knight -> https://cdn.royaleapi.com/static/img/cards-150/knight.png)
+        let imgUrl = `https://cdn.royaleapi.com/static/img/cards-150/${tropa.key}.png`;
+        let elixir = tropa.elixir !== undefined ? tropa.elixir : '?';
 
         cardDiv.innerHTML = `
             <div class="elixir-badge">${elixir}</div>
-            <img src="${imgUrl}" alt="${tropa.name}">
+            <img src="${imgUrl}" alt="${tropa.name}" onerror="this.src='https://cdn.royaleapi.com/static/img/ui/card-placeholder.png'">
             <span>${tropa.name}</span>
         `;
 
