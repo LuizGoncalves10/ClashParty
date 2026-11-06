@@ -34,7 +34,7 @@ async function carregarEClassificarTropas() {
         todasAsTropas = dadosBrutos.filter(carta => carta.type && carta.type.toLowerCase() === 'troop');
         console.log("Tropas filtradas:", todasAsTropas.length);
 
-        // Ordenação rigorosa: 1º Raridade, 2º Elixir, 3º Ordem Alfabética
+        // Ordenação rigorosa: 1º Raridade, 2º Elixir, 3º Ordem Alfabética (usando o nome em português)
         todasAsTropas.sort((a, b) => {
             let rarityA = a.rarity ? a.rarity.toLowerCase() : "";
             let rarityB = b.rarity ? b.rarity.toLowerCase() : "";
@@ -47,7 +47,9 @@ async function carregarEClassificarTropas() {
             let elixirB = b.elixir !== undefined ? b.elixir : 0;
             if (elixirA !== elixirB) return elixirA - elixirB;
 
-            return a.name.localeCompare(b.name);
+            let nomeA = a.name_pt || a.name || "";
+            let nomeB = b.name_pt || b.name || "";
+            return nomeA.localeCompare(nomeB);
         });
 
     } catch (erro) {
@@ -100,13 +102,15 @@ function renderizarGridCartas() {
     let cartasJaEscolhidas = Object.values(escolhasDaRodada);
 
     todasAsTropas.forEach(tropa => {
-        let jaEscolhidaPorOutro = cartasJaEscolhidas.includes(tropa.name);
+        // Usa name_pt se existir, senão cai para name padrão
+        let nomeExibicao = tropa.name_pt || tropa.name;
+        let jaEscolhidaPorOutro = cartasJaEscolhidas.includes(nomeExibicao);
         
         let cardDiv = document.createElement('div');
         cardDiv.className = `tropa-card ${jaEscolhidaPorOutro ? 'escolhida-outros' : ''}`;
         
         if (!jaEscolhidaPorOutro) {
-            cardDiv.onclick = () => selecionarCarta(tropa.name, cardDiv);
+            cardDiv.onclick = () => selecionarCarta(nomeExibicao, cardDiv);
         }
 
         let imgUrl = `https://cdn.royaleapi.com/static/img/cards-150/${tropa.key}.png`;
@@ -114,8 +118,8 @@ function renderizarGridCartas() {
 
         cardDiv.innerHTML = `
             <div class="elixir-badge">${elixir}</div>
-            <img src="${imgUrl}" alt="${tropa.name}" onerror="this.src='https://cdn.royaleapi.com/static/img/ui/card-placeholder.png'">
-            <span>${tropa.name}</span>
+            <img src="${imgUrl}" alt="${nomeExibicao}" onerror="this.src='https://cdn.royaleapi.com/static/img/ui/card-placeholder.png'">
+            <span>${nomeExibicao}</span>
         `;
 
         grid.appendChild(cardDiv);

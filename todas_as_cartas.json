@@ -2,6 +2,7 @@
     {
         "key": "knight",
         "name": "Knight",
+        "name_pt": "Cavaleiro",
         "sc_key": "Knight",
         "elixir": 3,
         "type": "Troop",
@@ -15,6 +16,7 @@
     {
         "key": "archers",
         "name": "Archers",
+        "name_pt": "Arqueiras",
         "sc_key": "Archer",
         "elixir": 3,
         "type": "Troop",
@@ -28,6 +30,7 @@
     {
         "key": "goblins",
         "name": "Goblins",
+        "name_pt": "Goblins",
         "sc_key": "Goblins",
         "elixir": 2,
         "type": "Troop",
@@ -41,6 +44,7 @@
     {
         "key": "giant",
         "name": "Giant",
+        "name_pt": "Gigante",
         "sc_key": "Giant",
         "elixir": 5,
         "type": "Troop",
@@ -54,6 +58,7 @@
     {
         "key": "pekka",
         "name": "P.E.K.K.A",
+        "name_pt": "P.E.K.K.A",
         "sc_key": "Pekka",
         "elixir": 7,
         "type": "Troop",
@@ -67,6 +72,7 @@
     {
         "key": "minions",
         "name": "Minions",
+        "name_pt": "Servos",
         "sc_key": "Minions",
         "elixir": 3,
         "type": "Troop",
@@ -80,6 +86,7 @@
     {
         "key": "balloon",
         "name": "Balloon",
+        "name_pt": "Balão",
         "sc_key": "Balloon",
         "elixir": 5,
         "type": "Troop",
@@ -93,6 +100,7 @@
     {
         "key": "witch",
         "name": "Witch",
+        "name_pt": "Bruxa",
         "sc_key": "Witch",
         "elixir": 5,
         "type": "Troop",
@@ -106,6 +114,7 @@
     {
         "key": "barbarians",
         "name": "Barbarians",
+        "name_pt": "Bárbaros",
         "sc_key": "Barbarians",
         "elixir": 5,
         "type": "Troop",
@@ -119,6 +128,7 @@
     {
         "key": "golem",
         "name": "Golem",
+        "name_pt": "Golem",
         "sc_key": "Golem",
         "elixir": 8,
         "type": "Troop",
@@ -132,6 +142,7 @@
     {
         "key": "skeletons",
         "name": "Skeletons",
+        "name_pt": "Esqueletos",
         "sc_key": "Skeletons",
         "elixir": 1,
         "type": "Troop",
@@ -145,6 +156,7 @@
     {
         "key": "valkyrie",
         "name": "Valkyrie",
+        "name_pt": "Valquíria",
         "sc_key": "Valkyrie",
         "elixir": 4,
         "type": "Troop",
@@ -158,6 +170,7 @@
     {
         "key": "skeleton-army",
         "name": "Skeleton Army",
+        "name_pt": "Exército de Esqueletos",
         "sc_key": "SkeletonArmy",
         "elixir": 3,
         "type": "Troop",
@@ -171,6 +184,7 @@
     {
         "key": "bomber",
         "name": "Bomber",
+        "name_pt": "Bombardeiro",
         "sc_key": "Bomber",
         "elixir": 2,
         "type": "Troop",
@@ -184,6 +198,7 @@
     {
         "key": "musketeer",
         "name": "Musketeer",
+        "name_pt": "Mosqueteira",
         "sc_key": "Musketeer",
         "elixir": 4,
         "type": "Troop",
@@ -197,6 +212,7 @@
     {
         "key": "baby-dragon",
         "name": "Baby Dragon",
+        "name_pt": "Dragão Bebê",
         "sc_key": "BabyDragon",
         "elixir": 4,
         "type": "Troop",
@@ -210,6 +226,7 @@
     {
         "key": "prince",
         "name": "Prince",
+        "name_pt": "Príncipe",
         "sc_key": "Prince",
         "elixir": 5,
         "type": "Troop",
@@ -223,6 +240,7 @@
     {
         "key": "wizard",
         "name": "Wizard",
+        "name_pt": "Mago",
         "sc_key": "Wizard",
         "elixir": 5,
         "type": "Troop",
@@ -236,6 +254,7 @@
     {
         "key": "mini-pekka",
         "name": "Mini P.E.K.K.A",
+        "name_pt": "Mini P.E.K.K.A",
         "sc_key": "MiniPekka",
         "elixir": 4,
         "type": "Troop",
@@ -249,6 +268,7 @@
     {
         "key": "spear-goblins",
         "name": "Spear Goblins",
+        "name_pt": "Goblins Lanceiros",
         "sc_key": "SpearGoblins",
         "elixir": 2,
         "type": "Troop",
@@ -262,6 +282,7 @@
     {
         "key": "giant-skeleton",
         "name": "Giant Skeleton",
+        "name_pt": "Esqueleto Gigante",
         "sc_key": "GiantSkeleton",
         "elixir": 6,
         "type": "Troop",
@@ -275,6 +296,7 @@
     {
         "key": "hog-rider",
         "name": "Hog Rider",
+        "name_pt": "Corredor",
         "sc_key": "HogRider",
         "elixir": 4,
         "type": "Troop",
@@ -288,6 +310,7 @@
     {
         "key": "minion-horde",
         "name": "Minion Horde",
+        "name_pt": "Horda de Servos",
         "sc_key": "MinionHorde",
         "elixir": 5,
         "type": "Troop",
@@ -301,6 +324,7 @@
     {
         "key": "ice-wizard",
         "name": "Ice Wizard",
+        "name_pt": "Mago de Gelo",
         "sc_key": "IceWizard",
         "elixir": 3,
         "type": "Troop",
@@ -314,6 +338,7 @@
     {
         "key": "royal-giant",
         "name": "Royal Giant",
+        "name_pt": "Gigante Real",
         "sc_key": "RoyalGiant",
         "elixir": 6,
         "type": "Troop",
@@ -327,6 +352,7 @@
     {
         "key": "guards",
         "name": "Guards",
+        "name_pt": "Guardas",
         "sc_key": "SkeletonWarriors",
         "elixir": 3,
         "type": "Troop",
@@ -340,6 +366,7 @@
     {
         "key": "princess",
         "name": "Princess",
+        "name_pt": "Princesa",
         "sc_key": "Princess",
         "elixir": 3,
         "type": "Troop",
@@ -353,6 +380,7 @@
     {
         "key": "dark-prince",
         "name": "Dark Prince",
+        "name_pt": "Príncipe das Trevas",
         "sc_key": "DarkPrince",
         "elixir": 4,
         "type": "Troop",
@@ -366,6 +394,7 @@
     {
         "key": "three-musketeers",
         "name": "Three Musketeers",
+        "name_pt": "Três Mosqueteiras",
         "sc_key": "ThreeMusketeers",
         "elixir": 9,
         "type": "Troop",
@@ -379,6 +408,7 @@
     {
         "key": "lava-hound",
         "name": "Lava Hound",
+        "name_pt": "Lava Hound",
         "sc_key": "LavaHound",
         "elixir": 7,
         "type": "Troop",
@@ -392,6 +422,7 @@
     {
         "key": "ice-spirit",
         "name": "Ice Spirit",
+        "name_pt": "Espírito de Gelo",
         "sc_key": "IceSpirits",
         "elixir": 1,
         "type": "Troop",
@@ -405,6 +436,7 @@
     {
         "key": "fire-spirit",
         "name": "Fire Spirit",
+        "name_pt": "Espírito de Fogo",
         "sc_key": "FireSpirits",
         "elixir": 1,
         "type": "Troop",
@@ -418,6 +450,7 @@
     {
         "key": "miner",
         "name": "Miner",
+        "name_pt": "Mineiro",
         "sc_key": "Miner",
         "elixir": 3,
         "type": "Troop",
@@ -431,6 +464,7 @@
     {
         "key": "sparky",
         "name": "Sparky",
+        "name_pt": "Sparky",
         "sc_key": "ZapMachine",
         "elixir": 6,
         "type": "Troop",
@@ -444,6 +478,7 @@
     {
         "key": "bowler",
         "name": "Bowler",
+        "name_pt": "Lançador",
         "sc_key": "Bowler",
         "elixir": 5,
         "type": "Troop",
@@ -457,6 +492,7 @@
     {
         "key": "lumberjack",
         "name": "Lumberjack",
+        "name_pt": "Lenhador",
         "sc_key": "RageBarbarian",
         "elixir": 4,
         "type": "Troop",
@@ -470,6 +506,7 @@
     {
         "key": "battle-ram",
         "name": "Battle Ram",
+        "name_pt": "Aríete de Batalha",
         "sc_key": "BattleRam",
         "elixir": 4,
         "type": "Troop",
@@ -483,6 +520,7 @@
     {
         "key": "inferno-dragon",
         "name": "Inferno Dragon",
+        "name_pt": "Dragão Infernal",
         "sc_key": "InfernoDragon",
         "elixir": 4,
         "type": "Troop",
@@ -496,6 +534,7 @@
     {
         "key": "ice-golem",
         "name": "Ice Golem",
+        "name_pt": "Golem de Gelo",
         "sc_key": "IceGolemite",
         "elixir": 2,
         "type": "Troop",
@@ -509,6 +548,7 @@
     {
         "key": "mega-minion",
         "name": "Mega Minion",
+        "name_pt": "Mega Servo",
         "sc_key": "MegaMinion",
         "elixir": 3,
         "type": "Troop",
@@ -522,6 +562,7 @@
     {
         "key": "dart-goblin",
         "name": "Dart Goblin",
+        "name_pt": "Goblin com Dardo",
         "sc_key": "BlowdartGoblin",
         "elixir": 3,
         "type": "Troop",
@@ -535,6 +576,7 @@
     {
         "key": "goblin-gang",
         "name": "Goblin Gang",
+        "name_pt": "Gangue de Goblins",
         "sc_key": "GoblinGang",
         "elixir": 3,
         "type": "Troop",
@@ -548,6 +590,7 @@
     {
         "key": "electro-wizard",
         "name": "Electro Wizard",
+        "name_pt": "Mago Elétrico",
         "sc_key": "ElectroWizard",
         "elixir": 4,
         "type": "Troop",
@@ -561,6 +604,7 @@
     {
         "key": "elite-barbarians",
         "name": "Elite Barbarians",
+        "name_pt": "Bárbaros de Elite",
         "sc_key": "AngryBarbarians",
         "elixir": 6,
         "type": "Troop",
@@ -574,6 +618,7 @@
     {
         "key": "hunter",
         "name": "Hunter",
+        "name_pt": "Caçador",
         "sc_key": "Hunter",
         "elixir": 4,
         "type": "Troop",
@@ -587,6 +632,7 @@
     {
         "key": "executioner",
         "name": "Executioner",
+        "name_pt": "Executor",
         "sc_key": "AxeMan",
         "elixir": 5,
         "type": "Troop",
@@ -600,6 +646,7 @@
     {
         "key": "bandit",
         "name": "Bandit",
+        "name_pt": "Bandida",
         "sc_key": "Assassin",
         "elixir": 3,
         "type": "Troop",
@@ -613,6 +660,7 @@
     {
         "key": "royal-recruits",
         "name": "Royal Recruits",
+        "name_pt": "Recrutas Reais",
         "sc_key": "RoyalRecruits",
         "elixir": 7,
         "type": "Troop",
@@ -626,6 +674,7 @@
     {
         "key": "night-witch",
         "name": "Night Witch",
+        "name_pt": "Bruxa Noturna",
         "sc_key": "DarkWitch",
         "elixir": 4,
         "type": "Troop",
@@ -639,6 +688,7 @@
     {
         "key": "bats",
         "name": "Bats",
+        "name_pt": "Morcegos",
         "sc_key": "Bats",
         "elixir": 2,
         "type": "Troop",
@@ -652,6 +702,7 @@
     {
         "key": "royal-ghost",
         "name": "Royal Ghost",
+        "name_pt": "Fantasma Real",
         "sc_key": "Ghost",
         "elixir": 3,
         "type": "Troop",
@@ -665,6 +716,7 @@
     {
         "key": "ram-rider",
         "name": "Ram Rider",
+        "name_pt": "Cavaleira do Aríete",
         "sc_key": "RamRider",
         "elixir": 5,
         "type": "Troop",
@@ -678,6 +730,7 @@
     {
         "key": "zappies",
         "name": "Zappies",
+        "name_pt": "Zappies",
         "sc_key": "MiniSparkys",
         "elixir": 4,
         "type": "Troop",
@@ -691,6 +744,7 @@
     {
         "key": "rascals",
         "name": "Rascals",
+        "name_pt": "Pestinhas",
         "sc_key": "Rascals",
         "elixir": 5,
         "type": "Troop",
@@ -704,6 +758,7 @@
     {
         "key": "cannon-cart",
         "name": "Cannon Cart",
+        "name_pt": "Carrinho de Canhão",
         "sc_key": "MovingCannon",
         "elixir": 5,
         "type": "Troop",
@@ -717,6 +772,7 @@
     {
         "key": "mega-knight",
         "name": "Mega Knight",
+        "name_pt": "Mega Cavaleiro",
         "sc_key": "MegaKnight",
         "elixir": 7,
         "type": "Troop",
@@ -730,6 +786,7 @@
     {
         "key": "skeleton-barrel",
         "name": "Skeleton Barrel",
+        "name_pt": "Barril de Esqueletos",
         "sc_key": "SkeletonBalloon",
         "elixir": 3,
         "type": "Troop",
@@ -743,6 +800,7 @@
     {
         "key": "flying-machine",
         "name": "Flying Machine",
+        "name_pt": "Máquina Voadora",
         "sc_key": "DartBarrell",
         "elixir": 4,
         "type": "Troop",
@@ -756,6 +814,7 @@
     {
         "key": "wall-breakers",
         "name": "Wall Breakers",
+        "name_pt": "Destruidores de Muros",
         "sc_key": "Wallbreakers",
         "elixir": 2,
         "type": "Troop",
@@ -769,6 +828,7 @@
     {
         "key": "royal-hogs",
         "name": "Royal Hogs",
+        "name_pt": "Porcos Reais",
         "sc_key": "RoyalHogs",
         "elixir": 5,
         "type": "Troop",
@@ -782,6 +842,7 @@
     {
         "key": "goblin-giant",
         "name": "Goblin Giant",
+        "name_pt": "Goblin Gigante",
         "sc_key": "GoblinGiant",
         "elixir": 6,
         "type": "Troop",
@@ -795,6 +856,7 @@
     {
         "key": "fisherman",
         "name": "Fisherman",
+        "name_pt": "Pescador",
         "sc_key": "Fisherman",
         "elixir": 3,
         "type": "Troop",
@@ -808,6 +870,7 @@
     {
         "key": "magic-archer",
         "name": "Magic Archer",
+        "name_pt": "Arqueiro Mágico",
         "sc_key": "EliteArcher",
         "elixir": 4,
         "type": "Troop",
@@ -821,6 +884,7 @@
     {
         "key": "electro-dragon",
         "name": "Electro Dragon",
+        "name_pt": "Dragão Elétrico",
         "sc_key": "ElectroDragon",
         "elixir": 5,
         "type": "Troop",
@@ -834,6 +898,7 @@
     {
         "key": "firecracker",
         "name": "Firecracker",
+        "name_pt": "Rojão",
         "sc_key": "Firecracker",
         "elixir": 3,
         "type": "Troop",
@@ -847,6 +912,7 @@
     {
         "key": "mighty-miner",
         "name": "Mighty Miner",
+        "name_pt": "Mineiro Poderoso",
         "sc_key": "MightyMiner",
         "elixir": 4,
         "type": "Troop",
@@ -860,6 +926,7 @@
     {
         "key": "super-witch",
         "name": "Super Witch",
+        "name_pt": "Super Bruxa",
         "sc_key": "SuperWitch",
         "elixir": 6,
         "type": "Troop",
@@ -873,6 +940,7 @@
     {
         "key": "elixir-golem",
         "name": "Elixir Golem",
+        "name_pt": "Golem de Elixir",
         "sc_key": "ElixirGolem",
         "elixir": 3,
         "type": "Troop",
@@ -886,6 +954,7 @@
     {
         "key": "battle-healer",
         "name": "Battle Healer",
+        "name_pt": "Curadora Guerreira",
         "sc_key": "BattleHealer",
         "elixir": 4,
         "type": "Troop",
@@ -899,6 +968,7 @@
     {
         "key": "skeleton-king",
         "name": "Skeleton King",
+        "name_pt": "Rei Esqueleto",
         "sc_key": "SkeletonKing",
         "elixir": 4,
         "type": "Troop",
@@ -912,6 +982,7 @@
     {
         "key": "super-lava-hound",
         "name": "Super Lava Hound",
+        "name_pt": "Super Lava Hound",
         "sc_key": "SuperLavaHound",
         "elixir": 8,
         "type": "Troop",
@@ -925,6 +996,7 @@
     {
         "key": "super-magic-archer",
         "name": "Super Magic Archer",
+        "name_pt": "Super Arqueiro Mágico",
         "sc_key": "SuperEliteArcher",
         "elixir": 5,
         "type": "Troop",
@@ -938,6 +1010,7 @@
     {
         "key": "archer-queen",
         "name": "Archer Queen",
+        "name_pt": "Rainha Arqueira",
         "sc_key": "ArcherQueen",
         "elixir": 5,
         "type": "Troop",
@@ -951,6 +1024,7 @@
     {
         "key": "santa-hog-rider",
         "name": "Santa Hog Rider",
+        "name_pt": "Corredor Natalino",
         "sc_key": "SuperHogRider",
         "elixir": 5,
         "type": "Troop",
@@ -964,6 +1038,7 @@
     {
         "key": "golden-knight",
         "name": "Golden Knight",
+        "name_pt": "Cavaleiro Dourado",
         "sc_key": "GoldenKnight",
         "elixir": 4,
         "type": "Troop",
@@ -977,6 +1052,7 @@
     {
         "key": "super-ice-golem",
         "name": "Super Ice Golem",
+        "name_pt": "Super Golem de Gelo",
         "sc_key": "SuperIceGolemite",
         "elixir": 4,
         "type": "Troop",
@@ -990,6 +1066,7 @@
     {
         "key": "monk",
         "name": "Monk",
+        "name_pt": "Monge",
         "sc_key": "Monk",
         "elixir": 5,
         "type": "Troop",
@@ -1003,6 +1080,7 @@
     {
         "key": "super-archers",
         "name": "Super Archers",
+        "name_pt": "Super Arqueiras",
         "sc_key": "SuperArcher",
         "elixir": 3,
         "type": "Troop",
@@ -1016,6 +1094,7 @@
     {
         "key": "skeleton-dragons",
         "name": "Skeleton Dragons",
+        "name_pt": "Dragões Esqueleto",
         "sc_key": "SkeletonDragons",
         "elixir": 4,
         "type": "Troop",
@@ -1029,6 +1108,7 @@
     {
         "key": "terry",
         "name": "Terry",
+        "name_pt": "Terry",
         "sc_key": "SuperHogRiderTerry",
         "elixir": 4,
         "type": "Troop",
@@ -1042,6 +1122,7 @@
     {
         "key": "super-mini-pekka",
         "name": "Super Mini P.E.K.K.A",
+        "name_pt": "Super Mini P.E.K.K.A",
         "sc_key": "SuperMiniPekka",
         "elixir": 5,
         "type": "Troop",
@@ -1055,6 +1136,7 @@
     {
         "key": "mother-witch",
         "name": "Mother Witch",
+        "name_pt": "Bruxa Mãe",
         "sc_key": "WitchMother",
         "elixir": 4,
         "type": "Troop",
@@ -1068,6 +1150,7 @@
     {
         "key": "electro-spirit",
         "name": "Electro Spirit",
+        "name_pt": "Espírito Elétrico",
         "sc_key": "ElectroSpirit",
         "elixir": 1,
         "type": "Troop",
@@ -1081,6 +1164,7 @@
     {
         "key": "electro-giant",
         "name": "Electro Giant",
+        "name_pt": "Gigante Elétrico",
         "sc_key": "ElectroGiant",
         "elixir": 7,
         "type": "Troop",
@@ -1094,6 +1178,7 @@
     {
         "key": "raging-prince",
         "name": "Raging Prince",
+        "name_pt": "Príncipe Furioso",
         "sc_key": "PrinceBuff",
         "elixir": 5,
         "type": "Troop",
@@ -1107,6 +1192,7 @@
     {
         "key": "phoenix",
         "name": "Phoenix",
+        "name_pt": "Fênix",
         "sc_key": "Phoenix",
         "elixir": 4,
         "type": "Troop",
@@ -1120,6 +1206,7 @@
     {
         "key": "cannon",
         "name": "Cannon",
+        "name_pt": "Canhão",
         "sc_key": "Cannon",
         "elixir": 3,
         "type": "Building",
@@ -1133,6 +1220,7 @@
     {
         "key": "goblin-hut",
         "name": "Goblin Hut",
+        "name_pt": "Cabana de Goblins",
         "sc_key": "GoblinHut",
         "elixir": 5,
         "type": "Building",
@@ -1146,6 +1234,7 @@
     {
         "key": "mortar",
         "name": "Mortar",
+        "name_pt": "Morteiro",
         "sc_key": "Mortar",
         "elixir": 4,
         "type": "Building",
@@ -1159,6 +1248,7 @@
     {
         "key": "inferno-tower",
         "name": "Inferno Tower",
+        "name_pt": "Torre Inferno",
         "sc_key": "InfernoTower",
         "elixir": 5,
         "type": "Building",
@@ -1172,6 +1262,7 @@
     {
         "key": "bomb-tower",
         "name": "Bomb Tower",
+        "name_pt": "Torre de Bombas",
         "sc_key": "BombTower",
         "elixir": 4,
         "type": "Building",
@@ -1185,6 +1276,7 @@
     {
         "key": "barbarian-hut",
         "name": "Barbarian Hut",
+        "name_pt": "Cabana de Bárbaros",
         "sc_key": "BarbarianHut",
         "elixir": 6,
         "type": "Building",
@@ -1198,6 +1290,7 @@
     {
         "key": "tesla",
         "name": "Tesla",
+        "name_pt": "Tesla",
         "sc_key": "Tesla",
         "elixir": 4,
         "type": "Building",
@@ -1211,6 +1304,7 @@
     {
         "key": "elixir-collector",
         "name": "Elixir Collector",
+        "name_pt": "Coletor de Elixir",
         "sc_key": "Elixir Collector",
         "elixir": 6,
         "type": "Building",
@@ -1224,6 +1318,7 @@
     {
         "key": "x-bow",
         "name": "X-Bow",
+        "name_pt": "X-Besta",
         "sc_key": "Xbow",
         "elixir": 6,
         "type": "Building",
@@ -1237,6 +1332,7 @@
     {
         "key": "tombstone",
         "name": "Tombstone",
+        "name_pt": "Lápide",
         "sc_key": "Tombstone",
         "elixir": 3,
         "type": "Building",
@@ -1250,6 +1346,7 @@
     {
         "key": "furnace",
         "name": "Furnace",
+        "name_pt": "Fornalha",
         "sc_key": "FirespiritHut",
         "elixir": 4,
         "type": "Building",
@@ -1263,6 +1360,7 @@
     {
         "key": "goblin-cage",
         "name": "Goblin Cage",
+        "name_pt": "Jaula de Goblin",
         "sc_key": "GoblinCage",
         "elixir": 4,
         "type": "Building",
@@ -1276,6 +1374,7 @@
     {
         "key": "goblin-drill",
         "name": "Goblin Drill",
+        "name_pt": "Broca de Goblins",
         "sc_key": "GoblinDrill",
         "elixir": 4,
         "type": "Building",
@@ -1289,6 +1388,7 @@
     {
         "key": "party-hut",
         "name": "Party Hut",
+        "name_pt": "Cabana de Festa",
         "sc_key": "GoblinPartyHut",
         "elixir": 5,
         "type": "Building",
@@ -1302,6 +1402,7 @@
     {
         "key": "fireball",
         "name": "Fireball",
+        "name_pt": "Bola de Fogo",
         "sc_key": "Fireball",
         "elixir": 4,
         "type": "Spell",
@@ -1315,6 +1416,7 @@
     {
         "key": "arrows",
         "name": "Arrows",
+        "name_pt": "Flechas",
         "sc_key": "Arrows",
         "elixir": 3,
         "type": "Spell",
@@ -1328,6 +1430,7 @@
     {
         "key": "rage",
         "name": "Rage",
+        "name_pt": "Fúria",
         "sc_key": "Rage",
         "elixir": 2,
         "type": "Spell",
@@ -1341,6 +1444,7 @@
     {
         "key": "rocket",
         "name": "Rocket",
+        "name_pt": "Foguete",
         "sc_key": "Rocket",
         "elixir": 6,
         "type": "Spell",
@@ -1354,6 +1458,7 @@
     {
         "key": "goblin-barrel",
         "name": "Goblin Barrel",
+        "name_pt": "Barril de Goblins",
         "sc_key": "GoblinBarrel",
         "elixir": 3,
         "type": "Spell",
@@ -1367,6 +1472,7 @@
     {
         "key": "freeze",
         "name": "Freeze",
+        "name_pt": "Feitiço de Gelo",
         "sc_key": "Freeze",
         "elixir": 4,
         "type": "Spell",
@@ -1380,6 +1486,7 @@
     {
         "key": "mirror",
         "name": "Mirror",
+        "name_pt": "Espelho",
         "sc_key": "Mirror",
         "elixir": 1,
         "type": "Spell",
@@ -1393,6 +1500,7 @@
     {
         "key": "lightning",
         "name": "Lightning",
+        "name_pt": "Relâmpago",
         "sc_key": "Lightning",
         "elixir": 6,
         "type": "Spell",
@@ -1406,6 +1514,7 @@
     {
         "key": "zap",
         "name": "Zap",
+        "name_pt": "Zap",
         "sc_key": "Zap",
         "elixir": 2,
         "type": "Spell",
@@ -1419,6 +1528,7 @@
     {
         "key": "poison",
         "name": "Poison",
+        "name_pt": "Veneno",
         "sc_key": "Poison",
         "elixir": 4,
         "type": "Spell",
@@ -1432,6 +1542,7 @@
     {
         "key": "graveyard",
         "name": "Graveyard",
+        "name_pt": "Cemitério",
         "sc_key": "Graveyard",
         "elixir": 5,
         "type": "Spell",
@@ -1445,6 +1556,7 @@
     {
         "key": "the-log",
         "name": "The Log",
+        "name_pt": "Tronco",
         "sc_key": "Log",
         "elixir": 2,
         "type": "Spell",
@@ -1458,6 +1570,7 @@
     {
         "key": "tornado",
         "name": "Tornado",
+        "name_pt": "Tornado",
         "sc_key": "Tornado",
         "elixir": 3,
         "type": "Spell",
@@ -1471,6 +1584,7 @@
     {
         "key": "clone",
         "name": "Clone",
+        "name_pt": "Clone",
         "sc_key": "Clone",
         "elixir": 3,
         "type": "Spell",
@@ -1484,6 +1598,7 @@
     {
         "key": "earthquake",
         "name": "Earthquake",
+        "name_pt": "Terremoto",
         "sc_key": "Earthquake",
         "elixir": 3,
         "type": "Spell",
@@ -1497,6 +1612,7 @@
     {
         "key": "barbarian-barrel",
         "name": "Barbarian Barrel",
+        "name_pt": "Barril de Bárbaro",
         "sc_key": "BarbLog",
         "elixir": 2,
         "type": "Spell",
@@ -1510,6 +1626,7 @@
     {
         "key": "heal-spirit",
         "name": "Heal Spirit",
+        "name_pt": "Espírito Curandeiro",
         "sc_key": "Heal",
         "elixir": 1,
         "type": "Troop",
@@ -1523,6 +1640,7 @@
     {
         "key": "giant-snowball",
         "name": "Giant Snowball",
+        "name_pt": "Bola de Neve Gigante",
         "sc_key": "Snowball",
         "elixir": 2,
         "type": "Spell",
@@ -1536,6 +1654,7 @@
     {
         "key": "royal-delivery",
         "name": "Royal Delivery",
+        "name_pt": "Entrega Real",
         "sc_key": "RoyalDelivery",
         "elixir": 3,
         "type": "Spell",
@@ -1549,6 +1668,7 @@
     {
         "key": "party-rocket",
         "name": "Party Rocket",
+        "name_pt": "Foguete de Festa",
         "sc_key": "GoblinPartyRocket",
         "elixir": 5,
         "type": "Spell",
