@@ -14,9 +14,34 @@ const LIMITES = {
     casas: { min: 3, max: 15 }
 };
 
+const CHAVES_JOGO = [
+    'draftRoyalePosicoes',
+    'draftRoyaleCartasEscolhidas',
+    'draftRoyaleFase',
+    'draftRoyaleRodada',
+    'draftRoyaleUltimoResultado',
+    'draftRoyalePrimeiroJogador'
+];
+
+const MENSAGEM_NOME_VAZIO = "⚠️ Todos os guerreiros precisam ter um nome válido para entrar na arena!";
+const MENSAGEM_NOME_REPETIDO = "⚠️ Cada guerreiro precisa ter um nome diferente dos outros!";
+
 document.addEventListener("DOMContentLoaded", () => {
     atualizarBotoesLimites();
 });
+
+function calcularTiposPergunta() {
+    const tipos = [];
+    if (configs.regras.avanco) tipos.push('individual_avanco');
+    if (configs.regras.recuo) tipos.push('individual_recuo');
+    if (configs.regras.grupo) tipos.push('coletiva');
+    return tipos;
+}
+
+function salvarConfig() {
+    configs.tiposPergunta = calcularTiposPergunta();
+    localStorage.setItem('draftRoyaleConfig', JSON.stringify(configs));
+}
 
 function alterarValor(tipo, variacao) {
     let novoValor = configs[tipo] + variacao;
@@ -60,7 +85,7 @@ function alternarRegra(regra) {
 }
 
 function irParaTelaJogadores() {
-    localStorage.setItem('draftRoyaleConfig', JSON.stringify(configs));
+    salvarConfig();
 
     const listaDiv = document.getElementById('lista-jogadores');
     listaDiv.innerHTML = "";
@@ -86,42 +111,67 @@ function voltarParaConfig() {
 
 function limparErroInput(input) {
     input.classList.remove('input-error');
-    let temVazio = false;
+    let aindaTemErro = false;
     for (let i = 1; i <= configs.jogadores; i++) {
-        if (document.getElementById(`jogador-${i}`).value.trim() === "") {
-            temVazio = true;
+        if (document.getElementById(`jogador-${i}`).classList.contains('input-error')) {
+            aindaTemErro = true;
             break;
         }
     }
-    if (!temVazio) {
+    if (!aindaTemErro) {
         document.getElementById('mensagem-erro').style.display = 'none';
     }
 }
 
 function iniciarJogoFinal() {
-    let nomesJogadores = [];
+    const nomesJogadores = [];
+    const mensagemErro = document.getElementById('mensagem-erro');
     let temCampoVazio = false;
-    
+
     for (let i = 1; i <= configs.jogadores; i++) {
-        let inputField = document.getElementById(`jogador-${i}`);
-        let inputVal = inputField.value.trim();
-        
+        const inputField = document.getElementById(`jogador-${i}`);
+        const inputVal = inputField.value.trim();
+        inputField.classList.remove('input-error');
+
         if (inputVal === "") {
             inputField.classList.add('input-error');
             temCampoVazio = true;
-        } else {
-            inputField.classList.remove('input-error');
-            nomesJogadores.push(inputVal);
         }
+        nomesJogadores.push(inputVal);
     }
 
     if (temCampoVazio) {
-        document.getElementById('mensagem-erro').style.display = 'block';
+        mensagemErro.textContent = MENSAGEM_NOME_VAZIO;
+        mensagemErro.style.display = 'block';
         return;
     }
 
+    let temRepetido = false;
+    nomesJogadores.forEach((nome, indice) => {
+        const quantidade = nomesJogadores.filter(outro => outro.toLowerCase() === nome.toLowerCase()).length;
+        if (quantidade > 1) {
+            document.getElementById(`jogador-${indice + 1}`).classList.add('input-error');
+            temRepetido = true;
+        }
+    });
+
+    if (temRepetido) {
+        mensagemErro.textContent = MENSAGEM_NOME_REPETIDO;
+        mensagemErro.style.display = 'block';
+        return;
+    }
+
+    salvarConfig();
+    CHAVES_JOGO.forEach(chave => localStorage.removeItem(chave));
     localStorage.setItem('draftRoyaleNomes', JSON.stringify(nomesJogadores));
-    
-    // Redireciona para a tela do Tabuleiro/Draft
+
+    const posicoesIniciais = {};
+    nomesJogadores.forEach(nome => {
+        posicoesIniciais[nome] = 0;
+    });
+    localStorage.setItem('draftRoyalePosicoes', JSON.stringify(posicoesIniciais));
+    localStorage.setItem('draftRoyaleRodada', '1');
+    localStorage.setItem('draftRoyaleFase', 'draft');
+
     window.location.href = "tabuleiro.html";
 }
