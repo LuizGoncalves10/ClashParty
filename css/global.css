@@ -1,0 +1,112 @@
+/* Importa a fonte cartunesca no estilo Clash Royale */
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+
+:root {
+    --azul-fundo: #12213b;
+    --azul-claro: #26436e;
+    --dourado: #ffcc00;
+    --dourado-sombra: #b36b00;
+    --madeira: #8b5a2b;
+    --madeira-escura: #5c3a18;
+    --texto-branco: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lilita One', cursive;
+    background: radial-gradient(circle at top, var(--azul-claro), var(--azul-fundo));
+    color: var(--texto-branco);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Tipografia 3D pesada */
+h1, h2 {
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-shadow: 
+        -2px -2px 0 #000,  
+         2px -2px 0 #000,
+        -2px  2px 0 #000,
+         2px  2px 0 #000,
+         0px  4px 0 #000;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+
+.logo {
+    max-width: 250px;
+    width: 100%;
+    margin-bottom: 10px;
+    filter: drop-shadow(0px 10px 5px rgba(0,0,0,0.6));
+}
+
+h1 {
+    font-size: 2.2rem;
+}
+
+/* Container de Jogos Mobile-First */
+.games-container {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* O Card do Jogo (Estilo Madeira) */
+.game-card {
+    background-color: var(--madeira);
+    border: 4px solid var(--madeira-escura);
+    border-radius: 16px;
+    padding: 25px 20px;
+    text-align: center;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.6), inset 0px 0px 15px rgba(0,0,0,0.4);
+}
+
+.game-card h2 {
+    color: var(--dourado);
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+}
+
+.game-card p {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1.05rem;
+    line-height: 1.4;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 2px #000;
+}
+
+/* Botão estilo Supercell */
+.btn-supercell {
+    display: inline-block;
+    background-color: var(--dourado);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.6rem;
+    padding: 12px 40px;
+    border-radius: 12px;
+    border: 2px solid #000;
+    /* Sombras que criam o corpo e a profundidade do botão */
+    box-shadow: 0px 6px 0px var(--dourado-sombra), 0px 10px 10px rgba(0,0,0,0.5);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    transition: all 0.1s ease;
+    cursor: pointer;
+}
+
+/* Animação de clique afundando o botão */
+.btn-supercell:active {
+    transform: translateY(6px);
+    box-shadow: 0px 0px 0px var(--dourado-sombra), 0px 4px 5px rgba(0,0,0,0.5);
+}
