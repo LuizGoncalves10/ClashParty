@@ -65,11 +65,14 @@ function irParaTelaJogadores() {
     const listaDiv = document.getElementById('lista-jogadores');
     listaDiv.innerHTML = "";
 
+    // Esconde qualquer erro anterior ao entrar na tela
+    document.getElementById('mensagem-erro').style.display = 'none';
+
     for (let i = 1; i <= configs.jogadores; i++) {
         listaDiv.innerHTML += `
             <div class="player-input-card">
                 <div class="player-number">${i}</div>
-                <input type="text" id="jogador-${i}" value="Jogador ${i}" maxlength="12" placeholder="Nome do Jogador">
+                <input type="text" id="jogador-${i}" value="Jogador ${i}" maxlength="12" placeholder="Nome do Jogador" oninput="limparErroInput(this)">
             </div>
         `;
     }
@@ -83,25 +86,46 @@ function voltarParaConfig() {
     document.getElementById('tela-config').classList.add('active');
 }
 
-// Inicia o jogo validando se há campos vazios
+function limparErroInput(input) {
+    input.classList.remove('input-error');
+    // Se todos os campos estiverem preenchidos, esconde a caixa de aviso
+    let temVazio = false;
+    for (let i = 1; i <= configs.jogadores; i++) {
+        if (document.getElementById(`jogador-${i}`).value.trim() === "") {
+            temVazio = true;
+            break;
+        }
+    }
+    if (!temVazio) {
+        document.getElementById('mensagem-erro').style.display = 'none';
+    }
+}
+
+// Inicia o jogo travando se houver campos vazios
 function iniciarJogoFinal() {
     let nomesJogadores = [];
+    let temCampoVazio = false;
     
     for (let i = 1; i <= configs.jogadores; i++) {
         let inputField = document.getElementById(`jogador-${i}`);
         let inputVal = inputField.value.trim();
         
-        // Se o usuário deixar vazio, preenche automaticamente com o nome padrão e avisa/destaca o campo
         if (inputVal === "") {
-            inputVal = `Jogador ${i}`;
-            inputField.value = inputVal;
+            inputField.classList.add('input-error');
+            temCampoVazio = true;
+        } else {
+            inputField.classList.remove('input-error');
+            nomesJogadores.push(inputVal);
         }
-        
-        nomesJogadores.push(inputVal);
     }
 
-    // Salva os nomes validados
-    localStorage.setItem('draftRoyaleNomes', JSON.stringify(nomesJogadores));
+    if (temCampoVazio) {
+        // Exibe a mensagem de erro direto na tela com o estilo do jogo
+        document.getElementById('mensagem-erro').style.display = 'block';
+        return; // Interrompe e não deixa avançar
+    }
 
+    // Salva os nomes validados e prossegue
+    localStorage.setItem('draftRoyaleNomes', JSON.stringify(nomesJogadores));
     alert("Tudo pronto! Guerreiros definidos: " + nomesJogadores.join(', ') + ".");
 }
