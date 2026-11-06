@@ -157,35 +157,38 @@ body {
     padding: 15px;
     border-radius: 12px;
     border: 2px solid #000;
-    overflow: auto;
+    overflow-x: auto;
+    overflow-y: auto;
 }
 
 .tabuleiro-grid::-webkit-scrollbar {
-    height: 8px;
-    width: 8px;
+    height: 10px;
+    width: 10px;
 }
 
 .tabuleiro-grid::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
+    border-radius: 6px;
 }
 
 .tabuleiro-grid::-webkit-scrollbar-thumb {
     background: var(--dourado);
-    border-radius: 4px;
+    border-radius: 6px;
+    border: 2px solid #332211;
 }
 
 .trilha-jogador {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     min-width: max-content;
+    width: 100%;
     padding-bottom: 5px;
 }
 
 .nome-jogador-trilha {
-    min-width: 85px;
-    max-width: 85px;
+    flex: 0 0 90px;
+    max-width: 90px;
     font-size: 1rem;
     color: #fff;
     text-shadow: 1px 1px 0 #000;
@@ -195,19 +198,42 @@ body {
 }
 
 .casa-torre {
-    min-width: 50px;
-    height: 50px;
+    width: 100%;
+    min-width: 55px;
+    max-width: 90px;
+    aspect-ratio: 1 / 1;
     background-image: url('../imagens/torre.png');
     background-size: cover;
     background-position: center;
     position: relative;
     border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.numero-casa {
+    font-family: 'Lilita One', cursive, sans-serif;
+    font-size: 1.6rem;
+    color: #fff;
+    text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 0px 3px 0 #000;
+    z-index: 1;
+    margin-top: -5%;
+}
+
+.img-coroa {
+    width: 50%;
+    height: 50%;
+    object-fit: contain;
+    z-index: 1;
+    filter: drop-shadow(0px 2px 1px rgba(0,0,0,0.8));
+    margin-top: -5%;
 }
 
 .tropa-tabuleiro {
     position: absolute;
-    width: 90%;
-    height: 90%;
+    width: 95%;
+    height: 95%;
     object-fit: contain;
     top: 50%;
     left: 50%;
@@ -224,6 +250,7 @@ body {
     height: 100%;
     background: rgba(0, 0, 0, 0.85);
     z-index: 1000;
+    display: flex;
     align-items: center;
     justify-content: center;
 }

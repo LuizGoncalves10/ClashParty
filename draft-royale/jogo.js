@@ -173,6 +173,18 @@ function iniciarFaseTabuleiro() {
                 img.className = 'tropa-tabuleiro';
                 img.onerror = function() { this.src = 'https://cdn.royaleapi.com/static/img/ui/card-placeholder.png'; };
                 casa.appendChild(img);
+            } else if (i > 0) {
+                if (i === configs.casas) {
+                    const imgCoroa = document.createElement('img');
+                    imgCoroa.src = '../imagens/coroa.png';
+                    imgCoroa.className = 'img-coroa';
+                    casa.appendChild(imgCoroa);
+                } else {
+                    const num = document.createElement('span');
+                    num.className = 'numero-casa';
+                    num.innerText = i;
+                    casa.appendChild(num);
+                }
             }
             trilha.appendChild(casa);
         }
