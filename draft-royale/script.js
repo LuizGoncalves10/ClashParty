@@ -64,8 +64,6 @@ function irParaTelaJogadores() {
 
     const listaDiv = document.getElementById('lista-jogadores');
     listaDiv.innerHTML = "";
-
-    // Esconde qualquer erro anterior ao entrar na tela
     document.getElementById('mensagem-erro').style.display = 'none';
 
     for (let i = 1; i <= configs.jogadores; i++) {
@@ -88,7 +86,6 @@ function voltarParaConfig() {
 
 function limparErroInput(input) {
     input.classList.remove('input-error');
-    // Se todos os campos estiverem preenchidos, esconde a caixa de aviso
     let temVazio = false;
     for (let i = 1; i <= configs.jogadores; i++) {
         if (document.getElementById(`jogador-${i}`).value.trim() === "") {
@@ -101,7 +98,6 @@ function limparErroInput(input) {
     }
 }
 
-// Inicia o jogo travando se houver campos vazios
 function iniciarJogoFinal() {
     let nomesJogadores = [];
     let temCampoVazio = false;
@@ -120,12 +116,12 @@ function iniciarJogoFinal() {
     }
 
     if (temCampoVazio) {
-        // Exibe a mensagem de erro direto na tela com o estilo do jogo
         document.getElementById('mensagem-erro').style.display = 'block';
-        return; // Interrompe e não deixa avançar
+        return;
     }
 
-    // Salva os nomes validados e prossegue
     localStorage.setItem('draftRoyaleNomes', JSON.stringify(nomesJogadores));
-    alert("Tudo pronto! Guerreiros definidos: " + nomesJogadores.join(', ') + ".");
+    
+    // Redireciona para a tela do Tabuleiro/Draft
+    window.location.href = "tabuleiro.html";
 }
