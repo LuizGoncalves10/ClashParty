@@ -11,7 +11,15 @@
         "description": "A tough melee fighter. The Barbarian's handsome, cultured cousin. Rumor has it that he was knighted based on the sheer awesomeness of his mustache alone.",
         "id": 26000000,
         "evolved_spells_sc_key": "Knight_EV1",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 690,
+        "damage": 79,
+        "hit_speed": 1200,
+        "speed": 60,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 65.8
     },
     {
         "key": "archers",
@@ -25,7 +33,15 @@
         "description": "A pair of lightly armored ranged attackers. They'll help you take down ground and air units, but you're on your own with hair coloring advice.",
         "id": 26000001,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 119,
+        "damage": 0,
+        "hit_speed": 900,
+        "speed": 60,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 2,
+        "dps": 0.0
     },
     {
         "key": "goblins",
@@ -39,7 +55,15 @@
         "description": "Four fast, unarmored melee attackers. Small, fast, green and mean!",
         "id": 26000002,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 0,
+        "damage": 0,
+        "hit_speed": 0,
+        "speed": 0,
+        "range": 0,
+        "is_flying": false,
+        "troop_count": 4,
+        "dps": 0
     },
     {
         "key": "giant",
@@ -53,7 +77,15 @@
         "description": "Slow but durable, only attacks buildings. A real one-man wrecking crew!",
         "id": 26000003,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 1930,
+        "damage": 120,
+        "hit_speed": 1500,
+        "speed": 45,
+        "range": 7500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 80.0
     },
     {
         "key": "pekka",
@@ -67,7 +99,15 @@
         "description": "A heavily armored, slow melee fighter. Swings from the hip, but packs a huge punch.",
         "id": 26000004,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 2350,
+        "damage": 510,
+        "hit_speed": 1800,
+        "speed": 45,
+        "range": 5000,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 283.3
     },
     {
         "key": "minions",
@@ -81,7 +121,15 @@
         "description": "Three fast, unarmored flying attackers. Roses are red, minions are blue, they can fly, and will crush you!",
         "id": 26000005,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 0,
+        "damage": 0,
+        "hit_speed": 0,
+        "speed": 0,
+        "range": 0,
+        "is_flying": false,
+        "troop_count": 3,
+        "dps": 0
     },
     {
         "key": "balloon",
@@ -95,7 +143,15 @@
         "description": "As pretty as they are, you won't want a parade of THESE balloons showing up on the horizon. Drops powerful bombs and when shot down, crashes dealing area damage.",
         "id": 26000006,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 1050,
+        "damage": 400,
+        "hit_speed": 2000,
+        "speed": 60,
+        "range": 7700,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 200.0
     },
     {
         "key": "witch",
@@ -109,7 +165,15 @@
         "description": "Summons Skeletons, shoots destructo beams, has glowing pink eyes that unfortunately don't shoot lasers.",
         "id": 26000007,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 524,
+        "damage": 0,
+        "hit_speed": 1100,
+        "speed": 60,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0.0
     },
     {
         "key": "barbarians",
@@ -123,7 +187,15 @@
         "description": "A horde of melee attackers with mean mustaches and even meaner tempers.",
         "id": 26000008,
         "evolved_spells_sc_key": "Barbarians_EV1",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 0,
+        "damage": 0,
+        "hit_speed": 0,
+        "speed": 0,
+        "range": 0,
+        "is_flying": false,
+        "troop_count": 5,
+        "dps": 0
     },
     {
         "key": "golem",
@@ -137,7 +209,15 @@
         "description": "Slow but durable, only attacks buildings. When destroyed, explosively splits into two Golemites and deals area damage!",
         "id": 26000009,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 3200,
+        "damage": 195,
+        "hit_speed": 2500,
+        "speed": 45,
+        "range": 7000,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 78.0
     },
     {
         "key": "skeletons",
@@ -151,7 +231,15 @@
         "description": "Three fast, very weak melee fighters. Surround your enemies with this pile of bones!",
         "id": 26000010,
         "evolved_spells_sc_key": "Skeletons_EV1",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 0,
+        "damage": 0,
+        "hit_speed": 0,
+        "speed": 0,
+        "range": 0,
+        "is_flying": false,
+        "troop_count": 3,
+        "dps": 0
     },
     {
         "key": "valkyrie",
@@ -165,7 +253,15 @@
         "description": "Tough melee fighter, deals area damage around her. Swarm or horde, no problem! She can take them all out with a few spins.",
         "id": 26000011,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 900,
+        "damage": 126,
+        "hit_speed": 1500,
+        "speed": 60,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 84.0
     },
     {
         "key": "skeleton-army",
@@ -179,7 +275,15 @@
         "description": "Spawns an army of Skeletons. Meet Larry and his friends Harry, Gerry, Terry, Mary, etc.",
         "id": 26000012,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 0,
+        "damage": 0,
+        "hit_speed": 0,
+        "speed": 0,
+        "range": 0,
+        "is_flying": false,
+        "troop_count": 15,
+        "dps": 0
     },
     {
         "key": "bomber",
@@ -193,7 +297,15 @@
         "description": "Small, lightly protected skeleton who throws bombs. Deals area damage that can wipe out a swarm of enemies.",
         "id": 26000013,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 130,
+        "damage": 0,
+        "hit_speed": 1800,
+        "speed": 60,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0.0
     },
     {
         "key": "musketeer",
@@ -207,7 +319,15 @@
         "description": "Don't be fooled by her delicately coiffed hair, the Musketeer is a mean shot with her trusty boomstick.",
         "id": 26000014,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 340,
+        "damage": 0,
+        "hit_speed": 1000,
+        "speed": 60,
+        "range": 6000,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0.0
     },
     {
         "key": "baby-dragon",
@@ -221,7 +341,15 @@
         "description": "Burps fireballs from the sky that deal area damage. Baby dragons hatch cute, hungry and ready for a barbeque.",
         "id": 26000015,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 720,
+        "damage": 0,
+        "hit_speed": 1500,
+        "speed": 90,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0.0
     },
     {
         "key": "prince",
@@ -235,7 +363,15 @@
         "description": "Don't let the little pony fool you. Once the Prince gets a running start, you WILL be trampled. Deals double damage once he gets charging.",
         "id": 26000016,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 1200,
+        "damage": 245,
+        "hit_speed": 1400,
+        "speed": 60,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 175.0
     },
     {
         "key": "wizard",
@@ -249,7 +385,15 @@
         "description": "The most awesome man to ever set foot in the Arena, the Wizard will blow you away with his handsomeness... and/or fireballs.",
         "id": 26000017,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 340,
+        "damage": 0,
+        "hit_speed": 1400,
+        "speed": 60,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0.0
     },
     {
         "key": "mini-pekka",
@@ -263,7 +407,15 @@
         "description": "The Arena is a certified butterfly-free zone. No distractions for P.E.K.K.A, only destruction.",
         "id": 26000018,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 642,
+        "damage": 340,
+        "hit_speed": 1600,
+        "speed": 90,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 212.5
     },
     {
         "key": "spear-goblins",
@@ -277,7 +429,15 @@
         "description": "Three unarmored ranged attackers. Who the heck taught these guys to throw spears!? Who thought that was a good idea?!",
         "id": 26000019,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 0,
+        "damage": 0,
+        "hit_speed": 0,
+        "speed": 0,
+        "range": 0,
+        "is_flying": false,
+        "troop_count": 3,
+        "dps": 0
     },
     {
         "key": "giant-skeleton",
@@ -291,7 +451,15 @@
         "description": "The bigger the skeleton, the bigger the bomb. Carries a bomb that blows up when the Giant Skeleton dies.",
         "id": 26000020,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 2140,
+        "damage": 167,
+        "hit_speed": 1400,
+        "speed": 60,
+        "range": 5000,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 119.3
     },
     {
         "key": "hog-rider",
@@ -305,7 +473,15 @@
         "description": "Fast melee troop that targets buildings and can jump over the river. He followed the echoing call of \"Hog Riderrrrr\" all the way through the Arena doors.",
         "id": 26000021,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 800,
+        "damage": 150,
+        "hit_speed": 1600,
+        "speed": 120,
+        "range": 9500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 93.8
     },
     {
         "key": "minion-horde",
@@ -319,7 +495,15 @@
         "description": "Six fast, unarmored flying attackers. Three's a crowd, six is a horde!",
         "id": 26000022,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 0,
+        "damage": 0,
+        "hit_speed": 0,
+        "speed": 0,
+        "range": 0,
+        "is_flying": false,
+        "troop_count": 6,
+        "dps": 0
     },
     {
         "key": "ice-wizard",
@@ -333,7 +517,15 @@
         "description": "This chill caster throws ice shards that slow down enemies' movement and attack speed. Despite being freezing cold, he has a handlebar mustache that's too hot for TV.",
         "id": 26000023,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 569,
+        "damage": 0,
+        "hit_speed": 1700,
+        "speed": 60,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0.0
     },
     {
         "key": "royal-giant",
@@ -347,7 +539,15 @@
         "description": "Destroying enemy buildings with his massive cannon is his job; making a raggedy blond beard look good is his passion.",
         "id": 26000024,
         "evolved_spells_sc_key": "RoyalGiant_EV1",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 1200,
+        "damage": 0,
+        "hit_speed": 1700,
+        "speed": 45,
+        "range": 7500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0.0
     },
     {
         "key": "guards",
@@ -361,7 +561,15 @@
         "description": "Three ruthless bone brothers with shields. Knock off their shields and all that's left are three ruthless bone brothers.",
         "id": 26000025,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 0,
+        "damage": 0,
+        "hit_speed": 0,
+        "speed": 0,
+        "range": 0,
+        "is_flying": false,
+        "troop_count": 3,
+        "dps": 0
     },
     {
         "key": "princess",
@@ -375,7 +583,15 @@
         "description": "This stunning Princess shoots flaming arrows from long range. If you're feeling warm feelings towards her, it's probably because you're on fire.",
         "id": 26000026,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 216,
+        "damage": 0,
+        "hit_speed": 3000,
+        "speed": 60,
+        "range": 9500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0.0
     },
     {
         "key": "dark-prince",
@@ -389,7 +605,15 @@
         "description": "The Dark Prince deals area damage and lets his spiked club do the talking for him - because when he does talk, it sounds like he has a bucket on his head.",
         "id": 26000027,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 750,
+        "damage": 155,
+        "hit_speed": 1300,
+        "speed": 60,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 119.2
     },
     {
         "key": "three-musketeers",
@@ -403,7 +627,15 @@
         "description": "Trio of powerful, independent markswomen, fighting for justice and honor. Disrespecting them would not be just a mistake, it would be a cardinal sin!",
         "id": 26000028,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 0,
+        "damage": 0,
+        "hit_speed": 0,
+        "speed": 0,
+        "range": 0,
+        "is_flying": false,
+        "troop_count": 3,
+        "dps": 0
     },
     {
         "key": "lava-hound",
@@ -417,7 +649,15 @@
         "description": "The Lava Hound is a majestic flying beast that attacks buildings. The Lava Pups are less majestic angry babies that attack anything.",
         "id": 26000029,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 3150,
+        "damage": 0,
+        "hit_speed": 1300,
+        "speed": 45,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0.0
     },
     {
         "key": "ice-spirit",
@@ -431,7 +671,15 @@
         "description": "Spawns one lively little Ice Spirit to freeze a group of enemies. Stay frosty.",
         "id": 26000030,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 90,
+        "damage": 0,
+        "hit_speed": 300,
+        "speed": 120,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0.0
     },
     {
         "key": "fire-spirit",
@@ -445,7 +693,15 @@
         "description": "The Fire Spirit is on a kamikaze mission to give you a warm hug. It'd be adorable if it wasn't on fire.",
         "id": 26000031,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 90,
+        "damage": 0,
+        "hit_speed": 300,
+        "speed": 120,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0.0
     },
     {
         "key": "miner",
@@ -459,7 +715,15 @@
         "description": "The Miner can burrow his way underground and appear anywhere in the Arena. It's not magic, it's a shovel. A shovel that deals reduced damage to Crown Towers.",
         "id": 26000032,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 1000,
+        "damage": 160,
+        "hit_speed": 1200,
+        "speed": 90,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 133.3
     },
     {
         "key": "sparky",
@@ -473,7 +737,15 @@
         "description": "Sparky slowly charges up, then unloads MASSIVE area damage. Overkill isn't in her vocabulary.",
         "id": 26000033,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 1200,
+        "damage": 0,
+        "hit_speed": 4000,
+        "speed": 45,
+        "range": 5000,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0.0
     },
     {
         "key": "bowler",
@@ -487,7 +759,15 @@
         "description": "This big blue dude digs the simple things in life - Dark Elixir drinks and throwing rocks. His massive boulders roll through their target, hitting everything behind for a strike!",
         "id": 26000034,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 1300,
+        "damage": 0,
+        "hit_speed": 2500,
+        "speed": 45,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0.0
     },
     {
         "key": "lumberjack",
@@ -501,7 +781,15 @@
         "description": "He chops trees by day and hunts The Log by night. His bottle of Rage spills everywhere when he's defeated.",
         "id": 26000035,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 1060,
+        "damage": 200,
+        "hit_speed": 800,
+        "speed": 120,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 250.0
     },
     {
         "key": "battle-ram",
@@ -515,7 +803,15 @@
         "description": "Two Barbarians holding a big log charge at the nearest building, dealing significant damage if they connect; then they go to town with their swords!",
         "id": 26000036,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 456,
+        "damage": 135,
+        "hit_speed": 400,
+        "speed": 60,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 337.5
     },
     {
         "key": "inferno-dragon",
@@ -529,7 +825,15 @@
         "description": "Shoots a focused beam of fire that increases in damage over time. Wears a helmet because flying can be dangerous.",
         "id": 26000037,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 1070,
+        "damage": 30,
+        "hit_speed": 400,
+        "speed": 60,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 75.0
     },
     {
         "key": "ice-golem",
@@ -543,7 +847,15 @@
         "description": "He's tough, targets buildings and explodes when destroyed, slowing nearby enemies. Made entirely out of ice... or is he?! Yes.",
         "id": 26000038,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 565,
+        "damage": 40,
+        "hit_speed": 2500,
+        "speed": 45,
+        "range": 7000,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 16.0
     },
     {
         "key": "mega-minion",
@@ -557,7 +869,15 @@
         "description": "Flying, armored and powerful. What could be its weakness?! Cupcakes.",
         "id": 26000039,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 395,
+        "damage": 0,
+        "hit_speed": 1500,
+        "speed": 60,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0.0
     },
     {
         "key": "dart-goblin",
@@ -571,7 +891,15 @@
         "description": "Runs fast, shoots far and chews gum. How does he blow darts with a mouthful of Double Trouble Gum? Years of didgeridoo lessons.",
         "id": 26000040,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 123,
+        "damage": 0,
+        "hit_speed": 700,
+        "speed": 120,
+        "range": 7500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0.0
     },
     {
         "key": "goblin-gang",
@@ -585,7 +913,15 @@
         "description": "Spawns six Goblins - three with knives, three with spears - at a discounted Elixir cost. It's like a Goblin Value Pack!",
         "id": 26000041,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 0,
+        "damage": 0,
+        "hit_speed": 0,
+        "speed": 0,
+        "range": 0,
+        "is_flying": false,
+        "troop_count": 3,
+        "dps": 0
     },
     {
         "key": "electro-wizard",
@@ -599,7 +935,15 @@
         "description": "He lands with a \"POW!\", stuns nearby enemies and shoots lightning with both hands! What a show off.",
         "id": 26000042,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 590,
+        "damage": 91,
+        "hit_speed": 1800,
+        "speed": 90,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 50.6
     },
     {
         "key": "elite-barbarians",
@@ -613,7 +957,15 @@
         "description": "Spawns a pair of leveled up Barbarians. They're like regular Barbarians, only harder, better, faster and stronger.",
         "id": 26000043,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 0,
+        "damage": 0,
+        "hit_speed": 0,
+        "speed": 0,
+        "range": 0,
+        "is_flying": false,
+        "troop_count": 2,
+        "dps": 0
     },
     {
         "key": "hunter",
@@ -627,7 +979,15 @@
         "description": "He deals BIG damage up close - not so much at range. What he lacks in accuracy, he makes up for with his impressively bushy eyebrows.",
         "id": 26000044,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 524,
+        "damage": 0,
+        "hit_speed": 2200,
+        "speed": 60,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0.0
     },
     {
         "key": "executioner",
@@ -641,7 +1001,15 @@
         "description": "He throws his axe like a boomerang, striking all enemies on the way out AND back. It's a miracle he doesn't lose an arm.",
         "id": 26000045,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 800,
+        "damage": 0,
+        "hit_speed": 900,
+        "speed": 60,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0.0
     },
     {
         "key": "bandit",
@@ -655,7 +1023,15 @@
         "description": "The Bandit dashes to her target and delivers an extra big hit! While dashing, she can't be touched. The mask keeps her identity safe, and gives her bonus cool points!",
         "id": 26000046,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 750,
+        "damage": 160,
+        "hit_speed": 1000,
+        "speed": 90,
+        "range": 6000,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 160.0
     },
     {
         "key": "royal-recruits",
@@ -669,7 +1045,15 @@
         "description": "Deploys a line of recruits armed with spears, shields and wooden buckets. They dream of ponies and one day wearing metal buckets.",
         "id": 26000047,
         "evolved_spells_sc_key": "RoyalRecruits_EV1",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 0,
+        "damage": 0,
+        "hit_speed": 0,
+        "speed": 0,
+        "range": 0,
+        "is_flying": false,
+        "troop_count": 6,
+        "dps": 0
     },
     {
         "key": "night-witch",
@@ -683,7 +1067,15 @@
         "description": "Summons Bats to do her bidding! If you get too close, she's not afraid of pitching in with her mean-looking battle staff.",
         "id": 26000048,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 750,
+        "damage": 260,
+        "hit_speed": 1300,
+        "speed": 60,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 200.0
     },
     {
         "key": "bats",
@@ -697,7 +1089,15 @@
         "description": "Spawns a handful of tiny flying creatures. Think of them as sweet, purple... balls of DESTRUCTION!",
         "id": 26000049,
         "evolved_spells_sc_key": "Bats_EV1",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 0,
+        "damage": 0,
+        "hit_speed": 0,
+        "speed": 0,
+        "range": 0,
+        "is_flying": false,
+        "troop_count": 5,
+        "dps": 0
     },
     {
         "key": "royal-ghost",
@@ -711,7 +1111,15 @@
         "description": "He drifts invisibly through the Arena until he's startled by an enemy... then he attacks! Then he's invisible again! Zzzz.",
         "id": 26000050,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 1000,
+        "damage": 216,
+        "hit_speed": 1800,
+        "speed": 90,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 120.0
     },
     {
         "key": "ram-rider",
@@ -725,7 +1133,15 @@
         "description": "Together they charge through the Arena; snaring enemies, knocking down towers ... and chewing grass!?",
         "id": 26000051,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 490,
+        "damage": 0,
+        "hit_speed": 1100,
+        "speed": 60,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0.0
     },
     {
         "key": "zappies",
@@ -739,7 +1155,15 @@
         "description": "Spawns a pack of miniature Zap machines. Who controls them...? Only the Master Builder knows.",
         "id": 26000052,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 0,
+        "damage": 0,
+        "hit_speed": 0,
+        "speed": 0,
+        "range": 0,
+        "is_flying": false,
+        "troop_count": 3,
+        "dps": 0
     },
     {
         "key": "rascals",
@@ -753,7 +1177,15 @@
         "description": "Spawns a mischievous trio of Rascals! The boy takes the lead, while the girls pelt enemies from behind... with slingshots full of Double Trouble Gum!",
         "id": 26000053,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 0,
+        "damage": 0,
+        "hit_speed": 0,
+        "speed": 0,
+        "range": 0,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0
     },
     {
         "key": "cannon-cart",
@@ -767,7 +1199,15 @@
         "description": "A Cannon on wheels?! Bet they won't see that coming! Once you break its shield, it becomes a Cannon not on wheels.",
         "id": 26000054,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 558,
+        "damage": 0,
+        "hit_speed": 1000,
+        "speed": 60,
+        "range": 6000,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0.0
     },
     {
         "key": "mega-knight",
@@ -781,7 +1221,15 @@
         "description": "He lands with the force of 1,000 mustaches, then jumps from one foe to the next dealing huge area damage. Stand aside!",
         "id": 26000055,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 3300,
+        "damage": 222,
+        "hit_speed": 1700,
+        "speed": 60,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 130.6
     },
     {
         "key": "skeleton-barrel",
@@ -795,7 +1243,15 @@
         "description": "It's a Skeleton party in the sky, until all the balloons pop... then it's a Skeleton party on the ground!",
         "id": 26000056,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 208,
+        "damage": 0,
+        "hit_speed": 300,
+        "speed": 90,
+        "range": 7700,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0.0
     },
     {
         "key": "flying-machine",
@@ -809,7 +1265,15 @@
         "description": "The Master Builder has sent his first contraption to the Arena! It's a fast and fun flying machine, but fragile!",
         "id": 26000057,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 290,
+        "damage": 0,
+        "hit_speed": 1100,
+        "speed": 90,
+        "range": 6000,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0.0
     },
     {
         "key": "wall-breakers",
@@ -823,7 +1287,15 @@
         "description": "A daring duo of dangerous dive bombers. Nothing warms a Wall Breaker's cold and undead heart like blowing up buildings.",
         "id": 26000058,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 0,
+        "damage": 0,
+        "hit_speed": 0,
+        "speed": 0,
+        "range": 0,
+        "is_flying": false,
+        "troop_count": 2,
+        "dps": 0
     },
     {
         "key": "royal-hogs",
@@ -837,7 +1309,15 @@
         "description": "The King's personal pets are loose! They love to chomp on apples and towers alike - who let the hogs out?!",
         "id": 26000059,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 0,
+        "damage": 0,
+        "hit_speed": 0,
+        "speed": 0,
+        "range": 0,
+        "is_flying": false,
+        "troop_count": 4,
+        "dps": 0
     },
     {
         "key": "goblin-giant",
@@ -851,7 +1331,15 @@
         "description": "This jolly green Goblin Giant stomps towards enemy buildings. He carries two Spear Goblins everywhere he goes. It's a weird but functional arrangement.",
         "id": 26000060,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 2085,
+        "damage": 110,
+        "hit_speed": 1500,
+        "speed": 60,
+        "range": 7500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 73.3
     },
     {
         "key": "fisherman",
@@ -865,7 +1353,15 @@
         "description": "His Ranged Attack can pull enemies towards him, and pull himself to enemy buildings. He's also mastered the ancient art of 'Fish Slapping'.",
         "id": 26000061,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 720,
+        "damage": 160,
+        "hit_speed": 1300,
+        "speed": 60,
+        "range": 7500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 123.1
     },
     {
         "key": "magic-archer",
@@ -879,7 +1375,15 @@
         "description": "Not quite a Wizard, nor an Archer - he shoots a magic arrow that passes through and damages all enemies in its path. It's not a trick, it's magic!",
         "id": 26000062,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 440,
+        "damage": 0,
+        "hit_speed": 1100,
+        "speed": 60,
+        "range": 7500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0.0
     },
     {
         "key": "electro-dragon",
@@ -893,7 +1397,15 @@
         "description": "Spits out bolts of electricity hitting up to three targets. Suffers from middle child syndrome to boot.",
         "id": 26000063,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 594,
+        "damage": 0,
+        "hit_speed": 2100,
+        "speed": 60,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0.0
     },
     {
         "key": "firecracker",
@@ -907,7 +1419,15 @@
         "description": "Shoots a firework that explodes upon impact, damaging the target and showering anything directly behind it with sparks. This is what happens when Archers get bored!",
         "id": 26000064,
         "evolved_spells_sc_key": "Firecracker_EV1",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 119,
+        "damage": 0,
+        "hit_speed": 3000,
+        "speed": 90,
+        "range": 8500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0.0
     },
     {
         "key": "mighty-miner",
@@ -921,7 +1441,15 @@
         "description": "Walk softly ... and carry a big drill!\n\nThis Champion deals increasing Damage to his target and can switch lanes to escape combat or change attack plans.\n\nThis makes him not only the mightiest, but also the sneakiest Miner in the Arena.",
         "id": 26000065,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 2250,
+        "damage": 40,
+        "hit_speed": 400,
+        "speed": 60,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 100.0
     },
     {
         "key": "super-witch",
@@ -935,7 +1463,15 @@
         "description": "Summons Skeletons, shoots destructo beams, has glowing pink eyes that unfortunately don't shoot lasers.",
         "id": 26000066,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 880,
+        "damage": 0,
+        "hit_speed": 1100,
+        "speed": 60,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0.0
     },
     {
         "key": "elixir-golem",
@@ -949,7 +1485,15 @@
         "description": "Splits into two Elixir Golemites when destroyed, which split into two sentient Blobs when defeated. Each part of the Elixir Golem gives your opponent some Elixir when destroyed!",
         "id": 26000067,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 0,
+        "damage": 0,
+        "hit_speed": 0,
+        "speed": 0,
+        "range": 0,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0
     },
     {
         "key": "battle-healer",
@@ -963,7 +1507,15 @@
         "description": "With each attack, she unleashes a powerful healing aura that restores Hitpoints to herself and friendly Troops. When she isn't attacking, she passively heals herself!",
         "id": 26000068,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 810,
+        "damage": 70,
+        "hit_speed": 1500,
+        "speed": 60,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 46.7
     },
     {
         "key": "skeleton-king",
@@ -977,7 +1529,15 @@
         "description": "The King of the undead himself. He sometimes feels lonely (could be due to his non flattering features) and will summon friends to join him in the battle even after death. Tough guys have feelings too!",
         "id": 26000069,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 2300,
+        "damage": 205,
+        "hit_speed": 1600,
+        "speed": 60,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 128.1
     },
     {
         "key": "super-lava-hound",
@@ -991,7 +1551,15 @@
         "description": "The Lava Hound is a majestic flying beast that attacks buildings. The Lava Pups are less majestic angry babies that attack anything.",
         "id": 26000070,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 2800,
+        "damage": 0,
+        "hit_speed": 1300,
+        "speed": 45,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0.0
     },
     {
         "key": "super-magic-archer",
@@ -1005,7 +1573,15 @@
         "description": "Not quite a Wizard, nor an Archer - he shoots a magic arrow that passes through and damages all enemies in its path. It's not a trick, it's magic!",
         "id": 26000071,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 580,
+        "damage": 0,
+        "hit_speed": 2000,
+        "speed": 60,
+        "range": 7500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0.0
     },
     {
         "key": "archer-queen",
@@ -1019,7 +1595,15 @@
         "description": "She is fast, deadly and hard to catch. Beware of her crossbow bolts and try not to blink - you might miss her!",
         "id": 26000072,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 1000,
+        "damage": 0,
+        "hit_speed": 1200,
+        "speed": 60,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0.0
     },
     {
         "key": "santa-hog-rider",
@@ -1033,7 +1617,15 @@
         "description": "Fast melee troop that targets buildings and can jump over the river. He followed the echoing call of \"Hog Riderrrrr\" all the way through the Arena doors.",
         "id": 26000073,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 1400,
+        "damage": 265,
+        "hit_speed": 1600,
+        "speed": 120,
+        "range": 9500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 165.6
     },
     {
         "key": "golden-knight",
@@ -1047,7 +1639,15 @@
         "description": "A warrior with luxurious hair and outstanding flexibility. Demonstrates his aerobics skills on demand.",
         "id": 26000074,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 1800,
+        "damage": 160,
+        "hit_speed": 900,
+        "speed": 60,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 177.8
     },
     {
         "key": "super-ice-golem",
@@ -1061,7 +1661,15 @@
         "description": "He's tough, targets buildings and explodes when destroyed, slowing nearby enemies. Made entirely out of ice... or is he?! Yes.",
         "id": 26000075,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 3000,
+        "damage": 100,
+        "hit_speed": 2500,
+        "speed": 30,
+        "range": 7000,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 40.0
     },
     {
         "key": "monk",
@@ -1075,7 +1683,15 @@
         "description": "Monk has spent many isolated years perfecting a new style of combat.\n\nHe fires off a 3-hit combo, with the last blow dealing extra Damage and pushing enemies back!",
         "id": 26000077,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 2000,
+        "damage": 140,
+        "hit_speed": 800,
+        "speed": 60,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 175.0
     },
     {
         "key": "super-archers",
@@ -1089,7 +1705,15 @@
         "description": "A pair of lightly armored ranged attackers. They'll help you take down ground and air units, but you're on your own with hair coloring advice.",
         "id": 26000078,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 580,
+        "damage": 0,
+        "hit_speed": 2000,
+        "speed": 60,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 2,
+        "dps": 0.0
     },
     {
         "key": "skeleton-dragons",
@@ -1103,7 +1727,15 @@
         "description": "This pair of skeletal scorchers deal Area Damage and fly above the Arena. They also play a mean rib cage xylophone duet.",
         "id": 26000080,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 0,
+        "damage": 0,
+        "hit_speed": 0,
+        "speed": 0,
+        "range": 0,
+        "is_flying": false,
+        "troop_count": 2,
+        "dps": 0
     },
     {
         "key": "terry",
@@ -1117,7 +1749,15 @@
         "description": "Terry and his trusty companion Pim Pim bring their unconventional Hog Riding skills to the Arena!",
         "id": 26000081,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 0,
+        "damage": 0,
+        "hit_speed": 0,
+        "speed": 0,
+        "range": 0,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0
     },
     {
         "key": "super-mini-pekka",
@@ -1131,7 +1771,15 @@
         "description": "The Arena is a certified butterfly-free zone. No distractions for P.E.K.K.A, only destruction.",
         "id": 26000082,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 1300,
+        "damage": 0,
+        "hit_speed": 1600,
+        "speed": 90,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0.0
     },
     {
         "key": "mother-witch",
@@ -1145,7 +1793,15 @@
         "description": "Places a curse on enemy Troops with each attack. When a cursed Troop is destroyed, it turns into a building-targeting Hog that fights alongside the Mother Witch!\n\nShe also bakes great cookies.",
         "id": 26000083,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 440,
+        "damage": 0,
+        "hit_speed": 1000,
+        "speed": 60,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0.0
     },
     {
         "key": "electro-spirit",
@@ -1159,7 +1815,15 @@
         "description": "Jumps on enemies, dealing Area Damage and stunning up to 9 enemy Troops. Locked in an eternal battle with Knight for the best mustache.",
         "id": 26000084,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 90,
+        "damage": 0,
+        "hit_speed": 300,
+        "speed": 120,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0.0
     },
     {
         "key": "electro-giant",
@@ -1173,7 +1837,15 @@
         "description": "He channels electricity through his Zap Pack, a unique device that stuns and damages any Troop attacking him within its range.\n\nDon't tell him that his finger guns aren't real! He'll zap you.",
         "id": 26000085,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 2410,
+        "damage": 102,
+        "hit_speed": 2100,
+        "speed": 45,
+        "range": 7500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 48.6
     },
     {
         "key": "raging-prince",
@@ -1187,7 +1859,15 @@
         "description": "Don't let the little pony fool you. Once the Prince gets a running start, you WILL be trampled. Deals double damage once he gets charging.",
         "id": 26000086,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 1440,
+        "damage": 245,
+        "hit_speed": 1400,
+        "speed": 60,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 175.0
     },
     {
         "key": "phoenix",
@@ -1201,427 +1881,15 @@
         "description": "This mystical creature will be reborn as an egg when destroyed. If it hatches, it returns to the fight! What an egg-cellent ability.\n\nBeing born again is tiring, so a hatched Phoenix will have slightly less Hitpoints and Damage (80% of its total).",
         "id": 26000087,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
-    },
-    {
-        "key": "cannon",
-        "name": "Cannon",
-        "name_pt": "Canhão",
-        "sc_key": "Cannon",
-        "elixir": 3,
-        "type": "Building",
-        "rarity": "Common",
-        "arena": 3,
-        "description": "Defensive building. Shoots cannonballs with deadly effect, but cannot target flying troops.",
-        "id": 27000000,
-        "evolved_spells_sc_key": "",
-        "is_evolved": false
-    },
-    {
-        "key": "goblin-hut",
-        "name": "Goblin Hut",
-        "name_pt": "Cabana de Goblins",
-        "sc_key": "GoblinHut",
-        "elixir": 5,
-        "type": "Building",
-        "rarity": "Rare",
-        "arena": 1,
-        "description": "Building that spawns Spear Goblins. Don't look inside... you don't want to see how they're made.",
-        "id": 27000001,
-        "evolved_spells_sc_key": "",
-        "is_evolved": false
-    },
-    {
-        "key": "mortar",
-        "name": "Mortar",
-        "name_pt": "Morteiro",
-        "sc_key": "Mortar",
-        "elixir": 4,
-        "type": "Building",
-        "rarity": "Common",
-        "arena": 5,
-        "description": "Defensive building with a long range. Shoots big boulders that deal area damage, but cannot hit targets that get too close!",
-        "id": 27000002,
-        "evolved_spells_sc_key": "Mortar_EV1",
-        "is_evolved": false
-    },
-    {
-        "key": "inferno-tower",
-        "name": "Inferno Tower",
-        "name_pt": "Torre Inferno",
-        "sc_key": "InfernoTower",
-        "elixir": 5,
-        "type": "Building",
-        "rarity": "Rare",
-        "arena": 4,
-        "description": "Defensive building, roasts targets for damage that increases over time. Burns through even the biggest and toughest enemies!",
-        "id": 27000003,
-        "evolved_spells_sc_key": "",
-        "is_evolved": false
-    },
-    {
-        "key": "bomb-tower",
-        "name": "Bomb Tower",
-        "name_pt": "Torre de Bombas",
-        "sc_key": "BombTower",
-        "elixir": 4,
-        "type": "Building",
-        "rarity": "Rare",
-        "arena": 4,
-        "description": "Defensive building that houses a Bomber. Deals area damage to anything dumb enough to stand near it.",
-        "id": 27000004,
-        "evolved_spells_sc_key": "",
-        "is_evolved": false
-    },
-    {
-        "key": "barbarian-hut",
-        "name": "Barbarian Hut",
-        "name_pt": "Cabana de Bárbaros",
-        "sc_key": "BarbarianHut",
-        "elixir": 6,
-        "type": "Building",
-        "rarity": "Rare",
-        "arena": 9,
-        "description": "Building that periodically spawns Barbarians to fight the enemy. Time to make the Barbarians!",
-        "id": 27000005,
-        "evolved_spells_sc_key": "",
-        "is_evolved": false
-    },
-    {
-        "key": "tesla",
-        "name": "Tesla",
-        "name_pt": "Tesla",
-        "sc_key": "Tesla",
-        "elixir": 4,
-        "type": "Building",
-        "rarity": "Common",
-        "arena": 10,
-        "description": "Defensive building. Whenever it's not zapping the enemy, the power of Electrickery is best kept grounded.",
-        "id": 27000006,
-        "evolved_spells_sc_key": "",
-        "is_evolved": false
-    },
-    {
-        "key": "elixir-collector",
-        "name": "Elixir Collector",
-        "name_pt": "Coletor de Elixir",
-        "sc_key": "Elixir Collector",
-        "elixir": 6,
-        "type": "Building",
-        "rarity": "Rare",
-        "arena": 15,
-        "description": "You gotta spend Elixir to make Elixir! This building makes 8 Elixir over its Lifetime. Does not appear in your starting hand.",
-        "id": 27000007,
-        "evolved_spells_sc_key": "",
-        "is_evolved": false
-    },
-    {
-        "key": "x-bow",
-        "name": "X-Bow",
-        "name_pt": "X-Besta",
-        "sc_key": "Xbow",
-        "elixir": 6,
-        "type": "Building",
-        "rarity": "Epic",
-        "arena": 10,
-        "description": "Nice tower you got there. Would be a shame if this X-Bow whittled it down from this side of the Arena...",
-        "id": 27000008,
-        "evolved_spells_sc_key": "",
-        "is_evolved": false
-    },
-    {
-        "key": "tombstone",
-        "name": "Tombstone",
-        "name_pt": "Lápide",
-        "sc_key": "Tombstone",
-        "elixir": 3,
-        "type": "Building",
-        "rarity": "Rare",
-        "arena": 2,
-        "description": "Building that periodically spawns Skeletons to fight the enemy... and when destroyed, spawns 4 more Skeletons! Creepy!",
-        "id": 27000009,
-        "evolved_spells_sc_key": "",
-        "is_evolved": false
-    },
-    {
-        "key": "furnace",
-        "name": "Furnace",
-        "name_pt": "Fornalha",
-        "sc_key": "FirespiritHut",
-        "elixir": 4,
-        "type": "Building",
-        "rarity": "Rare",
-        "arena": 10,
-        "description": "The Furnace spawns one Fire Spirit at a time. It also makes great brick-oven pancakes.",
-        "id": 27000010,
-        "evolved_spells_sc_key": "",
-        "is_evolved": false
-    },
-    {
-        "key": "goblin-cage",
-        "name": "Goblin Cage",
-        "name_pt": "Jaula de Goblin",
-        "sc_key": "GoblinCage",
-        "elixir": 4,
-        "type": "Building",
-        "rarity": "Rare",
-        "arena": 1,
-        "description": "When the Goblin Cage is destroyed, a Goblin Brawler is unleashed into the Arena! Goblin Brawler always skips leg day.",
-        "id": 27000012,
-        "evolved_spells_sc_key": "",
-        "is_evolved": false
-    },
-    {
-        "key": "goblin-drill",
-        "name": "Goblin Drill",
-        "name_pt": "Broca de Goblins",
-        "sc_key": "GoblinDrill",
-        "elixir": 4,
-        "type": "Building",
-        "rarity": "Epic",
-        "arena": 14,
-        "description": "Building capable of burrowing underground and appearing anywhere in the Arena. Spawns Goblins one at a time until destroyed. Then spawns a few more, to make sure everything nearby has been properly stabbed.",
-        "id": 27000013,
-        "evolved_spells_sc_key": "",
-        "is_evolved": false
-    },
-    {
-        "key": "party-hut",
-        "name": "Party Hut",
-        "name_pt": "Cabana de Festa",
-        "sc_key": "GoblinPartyHut",
-        "elixir": 5,
-        "type": "Building",
-        "rarity": "Legendary",
-        "arena": 10,
-        "description": "Building that spawns Spear Goblins. Don't look inside... you don't want to see how they're made.",
-        "id": 27000014,
-        "evolved_spells_sc_key": "",
-        "is_evolved": false
-    },
-    {
-        "key": "fireball",
-        "name": "Fireball",
-        "name_pt": "Bola de Fogo",
-        "sc_key": "Fireball",
-        "elixir": 4,
-        "type": "Spell",
-        "rarity": "Rare",
-        "arena": 0,
-        "description": "Annnnnd... Fireball. Incinerates a small area, dealing high damage. Reduced damage to Crown Towers.",
-        "id": 28000000,
-        "evolved_spells_sc_key": "",
-        "is_evolved": false
-    },
-    {
-        "key": "arrows",
-        "name": "Arrows",
-        "name_pt": "Flechas",
-        "sc_key": "Arrows",
-        "elixir": 3,
-        "type": "Spell",
-        "rarity": "Common",
-        "arena": 0,
-        "description": "Arrows pepper a large area, damaging all enemies hit. Reduced damage to Crown Towers.",
-        "id": 28000001,
-        "evolved_spells_sc_key": "",
-        "is_evolved": false
-    },
-    {
-        "key": "rage",
-        "name": "Rage",
-        "name_pt": "Fúria",
-        "sc_key": "Rage",
-        "elixir": 2,
-        "type": "Spell",
-        "rarity": "Epic",
-        "arena": 14,
-        "description": "Increases troop movement and attack speed. Buildings attack faster and summon troops quicker, too. Chaaaarge!",
-        "id": 28000002,
-        "evolved_spells_sc_key": "",
-        "is_evolved": false
-    },
-    {
-        "key": "rocket",
-        "name": "Rocket",
-        "name_pt": "Foguete",
-        "sc_key": "Rocket",
-        "elixir": 6,
-        "type": "Spell",
-        "rarity": "Rare",
-        "arena": 5,
-        "description": "Deals high damage to a small area. Looks really awesome doing it. Reduced damage to Crown Towers.",
-        "id": 28000003,
-        "evolved_spells_sc_key": "",
-        "is_evolved": false
-    },
-    {
-        "key": "goblin-barrel",
-        "name": "Goblin Barrel",
-        "name_pt": "Barril de Goblins",
-        "sc_key": "GoblinBarrel",
-        "elixir": 3,
-        "type": "Spell",
-        "rarity": "Epic",
-        "arena": 6,
-        "description": "Spawns three Goblins anywhere in the Arena. It's going to be a thrilling ride, boys!",
-        "id": 28000004,
-        "evolved_spells_sc_key": "",
-        "is_evolved": false
-    },
-    {
-        "key": "freeze",
-        "name": "Freeze",
-        "name_pt": "Feitiço de Gelo",
-        "sc_key": "Freeze",
-        "elixir": 4,
-        "type": "Spell",
-        "rarity": "Epic",
-        "arena": 8,
-        "description": "Freezes and damages enemy troops and buildings, making them unable to move or attack. Everybody chill. Reduced damage to Crown Towers.",
-        "id": 28000005,
-        "evolved_spells_sc_key": "",
-        "is_evolved": false
-    },
-    {
-        "key": "mirror",
-        "name": "Mirror",
-        "name_pt": "Espelho",
-        "sc_key": "Mirror",
-        "elixir": 1,
-        "type": "Spell",
-        "rarity": "Epic",
-        "arena": 15,
-        "description": "Mirrors your last card played for +1 Elixir. Does not appear in your starting hand.",
-        "id": 28000006,
-        "evolved_spells_sc_key": "",
-        "is_evolved": false
-    },
-    {
-        "key": "lightning",
-        "name": "Lightning",
-        "name_pt": "Relâmpago",
-        "sc_key": "Lightning",
-        "elixir": 6,
-        "type": "Spell",
-        "rarity": "Epic",
-        "arena": 8,
-        "description": "Bolts of lightning damage and stun up to three enemy troops or buildings with the most hitpoints in the target area. Reduced damage to Crown Towers.",
-        "id": 28000007,
-        "evolved_spells_sc_key": "",
-        "is_evolved": false
-    },
-    {
-        "key": "zap",
-        "name": "Zap",
-        "name_pt": "Zap",
-        "sc_key": "Zap",
-        "elixir": 2,
-        "type": "Spell",
-        "rarity": "Common",
-        "arena": 5,
-        "description": "Zaps enemies, briefly stunning them and dealing damage inside a small radius. Reduced damage to Crown Towers.",
-        "id": 28000008,
-        "evolved_spells_sc_key": "",
-        "is_evolved": false
-    },
-    {
-        "key": "poison",
-        "name": "Poison",
-        "name_pt": "Veneno",
-        "sc_key": "Poison",
-        "elixir": 4,
-        "type": "Spell",
-        "rarity": "Epic",
-        "arena": 9,
-        "description": "Covers the area in a deadly toxin, damaging enemy troops and buildings over time. Yet somehow leaves the grass green and healthy. Go figure! Reduced damage to Crown Towers.",
-        "id": 28000009,
-        "evolved_spells_sc_key": "",
-        "is_evolved": false
-    },
-    {
-        "key": "graveyard",
-        "name": "Graveyard",
-        "name_pt": "Cemitério",
-        "sc_key": "Graveyard",
-        "elixir": 5,
-        "type": "Spell",
-        "rarity": "Legendary",
-        "arena": 12,
-        "description": "Surprise! It's a party. A Skeleton party, anywhere in the Arena. Yay!",
-        "id": 28000010,
-        "evolved_spells_sc_key": "",
-        "is_evolved": false
-    },
-    {
-        "key": "the-log",
-        "name": "The Log",
-        "name_pt": "Tronco",
-        "sc_key": "Log",
-        "elixir": 2,
-        "type": "Spell",
-        "rarity": "Legendary",
-        "arena": 11,
-        "description": "A spilt bottle of Rage turned an innocent tree trunk into \"The Log\". Now, it seeks revenge by crushing anything in its path! Reduced damage to Crown Towers.",
-        "id": 28000011,
-        "evolved_spells_sc_key": "",
-        "is_evolved": false
-    },
-    {
-        "key": "tornado",
-        "name": "Tornado",
-        "name_pt": "Tornado",
-        "sc_key": "Tornado",
-        "elixir": 3,
-        "type": "Spell",
-        "rarity": "Epic",
-        "arena": 15,
-        "description": "Drags enemy troops to its center while dealing damage over time, just like a magnet. A big, swirling, Tornado-y magnet.",
-        "id": 28000012,
-        "evolved_spells_sc_key": "",
-        "is_evolved": false
-    },
-    {
-        "key": "clone",
-        "name": "Clone",
-        "name_pt": "Clone",
-        "sc_key": "Clone",
-        "elixir": 3,
-        "type": "Spell",
-        "rarity": "Epic",
-        "arena": 15,
-        "description": "Duplicates all friendly troops in the target area. Cloned troops are fragile, but pack the same punch as the original! Doesn't affect buildings.",
-        "id": 28000013,
-        "evolved_spells_sc_key": "",
-        "is_evolved": false
-    },
-    {
-        "key": "earthquake",
-        "name": "Earthquake",
-        "name_pt": "Terremoto",
-        "sc_key": "Earthquake",
-        "elixir": 3,
-        "type": "Spell",
-        "rarity": "Rare",
-        "arena": 12,
-        "description": "Deals Damage per second to Troops and Crown Towers. Deals huge Building Damage! Does not affect flying units (it is an EARTHquake, after all).",
-        "id": 28000014,
-        "evolved_spells_sc_key": "",
-        "is_evolved": false
-    },
-    {
-        "key": "barbarian-barrel",
-        "name": "Barbarian Barrel",
-        "name_pt": "Barril de Bárbaro",
-        "sc_key": "BarbLog",
-        "elixir": 2,
-        "type": "Spell",
-        "rarity": "Epic",
-        "arena": 9,
-        "description": "It rolls over and damages anything in its path, then breaks open and out pops a Barbarian! How did he get inside?!",
-        "id": 28000015,
-        "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 870,
+        "damage": 180,
+        "hit_speed": 1000,
+        "speed": 60,
+        "range": 5500,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 180.0
     },
     {
         "key": "heal-spirit",
@@ -1635,48 +1903,14 @@
         "description": "A mischievous Spirit that leaps at enemies, dealing Damage and leaving behind a powerful healing effect that restores Hitpoints to friendly Troops!\n\nR.I.P. Heal\n2017 - 2020\nAlas, we hardly used ye.",
         "id": 28000016,
         "evolved_spells_sc_key": "",
-        "is_evolved": false
-    },
-    {
-        "key": "giant-snowball",
-        "name": "Giant Snowball",
-        "name_pt": "Bola de Neve Gigante",
-        "sc_key": "Snowball",
-        "elixir": 2,
-        "type": "Spell",
-        "rarity": "Common",
-        "arena": 8,
-        "description": "It's HUGE! Once it began rolling down Frozen Peak, there was no stopping it. Enemies hit are knocked back and slowed down. Reduced damage to Crown Towers.",
-        "id": 28000017,
-        "evolved_spells_sc_key": "",
-        "is_evolved": false
-    },
-    {
-        "key": "royal-delivery",
-        "name": "Royal Delivery",
-        "name_pt": "Entrega Real",
-        "sc_key": "RoyalDelivery",
-        "elixir": 3,
-        "type": "Spell",
-        "rarity": "Common",
-        "arena": 14,
-        "description": "No need to sign for this package!\n\nDropped from the sky, it deals Area Damage to enemy Troops before delivering a Royal Recruit.\n\nThe empty box is also handy for espionage.",
-        "id": 28000018,
-        "evolved_spells_sc_key": "",
-        "is_evolved": false
-    },
-    {
-        "key": "party-rocket",
-        "name": "Party Rocket",
-        "name_pt": "Foguete de Festa",
-        "sc_key": "GoblinPartyRocket",
-        "elixir": 5,
-        "type": "Spell",
-        "rarity": "Legendary",
-        "arena": 15,
-        "description": "Deals high damage to a small area. Looks really awesome doing it. Reduced damage to Crown Towers.",
-        "id": 28000020,
-        "evolved_spells_sc_key": "",
-        "is_evolved": false
+        "is_evolved": false,
+        "hp": 0,
+        "damage": 0,
+        "hit_speed": 0,
+        "speed": 0,
+        "range": 0,
+        "is_flying": false,
+        "troop_count": 1,
+        "dps": 0
     }
 ]
