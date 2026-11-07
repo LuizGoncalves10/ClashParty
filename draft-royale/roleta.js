@@ -209,8 +209,18 @@ function camposNecessarios(pergunta) {
     return Array.from(campos);
 }
 
+const CAMPOS_POSITIVOS = ['hp', 'damage', 'dps', 'hit_speed', 'speed', 'troop_count', 'elixir'];
+
+function campoEhValido(carta, campo) {
+    const valor = carta[campo];
+    if (valor === undefined || valor === null) return false;
+    if (typeof valor === 'number' && !Number.isFinite(valor)) return false;
+    if (CAMPOS_POSITIVOS.includes(campo)) return Number(valor) > 0;
+    return true;
+}
+
 function cartasTemCampos(campos) {
-    return cartasDosJogadores.every(item => campos.every(campo => item.carta[campo] !== undefined && item.carta[campo] !== null));
+    return cartasDosJogadores.every(item => campos.every(campo => campoEhValido(item.carta, campo)));
 }
 
 function coletarValidas(lista, individual) {
