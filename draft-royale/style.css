@@ -39,15 +39,16 @@ label {
 /* Contadores (Botões + e -) */
 .config-row {
     display: flex;
-    justify-content: space-between;
-    gap: 15px;
+    justify-content: center; /* Centraliza os dois blocos no meio da tela */
+    gap: 10px; /* Reduzi o gap de 15px para 10px para juntá-os um pouco mais */
     margin-bottom: 20px;
 }
 
 .config-box {
     flex: 1;
+    max-width: 150px; /* Evita que o bloco estique demais e cole na borda */
     background-color: rgba(0, 0, 0, 0.2);
-    padding: 15px 10px;
+    padding: 10px; /* Reduzi o padding interno para sobrar mais espaço nas bordas de fora */
     border-radius: 12px;
 }
 
