@@ -4,7 +4,8 @@ const CHAVES_JOGO = [
     'draftRoyaleFase',
     'draftRoyaleRodada',
     'draftRoyaleUltimoResultado',
-    'draftRoyalePrimeiroJogador'
+    'draftRoyalePendente',
+    'draftRoyaleVez'
 ];
 
 function lerJSON(chave, padrao) {
@@ -24,6 +25,7 @@ if (!Array.isArray(nomesJogadores) || nomesJogadores.length === 0) {
     nomesJogadores = ["Jogador 1", "Jogador 2", "Jogador 3", "Jogador 4"];
 }
 configs.casas = Number(configs.casas) || 10;
+const tipoRodada = configs.tipoRodada === 'rodada' ? 'rodada' : 'unica';
 
 let todasAsTropas = [];
 let indiceJogadorAtual = 0;
@@ -52,7 +54,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     if ((fase === 'tabuleiro' || fase === 'resultado') && cartasSalvasValidas(cartasSalvas)) {
         escolhasDaRodada = cartasSalvas;
-        primeiroJogadorRodada = parseInt(localStorage.getItem('draftRoyalePrimeiroJogador'), 10) || 0;
         mostrarTabuleiro(fase);
     } else {
         localStorage.setItem('draftRoyaleFase', 'draft');
@@ -74,6 +75,12 @@ function carregarPosicoes() {
         resultado[nome] = Number.isFinite(valor) ? Math.max(0, Math.min(configs.casas, Math.round(valor))) : 0;
     });
     return resultado;
+}
+
+function obterJogadorDaVez() {
+    const indice = parseInt(localStorage.getItem('draftRoyaleVez'), 10);
+    if (!Number.isFinite(indice) || indice < 0) return nomesJogadores[0];
+    return nomesJogadores[indice % nomesJogadores.length];
 }
 
 function obterVencedores() {
@@ -116,7 +123,9 @@ function sortearPrimeiroJogador() {
 function renderizarInterfaceTurno() {
     let jogadorNome = nomesJogadores[indiceJogadorAtual];
     document.getElementById('titulo-vez').innerText = `Vez de: ${jogadorNome}`;
-    document.getElementById('subtitulo-vez').innerText = `Rodada ${rodadaAtual} • Escolha sua tropa para a batalha!`;
+    document.getElementById('subtitulo-vez').innerText = tipoRodada === 'unica'
+        ? "Escolha a tropa que lutará até o fim da partida!"
+        : `Rodada ${rodadaAtual} • Escolha sua tropa para a batalha!`;
 
     let btn = document.getElementById('btn-acao-draft');
     let btnVoltar = document.getElementById('btn-voltar-draft');
@@ -199,7 +208,6 @@ function voltarParaNomes() {
 
 function iniciarFaseTabuleiro() {
     localStorage.setItem('draftRoyaleCartasEscolhidas', JSON.stringify(escolhasDaRodada));
-    localStorage.setItem('draftRoyalePrimeiroJogador', String(primeiroJogadorRodada));
     localStorage.setItem('draftRoyaleFase', 'tabuleiro');
     localStorage.removeItem('draftRoyaleUltimoResultado');
     posicoes = carregarPosicoes();
@@ -227,6 +235,9 @@ function renderizarSubtitulo(fase, resultado) {
         const afetados = Array.isArray(resultado.afetados) ? resultado.afetados : [];
         subtitulo.appendChild(criarLinhaSubtitulo(resultado.efeito || ""));
         subtitulo.appendChild(criarLinhaSubtitulo(resultado.pergunta || ""));
+        if (resultado.escolhidoPor) {
+            subtitulo.appendChild(criarLinhaSubtitulo(`Pergunta escolhida por ${resultado.escolhidoPor}`));
+        }
         if (afetados.length === 0) {
             subtitulo.appendChild(criarLinhaSubtitulo("Ninguém se encaixou nesta pergunta.", "#ffd54f"));
         } else {
@@ -237,7 +248,7 @@ function renderizarSubtitulo(fase, resultado) {
     }
 
     if (configs.modo === 'escolha') {
-        subtitulo.textContent = `Vez de: ${nomesJogadores[primeiroJogadorRodada] || nomesJogadores[0]}`;
+        subtitulo.textContent = `Na próxima roleta, ${obterJogadorDaVez()} escolhe a pergunta!`;
     } else {
         subtitulo.textContent = "A sorte guiará a batalha!";
     }
@@ -308,6 +319,9 @@ function configurarBotaoPrincipal(fase) {
         btn.innerText = "NOVO JOGO";
         btn.onclick = encerrarDeVez;
         mostrarModalVitoria(vencedores);
+    } else if (tipoRodada === 'unica') {
+        btn.innerText = "PRÓXIMA RODADA";
+        btn.onclick = proximaRodadaUnica;
     } else {
         btn.innerText = "NOVA RODADA";
         btn.onclick = novaRodada;
@@ -360,6 +374,15 @@ function encerrarDeVez() {
 function proximoTurno() {
     localStorage.setItem('draftRoyaleCartasEscolhidas', JSON.stringify(escolhasDaRodada));
     localStorage.setItem('draftRoyaleFase', 'tabuleiro');
+    window.location.href = "roleta.html";
+}
+
+function proximaRodadaUnica() {
+    rodadaAtual += 1;
+    localStorage.setItem('draftRoyaleRodada', String(rodadaAtual));
+    localStorage.setItem('draftRoyaleCartasEscolhidas', JSON.stringify(escolhasDaRodada));
+    localStorage.setItem('draftRoyaleFase', 'tabuleiro');
+    localStorage.removeItem('draftRoyaleUltimoResultado');
     window.location.href = "roleta.html";
 }
 

@@ -58,8 +58,7 @@ body {
     border: 8px solid var(--madeira-escura);
     box-shadow: 0px 10px 20px rgba(0,0,0,0.6), inset 0px 0px 10px rgba(0,0,0,0.5);
     transition: transform 5s cubic-bezier(0.25, 1, 0.1, 1);
-    /* O background conic-gradient será injetado pelo JavaScript */
-}
+    }
 
 .pino-central {
     position: absolute;
@@ -96,7 +95,6 @@ body {
     color: #999;
 }
 
-/* Caixa de Resultado - Transição Animada */
 .resultado-box {
     width: 100%;
     border: 4px solid var(--madeira-escura);
@@ -129,6 +127,11 @@ body {
     box-shadow: 0px 8px 15px rgba(0,0,0,0.5);
 }
 
+.efeito-coletivo {
+    background-color: #1565C0;
+    box-shadow: 0px 8px 15px rgba(0,0,0,0.5);
+}
+
 .pergunta-texto {
     font-size: 1.2rem;
     color: #fff;
@@ -145,4 +148,79 @@ body {
     margin: 0;
     font-family: 'Lilita One', cursive, sans-serif;
     transition: opacity 0.5s ease;
+}
+
+.opcoes-container {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.titulo-opcoes {
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    text-shadow: 1px 1px 2px #000;
+}
+
+.lista-opcoes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.opcao-pergunta {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 14px 16px;
+    border: 4px solid var(--madeira-escura);
+    border-radius: 12px;
+    color: #fff;
+    font-family: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: transform 0.1s ease, filter 0.2s ease;
+    box-shadow: 0px 6px 0px rgba(0,0,0,0.5);
+}
+
+.opcao-pergunta:hover:not(:disabled) {
+    transform: translateY(-2px);
+    filter: brightness(1.15);
+}
+
+.opcao-pergunta:active:not(:disabled) {
+    transform: translateY(2px);
+    box-shadow: 0px 2px 0px rgba(0,0,0,0.5);
+}
+
+.opcao-pergunta:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.opcao-avanco {
+    background-color: #2E7D32;
+}
+
+.opcao-recuo {
+    background-color: #c62828;
+}
+
+.opcao-tag {
+    font-family: 'Lilita One', cursive, sans-serif;
+    font-size: 0.95rem;
+    color: var(--dourado);
+    text-shadow: 1px 1px 0px #000;
+    letter-spacing: 1px;
+}
+
+.opcao-texto {
+    font-size: 1.05rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px #000;
 }

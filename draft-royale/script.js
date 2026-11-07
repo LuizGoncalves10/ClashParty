@@ -2,6 +2,7 @@ const configs = {
     jogadores: 4,
     casas: 10,
     modo: 'aleatorio',
+    tipoRodada: 'unica',
     regras: {
         avanco: true,
         recuo: true,
@@ -20,7 +21,8 @@ const CHAVES_JOGO = [
     'draftRoyaleFase',
     'draftRoyaleRodada',
     'draftRoyaleUltimoResultado',
-    'draftRoyalePrimeiroJogador'
+    'draftRoyalePendente',
+    'draftRoyaleVez'
 ];
 
 const MENSAGEM_NOME_VAZIO = "⚠️ Todos os guerreiros precisam ter um nome válido para entrar na arena!";
@@ -69,6 +71,13 @@ function selecionarModo(modo) {
     document.getElementById('modo-aleatorio').classList.remove('selected');
     document.getElementById('modo-escolha').classList.remove('selected');
     document.getElementById(`modo-${modo}`).classList.add('selected');
+}
+
+function selecionarTipoRodada(tipo) {
+    configs.tipoRodada = tipo;
+    document.getElementById('rodada-unica').classList.remove('selected');
+    document.getElementById('rodada-porrodada').classList.remove('selected');
+    document.getElementById(tipo === 'unica' ? 'rodada-unica' : 'rodada-porrodada').classList.add('selected');
 }
 
 function alternarRegra(regra) {
@@ -170,6 +179,7 @@ function iniciarJogoFinal() {
         posicoesIniciais[nome] = 0;
     });
     localStorage.setItem('draftRoyalePosicoes', JSON.stringify(posicoesIniciais));
+    localStorage.setItem('draftRoyaleVez', String(Math.floor(Math.random() * nomesJogadores.length)));
     localStorage.setItem('draftRoyaleRodada', '1');
     localStorage.setItem('draftRoyaleFase', 'draft');
 

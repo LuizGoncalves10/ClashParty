@@ -9,7 +9,6 @@
 </head>
 <body>
 
-    <!-- ETAPA 1: TELA DE CONFIGURAÇÃO -->
     <div id="tela-config" class="screen active">
         <header class="config-header">
             <h1>Draft Royale</h1>
@@ -42,11 +41,25 @@
                 <div class="mode-grid">
                     <div class="mode-card selected" id="modo-aleatorio" onclick="selecionarModo('aleatorio')">
                         <h3>🎲 Caos Aleatório</h3>
-                        <p>A roleta decide o atributo.</p>
+                        <p>A roleta decide a pergunta.</p>
                     </div>
                     <div class="mode-card" id="modo-escolha" onclick="selecionarModo('escolha')">
                         <h3>🧠 Duelo Tático</h3>
-                        <p>O jogador escolhe o atributo.</p>
+                        <p>A roleta define o tipo e o jogador escolhe a pergunta.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="config-section">
+                <label>Tipo de Rodada</label>
+                <div class="mode-grid">
+                    <div class="mode-card selected" id="rodada-unica" onclick="selecionarTipoRodada('unica')">
+                        <h3>🃏 Escolha Única</h3>
+                        <p>Cada jogador escolhe 1 carta e joga com ela até o fim.</p>
+                    </div>
+                    <div class="mode-card" id="rodada-porrodada" onclick="selecionarTipoRodada('rodada')">
+                        <h3>🔄 Escolha por Rodada</h3>
+                        <p>Todos escolhem uma nova carta a cada rodada.</p>
                     </div>
                 </div>
             </div>
@@ -73,7 +86,6 @@
         </main>
     </div>
 
-    <!-- ETAPA 2: TELA DE NOMEAR JOGADORES -->
     <div id="tela-jogadores" class="screen">
         <header class="config-header">
             <h1>Participantes</h1>
@@ -81,7 +93,6 @@
         </header>
 
         <main class="config-container">
-            <!-- Mensagem de erro estilizada -->
             <div id="mensagem-erro" class="error-msg">⚠️ Todos os guerreiros precisam ter um nome válido para entrar na arena!</div>
 
             <div id="lista-jogadores" class="players-grid"></div>
