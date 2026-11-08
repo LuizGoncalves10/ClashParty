@@ -3,42 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carta a Carta | Registro</title>
-    <!-- Volta uma pasta para acessar o CSS global -->
+    <title>Carta a Carta | Duelo Royale</title>
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header style="margin-bottom: 20px;">
-        <h1 style="color: var(--dourado);">Carta a Carta</h1>
-        <p style="font-family: sans-serif; font-weight: bold; font-size: 1.2rem; margin-top: 5px;">Duelo de Dedução</p>
-    </header>
 
-    <main class="games-container">
-        <div class="game-card">
-            <h2>Registrar Reis</h2>
-            <p style="margin-bottom: 20px;">Quem vai para a Arena?</p>
+    <!-- TELA 1: Registro dos Reis -->
+    <div id="tela-registro" class="screen active">
+        <header style="margin-bottom: 20px;">
+            <h1 style="color: var(--dourado);">Carta a Carta</h1>
+            <p style="font-family: sans-serif; font-weight: bold; font-size: 1.2rem; margin-top: 5px;">Duelo de Dedução</p>
+        </header>
+
+        <main class="games-container">
+            <div class="game-card">
+                <h2>Registrar Reis</h2>
+                <p style="margin-bottom: 20px;">Quem vai para a Arena?</p>
+                
+                <div class="input-group">
+                    <label class="label-azul">👑 Rei Azul (Jogador 1)</label>
+                    <input type="text" id="nome-azul" placeholder="Nome do Jogador 1" class="input-rei azul" autocomplete="off">
+                </div>
+
+                <div class="input-group">
+                    <label class="label-vermelho">👑 Rei Vermelho (Jogador 2)</label>
+                    <input type="text" id="nome-vermelho" placeholder="Nome do Jogador 2" class="input-rei vermelho" autocomplete="off">
+                </div>
+
+                <div id="erro-nomes" class="error-msg">Preencha o nome dos dois Reis!</div>
+
+                <div class="botoes-nav">
+                    <a href="../index.html" class="btn-supercell btn-voltar">VOLTAR</a>
+                    <button class="btn-supercell btn-iniciar" onclick="iniciarJogo()">INICIAR</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- TELA GENÉRICA DE AVISO (Passar o Celular) -->
+    <div id="tela-aviso" class="screen aviso-container">
+        <h1 id="aviso-titulo" class="aviso-titulo">Esconda a tela!</h1>
+        <p id="aviso-texto" class="aviso-texto">Passe para o seu amigo e não olhe.</p>
+        <button class="btn-supercell btn-iniciar" style="margin-top: 30px;" onclick="avisoOk()">OK</button>
+    </div>
+
+    <!-- TELA GENÉRICA DE SELEÇÃO DA CARTA SECRETA -->
+    <div id="tela-selecao" class="screen">
+        <header class="header-selecao">
+            <h1 id="selecao-titulo">Escolha sua carta</h1>
+            <p>Esta será a carta que seu oponente tentará adivinhar!</p>
+        </header>
+        <div class="tabuleiro-grid" id="selecao-grid"></div>
+        <button class="btn-supercell btn-iniciar" id="btn-confirmar-secreta" style="margin-top: 20px;" onclick="confirmarSecreta()" disabled>CONFIRMAR ESCOLHA</button>
+    </div>
+
+    <!-- TELA DO TABULEIRO (O Jogo) -->
+    <div id="tela-tabuleiro" class="screen">
+        <header class="header-tabuleiro">
+            <h1 id="tabuleiro-titulo">Turno: Rei Azul</h1>
             
-            <div class="input-group">
-                <label class="label-azul">👑 Rei Azul (Jogador 1)</label>
-                <input type="text" id="nome-azul" placeholder="Nome do Jogador 1" class="input-rei azul" autocomplete="off">
+            <div class="modos-container">
+                <button class="btn-modo active" id="btn-modo-descarte" onclick="mudarModo('descartar')">🗑️ DESCARTAR</button>
+                <button class="btn-modo" id="btn-modo-chute" onclick="mudarModo('chutar')">🎯 CHUTAR</button>
             </div>
+            <p id="instrucao-acao" class="instrucao">Selecione as cartas que deseja excluir.</p>
+        </header>
 
-            <div class="input-group">
-                <label class="label-vermelho">👑 Rei Vermelho (Jogador 2)</label>
-                <input type="text" id="nome-vermelho" placeholder="Nome do Jogador 2" class="input-rei vermelho" autocomplete="off">
+        <div class="tabuleiro-grid" id="tabuleiro-grid"></div>
+
+        <div class="tabuleiro-footer">
+            <button class="btn-supercell btn-proximo" id="btn-confirmar-acao" onclick="confirmarAcao()" disabled>CONFIRMAR</button>
+        </div>
+    </div>
+
+    <!-- TELA DE VITÓRIA -->
+    <div id="tela-vitoria" class="screen">
+        <header class="header-vitoria">
+            <h1>🏆 TEMOS UM CAMPEÃO! 🏆</h1>
+            <h2 id="vitoria-nome" style="color: var(--dourado); margin-top: 10px; font-size: 2.5rem;">Rei Azul</h2>
+            <p>Venceu o duelo de dedução!</p>
+        </header>
+        
+        <div class="cartas-reveladas">
+            <div class="carta-revelada">
+                <h3 class="label-azul" id="rev-nome-azul">Rei Azul</h3>
+                <img id="rev-img-azul" src="" alt="Carta Azul">
             </div>
-
-            <!-- Caixa de erro caso tentem iniciar sem nomes -->
-            <div id="erro-nomes" class="error-msg">Preencha o nome dos dois Reis!</div>
-
-            <!-- Botões de navegação -->
-            <div class="botoes-nav">
-                <a href="../index.html" class="btn-supercell btn-voltar">VOLTAR</a>
-                <button class="btn-supercell btn-iniciar" onclick="iniciarDuelo()">INICIAR</button>
+            <div class="carta-revelada">
+                <h3 class="label-vermelho" id="rev-nome-vermelho">Rei Vermelho</h3>
+                <img id="rev-img-vermelho" src="" alt="Carta Vermelha">
             </div>
         </div>
-    </main>
+
+        <button class="btn-supercell btn-iniciar" style="margin-top: 30px;" onclick="location.reload()">JOGAR NOVAMENTE</button>
+        <a href="../index.html" class="btn-supercell btn-voltar" style="margin-top: 15px; display: block; text-align: center;">SAIR</a>
+    </div>
 
     <script src="script.js"></script>
 </body>

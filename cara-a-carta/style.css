@@ -1,85 +1,211 @@
-/* Container dos campos de texto */
-.input-group {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    margin-bottom: 15px;
-}
-
-.input-group label {
-    font-size: 1.2rem;
-    margin-bottom: 8px;
-    text-shadow: 1px 1px 0 #000;
-}
-
-.label-azul { color: #4da6ff; }
-.label-vermelho { color: #ff4d4d; }
-
-/* Estilo do Input de Texto */
-.input-rei {
-    font-family: 'Lilita One', cursive;
-    font-size: 1.3rem;
-    padding: 12px;
-    border-radius: 8px;
-    border: 3px solid #000;
-    background: rgba(0, 0, 0, 0.4);
-    color: #fff;
-    outline: none;
-    transition: all 0.2s;
-    text-align: center;
-}
-
-.input-rei::placeholder {
-    color: rgba(255, 255, 255, 0.4);
-}
-
-.input-rei.azul:focus {
-    border-color: #4da6ff;
-    background: rgba(77, 166, 255, 0.2);
-}
-
-.input-rei.vermelho:focus {
-    border-color: #ff4d4d;
-    background: rgba(255, 77, 77, 0.2);
-}
-
-/* Mensagem de Erro */
-.error-msg {
+/* Gerenciamento de Telas (SPA) */
+.screen {
     display: none;
-    background-color: #ff4444;
-    color: white;
-    border: 2px solid #000;
-    border-radius: 8px;
-    padding: 10px;
-    margin-top: 5px;
+    width: 100%;
+    max-width: 600px;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 80px; /* Espaço pro footer fixo */
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* Temas Dinâmicos (Azul e Vermelho) */
+body.tema-azul {
+    background: radial-gradient(circle at top, #26436e, #0f1c30) !important;
+}
+
+body.tema-vermelho {
+    background: radial-gradient(circle at top, #8a2424, #360d0d) !important;
+}
+
+/* Telas de Aviso */
+.aviso-container {
+    justify-content: center;
     text-align: center;
+    min-height: 70vh;
+}
+
+.aviso-titulo {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: var(--texto-branco);
+}
+
+.aviso-texto {
+    font-size: 1.5rem;
     font-family: sans-serif;
     font-weight: bold;
-    font-size: 0.95rem;
-    text-shadow: 1px 1px 0 #000;
-    box-shadow: 0px 4px 0px #990000;
 }
 
-/* Área dos Botões */
-.botoes-nav {
-    margin-top: 25px;
+/* Headers do Jogo */
+.header-selecao, .header-tabuleiro, .header-vitoria {
+    text-align: center;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.header-tabuleiro h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* Tabuleiro - Grid de 30 Cartas */
+.tabuleiro-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    width: 100%;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    border: 3px solid #000;
+}
+
+/* Estilo Individual das Cartas */
+.carta {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: #ccc;
+    border-radius: 8px;
+    border: 2px solid #000;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.1s, filter 0.2s;
+}
+
+.carta img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Estados da Carta */
+.carta.descartada {
+    filter: grayscale(100%) brightness(0.3);
+    opacity: 0.8;
+}
+
+.carta.selecionada {
+    border: 3px solid var(--dourado);
+    transform: scale(1.05);
+    box-shadow: 0 0 10px var(--dourado);
+}
+
+/* Overlay Visual para Descarte e Chute */
+.modo-descarte .carta.selecionada::after {
+    content: '❌';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255, 0, 0, 0.5);
     display: flex;
-    gap: 15px;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
 }
 
-.botoes-nav .btn-supercell {
-    flex: 1;
-    font-size: 1.3rem;
-    padding: 12px 0;
+.modo-chute .carta.selecionada::after {
+    content: '🎯';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(76, 175, 80, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
 }
 
-.btn-voltar {
-    background-color: #ff4444 !important;
-    box-shadow: 0px 6px 0px #cc0000 !important;
+/* Botões de Ação (Descartar / Chutar) */
+.modos-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 5px;
 }
 
-.btn-iniciar {
-    background-color: #4CAF50 !important;
-    box-shadow: 0px 6px 0px #2E7D32 !important;
+.btn-modo {
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: 2px solid #555;
+    padding: 8px 15px;
+    font-family: 'Lilita One', cursive;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
 }
+
+.btn-modo.active {
+    background: var(--dourado);
+    color: #000;
+    border-color: #fff;
+    box-shadow: 0 4px 0 #b36b00;
+    transform: translateY(-2px);
+}
+
+.instrucao {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: var(--dourado);
+    margin-top: 5px;
+}
+
+/* Footer Fixo do Tabuleiro (Botão Confirmar) */
+.tabuleiro-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    border-top: 3px solid #000;
+    z-index: 100;
+}
+
+/* Tela de Vitória */
+.cartas-reveladas {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.carta-revelada {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+}
+
+.carta-revelada img {
+    width: 100%;
+    border-radius: 12px;
+    border: 4px solid var(--dourado);
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.8);
+    margin-top: 10px;
+}
+
+/* Input Styles do Passo 1 */
+.input-group { display: flex; flex-direction: column; text-align: left; margin-bottom: 15px; }
+.input-group label { font-size: 1.2rem; margin-bottom: 8px; text-shadow: 1px 1px 0 #000; }
+.label-azul { color: #4da6ff; }
+.label-vermelho { color: #ff4d4d; }
+.input-rei { font-family: 'Lilita One', cursive; font-size: 1.3rem; padding: 12px; border-radius: 8px; border: 3px solid #000; background: rgba(0, 0, 0, 0.4); color: #fff; outline: none; text-align: center; }
+.input-rei::placeholder { color: rgba(255, 255, 255, 0.4); }
+.input-rei.azul:focus { border-color: #4da6ff; background: rgba(77, 166, 255, 0.2); }
+.input-rei.vermelho:focus { border-color: #ff4d4d; background: rgba(255, 77, 77, 0.2); }
+.error-msg { display: none; background-color: #ff4444; color: white; border: 2px solid #000; border-radius: 8px; padding: 10px; margin-top: 5px; text-align: center; font-family: sans-serif; font-weight: bold; text-shadow: 1px 1px 0 #000; box-shadow: 0px 4px 0px #990000; }
+.botoes-nav { margin-top: 25px; display: flex; gap: 15px; justify-content: space-between; }
+.botoes-nav .btn-supercell { flex: 1; font-size: 1.3rem; padding: 12px 0; }
+.btn-voltar { background-color: #ff4444 !important; box-shadow: 0px 6px 0px #cc0000 !important; }
+.btn-iniciar { background-color: #4CAF50 !important; box-shadow: 0px 6px 0px #2E7D32 !important; }
+
+/* Para que os botões desativados fiquem cinzas */
+button:disabled { background-color: #555 !important; box-shadow: 0 4px 0 #333 !important; color: #888 !important; cursor: not-allowed; transform: none !important; }
