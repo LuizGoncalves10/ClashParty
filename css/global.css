@@ -57,10 +57,13 @@ h1 {
     font-size: 2.2rem;
 }
 
-/* Container de Jogos Mobile-First */
+/* Container de Jogos Mobile-First - ATUALIZADO PARA SUPORTAR VÁRIOS CARDS */
 .games-container {
     width: 100%;
     max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 /* O Card do Jogo (Estilo Madeira) */
@@ -98,14 +101,13 @@ h1 {
     padding: 12px 40px;
     border-radius: 12px;
     border: 2px solid #000;
-    /* Sombras que criam o corpo e a profundidade do botão */
     box-shadow: 0px 6px 0px var(--dourado-sombra), 0px 10px 10px rgba(0,0,0,0.5);
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     transition: all 0.1s ease;
     cursor: pointer;
+    text-align: center;
 }
 
-/* Animação de clique afundando o botão */
 .btn-supercell:active {
     transform: translateY(6px);
     box-shadow: 0px 0px 0px var(--dourado-sombra), 0px 4px 5px rgba(0,0,0,0.5);
