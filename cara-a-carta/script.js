@@ -18,9 +18,10 @@ window.onload = async () => {
     try {
         const response = await fetch('../todas_as_cartas.json');
         const data = await response.json();
-        todasAsCartas = data.items ? data.items : data; // Garante leitura segura do JSON
+        // Garante que funciona tanto se o JSON for um array direto ou um objeto { items: [...] }
+        todasAsCartas = data.items ? data.items : data; 
     } catch (error) {
-        console.error("Erro ao carregar cartas.json. Verifique o caminho.", error);
+        console.error("Erro ao carregar JSON das cartas:", error);
     }
 };
 
@@ -34,9 +35,13 @@ function embaralhar(array) {
 }
 
 function obterImagem(carta) {
-    // Puxa a imagem padrão do Clash Royale (adapte se o seu JSON for diferente)
+    // RESOLVIDO: Usa a propriedade "key" (ex: "knight") do seu JSON 
+    // para puxar a imagem exata do CDN de assets do Clash Royale!
+    if (carta.key) {
+        return `https://royaleapi.github.io/cr-api-assets/cards/${carta.key}.png`;
+    }
+    // Fallback de segurança
     if (carta.iconUrls && carta.iconUrls.medium) return carta.iconUrls.medium;
-    if (carta.imagem) return carta.imagem;
     return ''; 
 }
 
@@ -63,7 +68,7 @@ function iniciarJogo() {
     }
 
     if (todasAsCartas.length < 30) {
-        alert("Aguarde o carregamento das cartas ou certifique-se que seu arquivo JSON tem 30+ tropas.");
+        alert("Aguarde o carregamento das cartas ou verifique o arquivo JSON.");
         return;
     }
 
