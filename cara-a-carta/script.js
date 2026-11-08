@@ -1,27 +1,33 @@
 // VARIÁVEIS GLOBAIS DE ESTADO
-let todasAsCartas = [];
-let cartasDoJogo = [];
-let reis = { azul: '', vermelho: '' };
+let todasAsCartasClash = [];
+let todosOsBrawlers = [];
+let universoAtual = 'clash';
+let personagensDoJogo = []; 
+
+let jogadores = { azul: '', vermelho: '' };
 let estado = {
     azul: { secreta: null, descartadas: new Set() },
     vermelho: { secreta: null, descartadas: new Set() }
 };
 
-let faseAtual = ''; // 'selecaoAzul', 'selecaoVermelho', 'turno'
+let faseAtual = ''; 
 let turnoAtual = 'azul'; 
-let modoAcao = 'descartar'; // 'descartar' ou 'chutar'
-let cartasSelecionadas = new Set();
-let acaoPendenciaAviso = null; // Guarda o que fazer quando apertar "OK" no aviso
+let modoAcao = 'descartar'; 
+let selecionadas = new Set();
+let acaoPendenciaAviso = null; 
 
-// FUNÇÕES DE UTILIDADE E INICIALIZAÇÃO
+// CARREGAMENTO DOS DOIS JSONS
 window.onload = async () => {
     try {
-        const response = await fetch('../todas_as_cartas.json');
-        const data = await response.json();
-        // Garante que funciona tanto se o JSON for um array direto ou um objeto { items: [...] }
-        todasAsCartas = data.items ? data.items : data; 
+        const resClash = await fetch('../todas_as_cartas.json');
+        const dataClash = await resClash.json();
+        todasAsCartasClash = dataClash.items ? dataClash.items : dataClash; 
+
+        const resBrawl = await fetch('../todos_os_brawlers.json');
+        const dataBrawl = await resBrawl.json();
+        todosOsBrawlers = dataBrawl.list ? dataBrawl.list : dataBrawl;
     } catch (error) {
-        console.error("Erro ao carregar JSON das cartas:", error);
+        console.error("Erro ao carregar os arquivos JSON:", error);
     }
 };
 
@@ -34,15 +40,49 @@ function embaralhar(array) {
     return arrayCopia;
 }
 
-function obterImagem(carta) {
-    // RESOLVIDO: Usa a propriedade "key" (ex: "knight") do seu JSON 
-    // para puxar a imagem exata do CDN de assets do Clash Royale!
-    if (carta.key) {
-        return `https://royaleapi.github.io/cr-api-assets/cards/${carta.key}.png`;
+function obterImagem(personagem) {
+    if (universoAtual === 'brawl' && personagem.imageUrl) {
+        return personagem.imageUrl;
     }
-    // Fallback de segurança
-    if (carta.iconUrls && carta.iconUrls.medium) return carta.iconUrls.medium;
+    if (personagem.key) {
+        return `https://royaleapi.github.io/cr-api-assets/cards/${personagem.key}.png`;
+    }
+    if (personagem.iconUrls && personagem.iconUrls.medium) return personagem.iconUrls.medium;
     return ''; 
+}
+
+// NOVA FUNÇÃO: PRÉ-CARREGAMENTO DE IMAGENS NO CACHE
+function precarregarImagens(personagens) {
+    personagens.forEach(pers => {
+        const imgPreload = new Image();
+        imgPreload.src = obterImagem(pers);
+    });
+}
+
+function selecionarUniverso(universo) {
+    universoAtual = universo;
+    
+    document.getElementById('btn-uni-clash').classList.remove('active');
+    document.getElementById('btn-uni-brawl').classList.remove('active');
+    document.getElementById(`btn-uni-${universo}`).classList.add('active');
+
+    const titulo = document.getElementById('titulo-registro');
+    const label1 = document.getElementById('label-j1');
+    const label2 = document.getElementById('label-j2');
+
+    if (universo === 'clash') {
+        titulo.innerText = "Registrar Reis";
+        label1.innerText = "👑 Rei Azul (Jogador 1)";
+        label2.innerText = "👑 Rei Vermelho (Jogador 2)";
+    } else {
+        titulo.innerText = "Registrar Brawlers";
+        label1.innerText = "⭐ Brawler Azul (Jogador 1)";
+        label2.innerText = "⭐ Brawler Vermelho (Jogador 2)";
+    }
+}
+
+function obterTitulo() {
+    return universoAtual === 'clash' ? 'Rei' : 'Brawler';
 }
 
 function mostrarTela(idTela) {
@@ -56,31 +96,34 @@ function aplicarTema(cor) {
 }
 
 // ----------------------------------------------------
-// PASSO 1: INICIAR (Grava Nomes e Sorteia 30)
+// PASSO 1: INICIAR
 // ----------------------------------------------------
 function iniciarJogo() {
-    reis.azul = document.getElementById('nome-azul').value.trim();
-    reis.vermelho = document.getElementById('nome-vermelho').value.trim();
+    jogadores.azul = document.getElementById('nome-azul').value.trim();
+    jogadores.vermelho = document.getElementById('nome-vermelho').value.trim();
 
-    if (reis.azul === '' || reis.vermelho === '') {
+    if (jogadores.azul === '' || jogadores.vermelho === '') {
         document.getElementById('erro-nomes').style.display = 'block';
         return;
     }
 
-    if (todasAsCartas.length < 30) {
-        alert("Aguarde o carregamento das cartas ou verifique o arquivo JSON.");
+    const arrayBase = universoAtual === 'clash' ? todasAsCartasClash : todosOsBrawlers;
+
+    if (arrayBase.length < 30) {
+        alert("Aguarde o carregamento dos personagens ou verifique os arquivos JSON.");
         return;
     }
 
-    // Sorteia as 30 cartas para o Duelo
-    cartasDoJogo = embaralhar(todasAsCartas).slice(0, 30);
+    personagensDoJogo = embaralhar(arrayBase).slice(0, 30);
     
-    // Inicia fluxo de Seleção Secreta
-    prepararAviso('azul', 'Esconda a tela!', `Passe o celular para o(a) ${reis.azul} e não olhe!`, iniciarSelecaoSecreta);
+    // ATIVA O PRÉ-CARREGAMENTO EM SEGUNDO PLANO
+    precarregarImagens(personagensDoJogo);
+    
+    prepararAviso('azul', 'Esconda a tela!', `Passe o celular para o(a) ${jogadores.azul} e não olhe!`, iniciarSelecaoSecreta);
 }
 
 // ----------------------------------------------------
-// TELAS DE AVISO (Passar Celular)
+// TELAS DE AVISO E SELEÇÃO
 // ----------------------------------------------------
 function prepararAviso(corTema, titulo, texto, callback) {
     aplicarTema(corTema);
@@ -94,15 +137,12 @@ function avisoOk() {
     if (acaoPendenciaAviso) acaoPendenciaAviso();
 }
 
-// ----------------------------------------------------
-// SELEÇÃO DAS CARTAS SECRETAS
-// ----------------------------------------------------
 function iniciarSelecaoSecreta() {
     faseAtual = (estado.azul.secreta === null) ? 'selecaoAzul' : 'selecaoVermelho';
     turnoAtual = (faseAtual === 'selecaoAzul') ? 'azul' : 'vermelho';
     
-    document.getElementById('selecao-titulo').innerText = `Rei ${turnoAtual === 'azul' ? 'Azul' : 'Vermelho'}, escolha sua carta!`;
-    cartasSelecionadas.clear();
+    document.getElementById('selecao-titulo').innerText = `${obterTitulo()} ${turnoAtual === 'azul' ? 'Azul' : 'Vermelho'}, escolha!`;
+    selecionadas.clear();
     
     renderizarGridSelecao();
     mostrarTela('tela-selecao');
@@ -112,35 +152,37 @@ function renderizarGridSelecao() {
     const grid = document.getElementById('selecao-grid');
     grid.innerHTML = '';
     
-    cartasDoJogo.forEach(carta => {
+    personagensDoJogo.forEach(pers => {
         const div = document.createElement('div');
-        div.className = `carta ${cartasSelecionadas.has(carta.id) ? 'selecionada' : ''}`;
+        div.className = `carta ${selecionadas.has(pers.id) ? 'selecionada' : ''}`;
+        
+        if(universoAtual === 'brawl') div.style.aspectRatio = "1/1"; 
+
         div.onclick = () => {
-            cartasSelecionadas.clear(); // Na seleção, só escolhe 1
-            cartasSelecionadas.add(carta.id);
+            selecionadas.clear(); 
+            selecionadas.add(pers.id);
             renderizarGridSelecao();
             document.getElementById('btn-confirmar-secreta').disabled = false;
         };
 
         const img = document.createElement('img');
-        img.src = obterImagem(carta);
+        img.src = obterImagem(pers);
         div.appendChild(img);
         grid.appendChild(div);
     });
 }
 
 function confirmarSecreta() {
-    const cartaEscolhidaId = Array.from(cartasSelecionadas)[0];
-    const cartaObj = cartasDoJogo.find(c => c.id === cartaEscolhidaId);
+    const idEscolhido = Array.from(selecionadas)[0];
+    const persObj = personagensDoJogo.find(c => c.id === idEscolhido);
 
     if (turnoAtual === 'azul') {
-        estado.azul.secreta = cartaObj;
-        prepararAviso('vermelho', 'Sua vez!', `Passe o celular para o(a) ${reis.vermelho} e não olhe!`, iniciarSelecaoSecreta);
+        estado.azul.secreta = persObj;
+        prepararAviso('vermelho', 'Sua vez!', `Passe o celular para o(a) ${jogadores.vermelho} e não olhe!`, iniciarSelecaoSecreta);
     } else {
-        estado.vermelho.secreta = cartaObj;
-        // Ambas escolhidas, começar o jogo!
-        turnoAtual = 'azul'; // Azul sempre começa
-        prepararAviso('azul', 'Que comece o duelo!', `Celular com o(a) ${reis.azul}. Prepare-se!`, iniciarTurnoTabuleiro);
+        estado.vermelho.secreta = persObj;
+        turnoAtual = 'azul'; 
+        prepararAviso('azul', 'Que comece o duelo!', `Celular com o(a) ${jogadores.azul}. Prepare-se!`, iniciarTurnoTabuleiro);
     }
 }
 
@@ -149,15 +191,15 @@ function confirmarSecreta() {
 // ----------------------------------------------------
 function iniciarTurnoTabuleiro() {
     aplicarTema(turnoAtual);
-    document.getElementById('tabuleiro-titulo').innerText = `Turno: ${turnoAtual === 'azul' ? reis.azul : reis.vermelho}`;
-    cartasSelecionadas.clear();
-    mudarModo('descartar'); // Volta para descarte por padrão
+    document.getElementById('tabuleiro-titulo').innerText = `Turno: ${turnoAtual === 'azul' ? jogadores.azul : jogadores.vermelho}`;
+    selecionadas.clear();
+    mudarModo('descartar'); 
     mostrarTela('tela-tabuleiro');
 }
 
 function mudarModo(novoModo) {
     modoAcao = novoModo;
-    cartasSelecionadas.clear();
+    selecionadas.clear();
     
     document.getElementById('btn-modo-descarte').classList.remove('active');
     document.getElementById('btn-modo-chute').classList.remove('active');
@@ -166,10 +208,10 @@ function mudarModo(novoModo) {
 
     if (modoAcao === 'descartar') {
         document.getElementById('btn-modo-descarte').classList.add('active');
-        document.getElementById('instrucao-acao').innerText = "Selecione as cartas que deseja excluir.";
+        document.getElementById('instrucao-acao').innerText = "Selecione as opções que deseja excluir.";
     } else {
         document.getElementById('btn-modo-chute').classList.add('active');
-        document.getElementById('instrucao-acao').innerText = "Arrisque! Escolha UMA carta (pode ser uma já descartada).";
+        document.getElementById('instrucao-acao').innerText = "Arrisque! Escolha UM personagem.";
     }
     
     renderizarTabuleiro();
@@ -181,17 +223,18 @@ function renderizarTabuleiro() {
     
     const descartadasDoTurno = estado[turnoAtual].descartadas;
 
-    cartasDoJogo.forEach(carta => {
+    personagensDoJogo.forEach(pers => {
         const div = document.createElement('div');
-        const isDescartada = descartadasDoTurno.has(carta.id);
-        const isSelecionada = cartasSelecionadas.has(carta.id);
+        const isDescartada = descartadasDoTurno.has(pers.id);
+        const isSelecionada = selecionadas.has(pers.id);
         
         div.className = `carta ${isDescartada ? 'descartada' : ''} ${isSelecionada ? 'selecionada' : ''}`;
+        if(universoAtual === 'brawl') div.style.aspectRatio = "1/1"; 
         
-        div.onclick = () => cliqueCartaTabuleiro(carta.id, isDescartada);
+        div.onclick = () => cliqueCartaTabuleiro(pers.id, isDescartada);
 
         const img = document.createElement('img');
-        img.src = obterImagem(carta);
+        img.src = obterImagem(pers);
         div.appendChild(img);
         grid.appendChild(div);
     });
@@ -201,17 +244,12 @@ function renderizarTabuleiro() {
 
 function cliqueCartaTabuleiro(id, isDescartada) {
     if (modoAcao === 'descartar') {
-        if (isDescartada) return; // Não pode re-descartar
-        
-        if (cartasSelecionadas.has(id)) {
-            cartasSelecionadas.delete(id);
-        } else {
-            cartasSelecionadas.add(id);
-        }
+        if (isDescartada) return; 
+        if (selecionadas.has(id)) selecionadas.delete(id);
+        else selecionadas.add(id);
     } else if (modoAcao === 'chutar') {
-        // No modo chute, limpa e escolhe apenas 1 (pode ser descartada)
-        cartasSelecionadas.clear();
-        cartasSelecionadas.add(id);
+        selecionadas.clear();
+        selecionadas.add(id);
     }
     renderizarTabuleiro();
 }
@@ -220,34 +258,28 @@ function atualizarBotaoConfirmar() {
     const btnConfirmar = document.getElementById('btn-confirmar-acao');
     const btnDescarte = document.getElementById('btn-modo-descarte');
     
-    // Bloqueia o botão CONFIRMAR se nada foi selecionado
-    btnConfirmar.disabled = cartasSelecionadas.size === 0;
+    btnConfirmar.disabled = selecionadas.size === 0;
 
-    // Se o jogador já descartou quase tudo (sobrou 1 ou 0), bloqueia o botão DESCARTAR
-    if (estado[turnoAtual].descartadas.size >= cartasDoJogo.length - 1) {
+    if (estado[turnoAtual].descartadas.size >= personagensDoJogo.length - 1) {
         btnDescarte.disabled = true;
-        if (modoAcao === 'descartar') mudarModo('chutar'); // Força ele a chutar
+        if (modoAcao === 'descartar') mudarModo('chutar');
     } else {
         btnDescarte.disabled = false;
     }
 }
 
-// Ação Final do Turno
 function confirmarAcao() {
     if (modoAcao === 'descartar') {
-        // Adiciona as cartas à lista de descartadas do Rei atual
-        cartasSelecionadas.forEach(id => estado[turnoAtual].descartadas.add(id));
+        selecionadas.forEach(id => estado[turnoAtual].descartadas.add(id));
         passarTurno();
     } 
     else if (modoAcao === 'chutar') {
-        const chuteId = Array.from(cartasSelecionadas)[0];
-        const outroRei = turnoAtual === 'azul' ? 'vermelho' : 'azul';
+        const chuteId = Array.from(selecionadas)[0];
+        const outroJogador = turnoAtual === 'azul' ? 'vermelho' : 'azul';
         
-        if (chuteId === estado[outroRei].secreta.id) {
-            // Acertou!
+        if (chuteId === estado[outroJogador].secreta.id) {
             mostrarVitoria(turnoAtual);
         } else {
-            // Errou! A carta que ele chutou fica escura pra ele no próximo turno (foi eliminada)
             estado[turnoAtual].descartadas.add(chuteId);
             passarTurno();
         }
@@ -256,25 +288,29 @@ function confirmarAcao() {
 
 function passarTurno() {
     turnoAtual = (turnoAtual === 'azul') ? 'vermelho' : 'azul';
-    const nomeProximo = turnoAtual === 'azul' ? reis.azul : reis.vermelho;
+    const nomeProximo = turnoAtual === 'azul' ? jogadores.azul : jogadores.vermelho;
     prepararAviso(turnoAtual, 'Fim de turno', `Passe o celular para o(a) ${nomeProximo}`, iniciarTurnoTabuleiro);
 }
 
 // ----------------------------------------------------
 // TELA DE CAMPEÃO
 // ----------------------------------------------------
-function mostrarVitoria(reiVencedor) {
-    aplicarTema(reiVencedor); // A tela fica da cor do Rei que ganhou
+function mostrarVitoria(vencedor) {
+    aplicarTema(vencedor); 
     
-    const nomeVencedor = reiVencedor === 'azul' ? reis.azul : reis.vermelho;
-    document.getElementById('vitoria-nome').innerText = `Rei ${reiVencedor === 'azul' ? 'Azul' : 'Vermelho'} (${nomeVencedor})`;
+    const nomeVencedor = vencedor === 'azul' ? jogadores.azul : jogadores.vermelho;
+    document.getElementById('vitoria-nome').innerText = `${obterTitulo()} ${vencedor === 'azul' ? 'Azul' : 'Vermelho'} (${nomeVencedor})`;
     
-    // Mostra as duas cartas
-    document.getElementById('rev-nome-azul').innerText = reis.azul;
+    document.getElementById('rev-nome-azul').innerText = jogadores.azul;
     document.getElementById('rev-img-azul').src = obterImagem(estado.azul.secreta);
     
-    document.getElementById('rev-nome-vermelho').innerText = reis.vermelho;
+    document.getElementById('rev-nome-vermelho').innerText = jogadores.vermelho;
     document.getElementById('rev-img-vermelho').src = obterImagem(estado.vermelho.secreta);
+
+    if(universoAtual === 'brawl') {
+        document.getElementById('rev-img-azul').style.aspectRatio = "1/1";
+        document.getElementById('rev-img-vermelho').style.aspectRatio = "1/1";
+    }
 
     mostrarTela('tela-vitoria');
 }

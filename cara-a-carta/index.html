@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <!-- TELA 1: Registro dos Reis -->
+    <!-- TELA 1: Registro dos Jogadores -->
     <div id="tela-registro" class="screen active">
         <header style="margin-bottom: 20px;">
             <h1 style="color: var(--dourado);">Carta a Carta</h1>
@@ -18,20 +18,29 @@
 
         <main class="games-container">
             <div class="game-card">
-                <h2>Registrar Reis</h2>
-                <p style="margin-bottom: 20px;">Quem vai para a Arena?</p>
+                
+                <!-- NOVO: Seletor de Universo -->
+                <div class="seletor-universo">
+                    <label>Escolha o Universo:</label>
+                    <div class="botoes-universo">
+                        <button class="btn-universo active" id="btn-uni-clash" onclick="selecionarUniverso('clash')">👑 Clash Royale</button>
+                        <button class="btn-universo" id="btn-uni-brawl" onclick="selecionarUniverso('brawl')">⭐ Brawl Stars</button>
+                    </div>
+                </div>
+
+                <h2 id="titulo-registro">Registrar Reis</h2>
                 
                 <div class="input-group">
-                    <label class="label-azul">👑 Rei Azul (Jogador 1)</label>
+                    <label class="label-azul" id="label-j1">👑 Rei Azul (Jogador 1)</label>
                     <input type="text" id="nome-azul" placeholder="Nome do Jogador 1" class="input-rei azul" autocomplete="off">
                 </div>
 
                 <div class="input-group">
-                    <label class="label-vermelho">👑 Rei Vermelho (Jogador 2)</label>
+                    <label class="label-vermelho" id="label-j2">👑 Rei Vermelho (Jogador 2)</label>
                     <input type="text" id="nome-vermelho" placeholder="Nome do Jogador 2" class="input-rei vermelho" autocomplete="off">
                 </div>
 
-                <div id="erro-nomes" class="error-msg">Preencha o nome dos dois Reis!</div>
+                <div id="erro-nomes" class="error-msg">Preencha o nome dos dois jogadores!</div>
 
                 <div class="botoes-nav">
                     <a href="../index.html" class="btn-supercell btn-voltar">VOLTAR</a>
@@ -48,11 +57,11 @@
         <button class="btn-supercell btn-iniciar" style="margin-top: 30px;" onclick="avisoOk()">OK</button>
     </div>
 
-    <!-- TELA GENÉRICA DE SELEÇÃO DA CARTA SECRETA -->
+    <!-- TELA GENÉRICA DE SELEÇÃO DO PERSONAGEM SECRETO -->
     <div id="tela-selecao" class="screen">
         <header class="header-selecao">
-            <h1 id="selecao-titulo">Escolha sua carta</h1>
-            <p>Esta será a carta que seu oponente tentará adivinhar!</p>
+            <h1 id="selecao-titulo">Escolha seu personagem</h1>
+            <p id="selecao-subtitulo">Este será o personagem que seu oponente tentará adivinhar!</p>
         </header>
         <div class="tabuleiro-grid" id="selecao-grid"></div>
         <button class="btn-supercell btn-iniciar" id="btn-confirmar-secreta" style="margin-top: 20px;" onclick="confirmarSecreta()" disabled>CONFIRMAR ESCOLHA</button>
@@ -61,13 +70,13 @@
     <!-- TELA DO TABULEIRO (O Jogo) -->
     <div id="tela-tabuleiro" class="screen">
         <header class="header-tabuleiro">
-            <h1 id="tabuleiro-titulo">Turno: Rei Azul</h1>
+            <h1 id="tabuleiro-titulo">Turno: Jogador Azul</h1>
             
             <div class="modos-container">
                 <button class="btn-modo active" id="btn-modo-descarte" onclick="mudarModo('descartar')">🗑️ DESCARTAR</button>
                 <button class="btn-modo" id="btn-modo-chute" onclick="mudarModo('chutar')">🎯 CHUTAR</button>
             </div>
-            <p id="instrucao-acao" class="instrucao">Selecione as cartas que deseja excluir.</p>
+            <p id="instrucao-acao" class="instrucao">Selecione as opções que deseja excluir.</p>
         </header>
 
         <div class="tabuleiro-grid" id="tabuleiro-grid"></div>
@@ -81,17 +90,17 @@
     <div id="tela-vitoria" class="screen">
         <header class="header-vitoria">
             <h1>🏆 TEMOS UM CAMPEÃO! 🏆</h1>
-            <h2 id="vitoria-nome" style="color: var(--dourado); margin-top: 10px; font-size: 2.5rem;">Rei Azul</h2>
+            <h2 id="vitoria-nome" style="color: var(--dourado); margin-top: 10px; font-size: 2.5rem;">Jogador Azul</h2>
             <p>Venceu o duelo de dedução!</p>
         </header>
         
         <div class="cartas-reveladas">
             <div class="carta-revelada">
-                <h3 class="label-azul" id="rev-nome-azul">Rei Azul</h3>
+                <h3 class="label-azul" id="rev-nome-azul">Azul</h3>
                 <img id="rev-img-azul" src="" alt="Carta Azul">
             </div>
             <div class="carta-revelada">
-                <h3 class="label-vermelho" id="rev-nome-vermelho">Rei Vermelho</h3>
+                <h3 class="label-vermelho" id="rev-nome-vermelho">Vermelho</h3>
                 <img id="rev-img-vermelho" src="" alt="Carta Vermelha">
             </div>
         </div>
