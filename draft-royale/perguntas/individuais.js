@@ -49,8 +49,6 @@ const perguntasIndividuais = [
     { texto: "Quem tiver o ataque mais LENTO (maior tempo entre golpes)", checar: (cartas) => compararCartas(cartas, c => c.hit_speed, true) },
     { texto: "Quem tiver a MAIOR Velocidade de Movimento", checar: (cartas) => compararCartas(cartas, c => c.speed, true) },
     { texto: "Quem tiver a MENOR Velocidade de Movimento", checar: (cartas) => compararCartas(cartas, c => c.speed, false) },
-    { texto: "Quem tiver o MAIOR Alcance de ataque", checar: (cartas) => compararCartas(cartas, c => c.attack_range, true) },
-    { texto: "Quem tiver o MENOR Alcance de ataque", checar: (cartas) => compararCartas(cartas, c => c.attack_range, false) },
     { texto: "Quem invocar a MAIOR quantidade de tropas", checar: (cartas) => compararCartas(cartas, c => c.troop_count, true) },
     { texto: "Quem invocar a MENOR quantidade de tropas", checar: (cartas) => compararCartas(cartas, c => c.troop_count, false) },
     { texto: "Quem tiver a carta com o MAIOR custo de Elixir", checar: (cartas) => compararCartas(cartas, c => c.elixir, true) },

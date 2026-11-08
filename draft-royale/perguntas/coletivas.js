@@ -1,43 +1,26 @@
-const TROPAS_VOADORAS = [
-    "minions",
-    "balloon",
-    "baby-dragon",
-    "minion-horde",
-    "lava-hound",
-    "inferno-dragon",
-    "mega-minion",
-    "flying-machine",
-    "electro-dragon",
-    "skeleton-barrel",
-    "bats",
-    "skeleton-dragons",
-    "phoenix",
-    "super-lava-hound"
-];
-
-function ehVoadora(carta) {
-    return carta.is_flying === true || TROPAS_VOADORAS.includes(carta.key);
-}
-
 const perguntasColetivas = [
-    { texto: "Todos os jogadores com Tropas Voadoras", checar: (cartas) => cartas.filter(item => ehVoadora(item.carta)).map(item => item.jogador) },
-    { texto: "Todos os jogadores com Tropas Terrestres", checar: (cartas) => cartas.filter(item => !ehVoadora(item.carta)).map(item => item.jogador) },
+    { texto: "Todos os jogadores com Tropas Voadoras", checar: (cartas) => cartas.filter(item => item.carta.is_flying === true).map(item => item.jogador) },
+    { texto: "Todos os jogadores com Tropas Terrestres", checar: (cartas) => cartas.filter(item => item.carta.is_flying === false).map(item => item.jogador) },
     { texto: "Todos os jogadores que invocam 3 ou mais tropas", checar: (cartas) => cartas.filter(item => item.carta.troop_count >= 3).map(item => item.jogador) },
     { texto: "Todos os jogadores que invocam exatamente 1 tropa", checar: (cartas) => cartas.filter(item => item.carta.troop_count === 1).map(item => item.jogador) },
     { texto: "Todos os jogadores com cartas que custam 5 ou mais de Elixir", checar: (cartas) => cartas.filter(item => item.carta.elixir >= 5).map(item => item.jogador) },
     { texto: "Todos os jogadores com cartas que custam 3 ou menos de Elixir", checar: (cartas) => cartas.filter(item => item.carta.elixir <= 3).map(item => item.jogador) },
     { texto: "Todos os jogadores com custo de Elixir PAR", checar: (cartas) => cartas.filter(item => item.carta.elixir % 2 === 0).map(item => item.jogador) },
     { texto: "Todos os jogadores com custo de Elixir ÍMPAR", checar: (cartas) => cartas.filter(item => item.carta.elixir % 2 !== 0).map(item => item.jogador) },
-    { texto: "Todos os jogadores com cartas com mais de 1000 de Vida (de uma tropa)", checar: (cartas) => cartas.filter(item => item.carta.hp > 1000).map(item => item.jogador) },
-    { texto: "Todos os jogadores com cartas com menos de 500 de Vida (de uma tropa)", checar: (cartas) => cartas.filter(item => item.carta.hp < 500).map(item => item.jogador) },
-    { texto: "Todos os jogadores com cartas com DPS maior que 150", checar: (cartas) => cartas.filter(item => item.carta.dps > 150).map(item => item.jogador) },
-    { texto: "Todos os jogadores com cartas que causam mais de 200 de Dano por golpe", checar: (cartas) => cartas.filter(item => item.carta.damage > 200).map(item => item.jogador) },
+    { texto: "Todos os jogadores com cartas com mais de 1500 de Vida (de uma tropa, nível 11)", checar: (cartas) => cartas.filter(item => item.carta.hp > 1500).map(item => item.jogador) },
+    { texto: "Todos os jogadores com cartas com menos de 600 de Vida (de uma tropa, nível 11)", checar: (cartas) => cartas.filter(item => item.carta.hp < 600).map(item => item.jogador) },
+    { texto: "Todos os jogadores com cartas com DPS maior que 150 (nível 11)", checar: (cartas) => cartas.filter(item => item.carta.dps > 150).map(item => item.jogador) },
+    { texto: "Todos os jogadores com cartas que causam mais de 250 de Dano por golpe (nível 11)", checar: (cartas) => cartas.filter(item => item.carta.damage > 250).map(item => item.jogador) },
     { texto: "Todas as tropas Rápidas ou Muito Rápidas (Velocidade 90 ou superior)", checar: (cartas) => cartas.filter(item => item.carta.speed >= 90).map(item => item.jogador) },
-    { texto: "Todos os jogadores com cartas à distância (Alcance de ataque de 2000 ou mais)", checar: (cartas) => cartas.filter(item => item.carta.attack_range >= 2000).map(item => item.jogador) },
-    { texto: "Todos os jogadores com cartas Corpo a Corpo (Alcance de ataque abaixo de 2000)", checar: (cartas) => cartas.filter(item => item.carta.attack_range < 2000).map(item => item.jogador) },
+    { texto: "Todos os jogadores com cartas que atacam de longe", checar: (cartas) => cartas.filter(item => item.carta.ataca_de_longe === true).map(item => item.jogador) },
+    { texto: "Todos os jogadores com cartas que atacam de perto", checar: (cartas) => cartas.filter(item => item.carta.ataca_de_longe === false).map(item => item.jogador) },
     { texto: "Todas as cartas de raridade Comum", checar: (cartas) => cartas.filter(item => item.carta.rarity.toLowerCase() === "common").map(item => item.jogador) },
     { texto: "Todas as cartas de raridade Épica, Lendária ou Campeão", checar: (cartas) => cartas.filter(item => ["epic", "legendary", "champion"].includes(item.carta.rarity.toLowerCase())).map(item => item.jogador) },
     { texto: "Cartas liberadas da Arena 10 para cima", checar: (cartas) => cartas.filter(item => item.carta.arena >= 10).map(item => item.jogador) },
     { texto: "Cartas liberadas nas Arenas 0, 1 e 2", checar: (cartas) => cartas.filter(item => item.carta.arena <= 2).map(item => item.jogador) },
-    { texto: "Todas as cartas que atacam em menos de 1 segundo", checar: (cartas) => cartas.filter(item => item.carta.hit_speed > 0 && item.carta.hit_speed < 1000).map(item => item.jogador) }
+    { texto: "Todas as cartas que atacam em menos de 1 segundo", checar: (cartas) => cartas.filter(item => item.carta.hit_speed > 0 && item.carta.hit_speed < 1000).map(item => item.jogador) },
+    { texto: "Todos os jogadores com cartas que possuem Evolução", checar: (cartas) => cartas.filter(item => item.carta.tem_evolucao === true).map(item => item.jogador) },
+    { texto: "Todos os jogadores com cartas que NÃO possuem Evolução", checar: (cartas) => cartas.filter(item => item.carta.tem_evolucao === false).map(item => item.jogador) },
+    { texto: "Todos os jogadores com cartas que possuem versão Herói", checar: (cartas) => cartas.filter(item => item.carta.tem_heroi === true).map(item => item.jogador) },
+    { texto: "Todos os jogadores com cartas que NÃO possuem versão Herói", checar: (cartas) => cartas.filter(item => item.carta.tem_heroi === false).map(item => item.jogador) }
 ];

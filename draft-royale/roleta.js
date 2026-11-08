@@ -188,7 +188,8 @@ async function carregarCartas() {
             const candidatas = dados.filter(carta => (carta.name_pt || carta.name) === nomeCarta);
             const carta = candidatas.find(c => c.type && c.type.toLowerCase() === 'troop') || candidatas[0];
             if (!carta) return false;
-            lista.push({ jogador: jogador, carta: carta });
+            const cartaAjustada = typeof ajustarCartaParaPerguntas === 'function' ? ajustarCartaParaPerguntas(carta) : carta;
+            lista.push({ jogador: jogador, carta: cartaAjustada });
         }
 
         cartasDosJogadores = lista;
