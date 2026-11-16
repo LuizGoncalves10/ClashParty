@@ -33,6 +33,20 @@
                     </div>
                 </div>
 
+                <div class="seletor-grupo">
+                    <label>Quantidade de Rodadas:</label>
+                    <div class="rodadas-grid" id="seletor-rodadas">
+                        <button class="btn-rodada" onclick="selecionarRodadas(3, this)">3</button>
+                        <button class="btn-rodada" onclick="selecionarRodadas(4, this)">4</button>
+                        <button class="btn-rodada active" onclick="selecionarRodadas(5, this)">5</button>
+                        <button class="btn-rodada" onclick="selecionarRodadas(6, this)">6</button>
+                        <button class="btn-rodada" onclick="selecionarRodadas(7, this)">7</button>
+                        <button class="btn-rodada" onclick="selecionarRodadas(8, this)">8</button>
+                        <button class="btn-rodada" onclick="selecionarRodadas(9, this)">9</button>
+                        <button class="btn-rodada" onclick="selecionarRodadas(10, this)">10</button>
+                    </div>
+                </div>
+
                 <div id="area-nomes" class="area-nomes">
                     <div class="input-group">
                         <label class="label-azul" id="label-j1">👑 Rei Azul (Jogador 1)</label>
@@ -56,12 +70,54 @@
     </div>
 
     <div id="tela-jogo" class="screen">
-        <header style="text-align: center; margin-bottom: 20px;">
-            <h1 id="titulo-jogo" style="color: var(--dourado);">Preparando...</h1>
-            <p id="subtitulo-jogo" style="font-family: sans-serif; font-weight: bold; font-size: 1.1rem; margin-top: 8px;"></p>
+        <div class="placar-topo" id="placar-topo"></div>
+
+        <div class="info-turno">
+            <h2 id="titulo-turno" style="color: var(--dourado);">Rodada 1/5</h2>
+            <div class="badges-status">
+                <span class="badge badge-zoom" id="badge-zoom">🔍 Zoom: 90%</span>
+                <span class="badge badge-pontos" id="badge-pontos">⭐ Valendo: 3 pts</span>
+            </div>
+        </div>
+
+        <div class="moldura-carta" id="moldura-carta">
+            <img id="img-carta-zoom" src="" alt="Carta Oculta">
+        </div>
+
+        <div id="feedback-turno" class="feedback-box"></div>
+
+        <div id="area-acoes-principais" class="acoes-principais">
+            <button class="btn-supercell btn-passar" id="btn-passar" onclick="clicarPassar()">PASSAR ⏭️</button>
+            <button class="btn-supercell btn-chutar" onclick="abrirBuscaChute()">CHUTAR 🎯</button>
+        </div>
+
+        <div id="area-busca-chute" class="area-busca" style="display: none;">
+            <div class="busca-header">
+                <input type="text" id="input-chute" placeholder="Digite 2 letras do nome..." autocomplete="off" oninput="filtrarOpcoes()">
+                <button class="btn-fechar-busca" onclick="fecharBuscaChute()">✖</button>
+            </div>
+            <div id="lista-sugestoes" class="lista-sugestoes"></div>
+        </div>
+
+        <div id="area-proximo-turno" class="acoes-principais" style="display: none;">
+            <button class="btn-supercell btn-iniciar" id="btn-proximo" onclick="avancarTurno()">PRÓXIMO ➡️</button>
+        </div>
+    </div>
+
+    <div id="tela-vitoria" class="screen">
+        <header class="header-vitoria">
+            <h1 id="vitoria-titulo-principal">🏆 FIM DE JOGO! 🏆</h1>
+            <h2 id="vitoria-campeao" style="color: var(--dourado); margin-top: 10px; font-size: 2.2rem;"></h2>
         </header>
-        <div class="botoes-nav" style="width: 100%; max-width: 400px;">
-            <button class="btn-supercell btn-voltar" onclick="voltarConfig()">VOLTAR</button>
+
+        <div class="game-card" style="width: 100%; max-width: 400px; margin-top: 15px;">
+            <h3 style="color: var(--dourado); margin-bottom: 15px; font-size: 1.5rem;">Placar Final</h3>
+            <div id="resumo-placar-final" class="resumo-placar"></div>
+        </div>
+
+        <div class="botoes-nav" style="width: 100%; max-width: 400px; margin-top: 25px;">
+            <a href="../index.html" class="btn-supercell btn-voltar">SAIR</a>
+            <button class="btn-supercell btn-iniciar" onclick="jogarNovamente()">JOGAR DE NOVO</button>
         </div>
     </div>
 
