@@ -6,6 +6,7 @@ let listaNomes = ['', '', ''];
 
 let jogadoresPartida = [];
 let indiceImpostor = 0;
+let indicePrimeiroDebate = 0;
 let cartaSecreta = null;
 let grade9Cartas = [];
 
@@ -73,6 +74,27 @@ function precarregarImagens(lista) {
         const img = new Image();
         img.src = obterImagem(item);
     });
+}
+
+function sortearImpostorComPeso(totalJogadores, indiceIniciante) {
+    const pesos = [];
+    let somaPesos = 0;
+
+    for (let i = 0; i < totalJogadores; i++) {
+        const peso = i === indiceIniciante ? 0.5 : 1.0;
+        pesos.push(peso);
+        somaPesos += peso;
+    }
+
+    let sorteio = Math.random() * somaPesos;
+    for (let i = 0; i < totalJogadores; i++) {
+        sorteio -= pesos[i];
+        if (sorteio <= 0) {
+            return i;
+        }
+    }
+
+    return totalJogadores - 1;
 }
 
 function selecionarUniverso(universo) {
@@ -215,7 +237,9 @@ function iniciarJogo() {
     }
 
     jogadoresPartida = listaNomes.map(n => n.trim());
-    indiceImpostor = Math.floor(Math.random() * jogadoresPartida.length);
+    indicePrimeiroDebate = Math.floor(Math.random() * jogadoresPartida.length);
+    indiceImpostor = sortearImpostorComPeso(jogadoresPartida.length, indicePrimeiroDebate);
+
     cartaSecreta = baseDados[Math.floor(Math.random() * baseDados.length)];
     grade9Cartas = montarGrade9Cartas(baseDados, cartaSecreta);
 
@@ -349,13 +373,13 @@ function completarRevelacao() {
     document.getElementById('wrapper-slider').style.display = 'none';
     document.getElementById('btn-proximo-entrega').style.display = 'block';
 
+    aplicarTemaPapel('aliado');
+
     const badgePapel = document.getElementById('badge-papel');
     if (ehImpostor) {
-        aplicarTemaPapel('impostor');
         badgePapel.innerText = 'IMPOSTOR';
         badgePapel.className = 'badge-papel impostor';
     } else {
-        aplicarTemaPapel('aliado');
         badgePapel.innerText = 'ALIADO';
         badgePapel.className = 'badge-papel aliado';
     }
@@ -369,7 +393,7 @@ function avancarEntrega() {
         indiceEntregaAtual++;
         prepararTurnoEntrega();
     } else {
-        document.getElementById('debate-primeiro-jogador').innerText = jogadoresPartida[0];
+        document.getElementById('debate-primeiro-jogador').innerText = jogadoresPartida[indicePrimeiroDebate];
         mostrarTela('tela-debate');
     }
 }

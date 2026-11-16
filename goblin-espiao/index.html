@@ -28,7 +28,7 @@
                 <div class="area-jogadores">
                     <div class="header-jogadores">
                         <label id="contador-jogadores">Jogadores (3/10):</label>
-                        <span class="dica-ordem">O 1º da lista começa falando</span>
+                        <span class="dica-ordem">Ordem de passe do celular</span>
                     </div>
 
                     <div id="lista-inputs-jogadores" class="lista-inputs"></div>
@@ -80,12 +80,12 @@
     <div id="tela-debate" class="screen tela-cheia">
         <div class="topo-partida">
             <span class="badge-progresso">FASE DE DICAS</span>
-            <h1 style="color: var(--dourado); font-size: 2rem;">Discussão na Arena</h1>
+            <h1 style="color: var(--dourado); font-size: clamp(1.6rem, 4.5vh, 2.1rem);">Discussão na Arena</h1>
         </div>
 
         <div class="game-card card-debate">
             <div class="icone-debate">🗣️</div>
-            <p class="label-iniciante">Quem começa falando a 1ª dica:</p>
+            <p class="label-iniciante">Sorteado para começar falando:</p>
             <h2 id="debate-primeiro-jogador" class="nome-destaque-debate">Jogador 1</h2>
             <p class="instrucao-debate">Deem dicas sobre a carta sem entregá-la de graça. O <strong>Impostor</strong> precisa fingir que sabe qual é!</p>
         </div>
@@ -103,16 +103,16 @@
         </div>
 
         <div id="votacao-passo-passe" class="box-central-votacao">
-            <div class="carta-verso-grande" style="max-height: 220px;">
+            <div class="carta-verso-grande box-voto-secreto">
                 <div class="circulo-interrogacao-grande">🗳️</div>
                 <p>Voto Secreto</p>
             </div>
-            <button class="btn-supercell btn-iniciar btn-full" style="margin-top: 16px;" onclick="abrirOpcoesVoto()">VOTAR AGORA</button>
+            <button class="btn-supercell btn-iniciar btn-full" style="margin-top: 14px;" onclick="abrirOpcoesVoto()">VOTAR AGORA</button>
         </div>
 
         <div id="votacao-passo-lista" class="box-lista-votos" style="display: none;">
             <div id="lista-candidatos-voto" class="grid-candidatos"></div>
-            <button class="btn-supercell btn-iniciar btn-full" id="btn-confirmar-voto" style="margin-top: 12px;" disabled onclick="confirmarVotoAtual()">CONFIRMAR VOTO ✔️</button>
+            <button class="btn-supercell btn-iniciar btn-full" id="btn-confirmar-voto" style="margin-top: 10px;" disabled onclick="confirmarVotoAtual()">CONFIRMAR VOTO ✔️</button>
         </div>
     </div>
 
@@ -143,13 +143,13 @@
         </div>
 
         <div class="area-controle-entrega">
-            <button class="btn-supercell btn-iniciar btn-full" id="btn-confirmar-golpe" disabled onclick="confirmarGolpeFinal()">ARRIESCAR CARTA 🔍</button>
+            <button class="btn-supercell btn-iniciar btn-full" id="btn-confirmar-golpe" disabled onclick="confirmarGolpeFinal()">ARRISCAR CARTA 🔍</button>
         </div>
     </div>
 
     <div id="tela-resultado" class="screen tela-cheia">
         <div class="topo-partida">
-            <h1 id="resultado-titulo-principal" style="font-size: 2rem;">FIM DE JOGO!</h1>
+            <h1 id="resultado-titulo-principal" style="font-size: clamp(1.6rem, 4.5vh, 2.1rem);">FIM DE JOGO!</h1>
             <p id="resultado-subtitulo" class="subtitulo-resultado"></p>
         </div>
 
@@ -165,7 +165,7 @@
             <p class="nome-carta-final" id="nome-carta-secreta-final">Carta Secreta</p>
         </div>
 
-        <div class="botoes-nav" style="width: 100%; max-width: 400px; margin-top: 10px;">
+        <div class="botoes-nav" style="width: 100%; max-width: 420px; margin-top: 8px;">
             <a href="../index.html" class="btn-supercell btn-voltar">SAIR</a>
             <button class="btn-supercell btn-iniciar" onclick="jogarNovamente()">JOGAR DE NOVO</button>
         </div>

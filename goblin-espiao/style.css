@@ -16,7 +16,7 @@
     max-height: 100dvh;
     overflow: hidden;
     justify-content: space-between;
-    padding: 10px 12px 14px 12px;
+    padding: 12px 14px 16px 14px;
     box-sizing: border-box;
 }
 
@@ -115,7 +115,7 @@ body.tema-impostor {
 }
 
 .badge-numero {
-    width: 34px;
+    width: 36px;
     height: 42px;
     background: rgba(0, 0, 0, 0.55);
     border: 2.5px solid #000;
@@ -127,12 +127,6 @@ body.tema-impostor {
     font-size: 1.05rem;
     flex-shrink: 0;
     text-shadow: 1px 1px 0 #000;
-}
-
-.linha-jogador:first-child .badge-numero {
-    background: #26436e;
-    border-color: #4da6ff;
-    color: #fff;
 }
 
 .input-nome-jogador {
@@ -219,7 +213,7 @@ body.tema-impostor {
 
 .btn-full {
     width: 100%;
-    font-size: 1.2rem;
+    font-size: clamp(1.05rem, 2.6vh, 1.25rem);
     padding: 13px 10px;
     text-align: center;
 }
@@ -250,12 +244,12 @@ button:disabled {
 .topo-partida {
     text-align: center;
     width: 100%;
-    max-width: 400px;
+    max-width: 440px;
     flex-shrink: 0;
 }
 
 .topo-partida h2 {
-    font-size: clamp(1.35rem, 3.6vh, 1.85rem);
+    font-size: clamp(1.35rem, 3.8vh, 1.95rem);
     margin: 2px 0;
 }
 
@@ -297,16 +291,14 @@ button:disabled {
     background: #ff2e2e;
     color: #fff;
     border-color: #ff9999;
-    box-shadow: 0 0 14px rgba(255, 46, 46, 0.8);
+    box-shadow: 0 0 14px rgba(255, 46, 46, 0.85);
 }
 
 .container-grade-entrega {
     position: relative;
-    width: 100%;
-    max-width: min(350px, 50vh);
-    aspect-ratio: 1/1;
-    flex-shrink: 1;
-    min-height: 0;
+    width: min(88vw, 390px, 50vh);
+    height: min(88vw, 390px, 50vh);
+    flex-shrink: 0;
     border-radius: 16px;
     overflow: hidden;
     border: 3px solid #000;
@@ -351,11 +343,11 @@ button:disabled {
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.78);
+    background: rgba(0, 0, 0, 0.8);
     color: #fff;
     font-family: sans-serif;
     font-weight: bold;
-    font-size: clamp(0.6rem, 1.4vh, 0.72rem);
+    font-size: clamp(0.62rem, 1.45vh, 0.75rem);
     padding: 2px 3px;
     text-align: center;
     white-space: nowrap;
@@ -373,7 +365,7 @@ button:disabled {
     filter: none;
     border: 3px solid #4da6ff;
     box-shadow: 0 0 16px #4da6ff, inset 0 0 10px rgba(77, 166, 255, 0.6);
-    transform: scale(1.06);
+    transform: scale(1.05);
     z-index: 2;
 }
 
@@ -389,7 +381,7 @@ button:disabled {
 .grade-cartas-9.clicavel .mini-carta.selecionada-golpe {
     border: 3.5px solid var(--dourado);
     box-shadow: 0 0 16px var(--dourado);
-    transform: scale(1.06);
+    transform: scale(1.05);
     z-index: 2;
 }
 
@@ -419,6 +411,8 @@ button:disabled {
     border-radius: 12px;
     border: 3px solid #000;
     box-sizing: border-box;
+    padding: 16px;
+    text-align: center;
 }
 
 .carta-verso-grande::before {
@@ -431,10 +425,15 @@ button:disabled {
 }
 
 .carta-verso-grande p {
-    font-size: 1.15rem;
+    font-size: clamp(1rem, 2.5vh, 1.2rem);
     color: var(--dourado);
     text-shadow: 1.5px 1.5px 0 #000;
     z-index: 1;
+    margin: 0;
+}
+
+.box-voto-secreto {
+    height: clamp(170px, 32vh, 230px);
 }
 
 .circulo-interrogacao-grande {
@@ -460,7 +459,7 @@ button:disabled {
 
 .area-controle-entrega {
     width: 100%;
-    max-width: 400px;
+    max-width: 420px;
     flex-shrink: 0;
 }
 
@@ -527,13 +526,14 @@ button:disabled {
 
 .card-debate {
     width: 100%;
-    max-width: 400px;
+    max-width: 420px;
     text-align: center;
     padding: 20px 16px;
+    box-sizing: border-box;
 }
 
 .icone-debate {
-    font-size: 3.2rem;
+    font-size: clamp(2.6rem, 6vh, 3.4rem);
     margin-bottom: 6px;
 }
 
@@ -545,7 +545,7 @@ button:disabled {
 }
 
 .nome-destaque-debate {
-    font-size: 2.1rem;
+    font-size: clamp(1.8rem, 4.5vh, 2.3rem);
     color: var(--dourado);
     margin: 6px 0 12px 0;
 }
@@ -564,7 +564,7 @@ button:disabled {
 .subtitulo-neutro {
     font-family: sans-serif;
     font-weight: bold;
-    font-size: 0.95rem;
+    font-size: clamp(0.85rem, 2.2vh, 0.98rem);
     color: #eee;
     margin-top: 2px;
     text-shadow: 1px 1px 0 #000;
@@ -572,7 +572,7 @@ button:disabled {
 
 .box-central-votacao {
     width: 100%;
-    max-width: 360px;
+    max-width: 380px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -580,20 +580,23 @@ button:disabled {
 
 .box-lista-votos {
     width: 100%;
-    max-width: 400px;
+    max-width: 420px;
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     min-height: 0;
+    overflow: hidden;
 }
 
 .grid-candidatos {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
+    gap: 10px;
     overflow-y: auto;
-    padding: 4px 2px;
+    overflow-x: hidden;
+    padding: 6px;
+    box-sizing: border-box;
 }
 
 .btn-candidato {
@@ -601,30 +604,35 @@ button:disabled {
     color: #fff;
     border: 2.5px solid #000;
     border-radius: 10px;
-    padding: 12px 8px;
+    padding: 13px 8px;
     font-family: 'Lilita One', cursive;
     font-size: 1.15rem;
     cursor: pointer;
     text-shadow: 1px 1px 0 #000;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     transition: transform 0.15s, background 0.15s, border-color 0.15s;
 }
 
 .btn-candidato.selecionado {
     background: #ff4444;
     border-color: #fff;
-    transform: scale(1.03);
-    box-shadow: 0 0 12px rgba(255, 68, 68, 0.7);
+    transform: scale(1.02);
+    box-shadow: 0 0 10px rgba(255, 68, 68, 0.7);
 }
 
 .lista-votos-apuracao {
     width: 100%;
-    max-width: 400px;
+    max-width: 420px;
     display: flex;
     flex-direction: column;
     gap: 6px;
     overflow-y: auto;
+    overflow-x: hidden;
     max-height: 44vh;
-    padding: 2px;
+    padding: 4px;
+    box-sizing: border-box;
 }
 
 .linha-apuracao {
@@ -653,13 +661,14 @@ button:disabled {
 
 .box-veredito {
     width: 100%;
-    max-width: 400px;
+    max-width: 420px;
     padding: 12px;
     border-radius: 12px;
     border: 3px solid #000;
     text-align: center;
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     text-shadow: 1px 1px 0 #000;
+    box-sizing: border-box;
 }
 
 .box-veredito.descoberto {
@@ -675,7 +684,7 @@ button:disabled {
 .subtitulo-resultado {
     font-family: sans-serif;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 2.3vh, 1.05rem);
     color: #fff;
     margin-top: 4px;
     text-shadow: 1px 1px 0 #000;
@@ -683,7 +692,7 @@ button:disabled {
 
 .card-revelacao-final {
     width: 100%;
-    max-width: 360px;
+    max-width: 380px;
     background: var(--madeira);
     border: 4px solid var(--madeira-escura);
     border-radius: 16px;
@@ -692,6 +701,7 @@ button:disabled {
     flex-direction: column;
     align-items: center;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+    box-sizing: border-box;
 }
 
 .info-revelacao-topo {
@@ -703,7 +713,7 @@ button:disabled {
 }
 
 .texto-impostor {
-    font-size: 1.65rem;
+    font-size: clamp(1.4rem, 3.8vh, 1.75rem);
     color: #ff4d4d;
     text-shadow: 1.5px 1.5px 0 #000;
 }
@@ -734,4 +744,19 @@ button:disabled {
     font-size: 1.35rem;
     color: var(--dourado);
     text-shadow: 1.5px 1.5px 0 #000;
+}
+
+@media (min-width: 768px) {
+    .screen.tela-cheia.active {
+        padding: 20px;
+    }
+
+    .container-grade-entrega {
+        width: min(420px, 52vh);
+        height: min(420px, 52vh);
+    }
+
+    .grid-candidatos {
+        gap: 12px;
+    }
 }
