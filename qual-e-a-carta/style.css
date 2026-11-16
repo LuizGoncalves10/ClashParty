@@ -383,6 +383,7 @@ body.tema-vermelho {
     margin-top: 10px;
     max-height: 210px;
     overflow-y: auto;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     gap: 6px;
