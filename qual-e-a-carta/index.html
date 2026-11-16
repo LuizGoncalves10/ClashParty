@@ -17,25 +17,48 @@
 
         <main class="games-container">
             <div class="game-card">
-                <div class="seletor-modo">
-                    <label>Modo de Jogo:</label>
-                    <div class="botoes-modo">
-                        <button class="btn-modo-jogo active" id="btn-modo-dupla" onclick="selecionarModoJogo('dupla')">👥 Em Dupla</button>
-                        <button class="btn-modo-jogo" id="btn-modo-sozinho" onclick="selecionarModoJogo('sozinho')">👤 Sozinho</button>
+                <div class="seletor-grupo">
+                    <label>Escolha o Universo:</label>
+                    <div class="botoes-grupo">
+                        <button class="btn-opcao active" id="btn-uni-clash" onclick="selecionarUniverso('clash')">👑 Clash Royale</button>
+                        <button class="btn-opcao" id="btn-uni-brawl" onclick="selecionarUniverso('brawl')">⭐ Brawl Stars</button>
                     </div>
+                </div>
+
+                <div class="seletor-grupo">
+                    <label>Modo de Jogo:</label>
+                    <div class="botoes-grupo">
+                        <button class="btn-opcao active" id="btn-modo-dupla" onclick="selecionarModoJogo('dupla')">👥 Em Dupla</button>
+                        <button class="btn-opcao" id="btn-modo-sozinho" onclick="selecionarModoJogo('sozinho')">👤 Sozinho</button>
+                    </div>
+                </div>
+
+                <div id="area-nomes" class="area-nomes">
+                    <div class="input-group">
+                        <label class="label-azul" id="label-j1">👑 Rei Azul (Jogador 1)</label>
+                        <input type="text" id="nome-azul" placeholder="Nome do Jogador 1" class="input-jogador azul" autocomplete="off">
+                    </div>
+
+                    <div class="input-group">
+                        <label class="label-vermelho" id="label-j2">👑 Rei Vermelho (Jogador 2)</label>
+                        <input type="text" id="nome-vermelho" placeholder="Nome do Jogador 2" class="input-jogador vermelho" autocomplete="off">
+                    </div>
+
+                    <div id="erro-nomes" class="error-msg">Preencha o nome dos dois jogadores!</div>
                 </div>
 
                 <div class="botoes-nav">
                     <a href="../index.html" class="btn-supercell btn-voltar">VOLTAR</a>
-                    <button class="btn-supercell btn-iniciar" onclick="avancarConfig()">AVANÇAR</button>
+                    <button class="btn-supercell btn-iniciar" onclick="avancarConfig()">INICIAR</button>
                 </div>
             </div>
         </main>
     </div>
 
     <div id="tela-jogo" class="screen">
-        <header style="text-align: center;">
+        <header style="text-align: center; margin-bottom: 20px;">
             <h1 id="titulo-jogo" style="color: var(--dourado);">Preparando...</h1>
+            <p id="subtitulo-jogo" style="font-family: sans-serif; font-weight: bold; font-size: 1.1rem; margin-top: 8px;"></p>
         </header>
         <div class="botoes-nav" style="width: 100%; max-width: 400px;">
             <button class="btn-supercell btn-voltar" onclick="voltarConfig()">VOLTAR</button>
