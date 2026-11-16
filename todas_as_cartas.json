@@ -332,7 +332,7 @@
     {
         "key": "baby-dragon",
         "name": "Baby Dragon",
-        "name_pt": "Dragão Bebê",
+        "name_pt": "Bebê Dragão",
         "sc_key": "BabyDragon",
         "elixir": 4,
         "type": "Troop",
@@ -1058,7 +1058,7 @@
     {
         "key": "night-witch",
         "name": "Night Witch",
-        "name_pt": "Bruxa Noturna",
+        "name_pt": "Bruxa Sombria",
         "sc_key": "DarkWitch",
         "elixir": 4,
         "type": "Troop",
@@ -1124,7 +1124,7 @@
     {
         "key": "ram-rider",
         "name": "Ram Rider",
-        "name_pt": "Cavaleira do Aríete",
+        "name_pt": "Domadora de Carneiro",
         "sc_key": "RamRider",
         "elixir": 5,
         "type": "Troop",
@@ -1168,7 +1168,7 @@
     {
         "key": "rascals",
         "name": "Rascals",
-        "name_pt": "Pestinhas",
+        "name_pt": "Patifes",
         "sc_key": "Rascals",
         "elixir": 5,
         "type": "Troop",
@@ -1410,7 +1410,7 @@
     {
         "key": "firecracker",
         "name": "Firecracker",
-        "name_pt": "Rojão",
+        "name_pt": "Pirotécnica",
         "sc_key": "Firecracker",
         "elixir": 3,
         "type": "Troop",
@@ -1432,7 +1432,7 @@
     {
         "key": "mighty-miner",
         "name": "Mighty Miner",
-        "name_pt": "Mineiro Poderoso",
+        "name_pt": "Mineiro Bombado",
         "sc_key": "MightyMiner",
         "elixir": 4,
         "type": "Troop",
@@ -1696,7 +1696,7 @@
     {
         "key": "heal-spirit",
         "name": "Heal Spirit",
-        "name_pt": "Espírito Curandeiro",
+        "name_pt": "Espírito Curador",
         "sc_key": "Heal",
         "elixir": 1,
         "type": "Troop",
