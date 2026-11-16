@@ -10,9 +10,9 @@
 <body>
 
     <div id="tela-config" class="screen active">
-        <header style="margin-bottom: 20px; text-align: center;">
+        <header style="margin-bottom: 18px; text-align: center;">
             <h1 style="color: var(--dourado);">Goblin Espião</h1>
-            <p style="font-family: sans-serif; font-weight: bold; font-size: 1.2rem; margin-top: 5px;">Blefe na Arena</p>
+            <p style="font-family: sans-serif; font-weight: bold; font-size: 1.15rem; margin-top: 4px;">Blefe na Arena</p>
         </header>
 
         <main class="games-container">
@@ -46,13 +46,128 @@
         </main>
     </div>
 
-    <div id="tela-entrega" class="screen">
-        <header style="text-align: center; margin-bottom: 20px;">
-            <h1 id="titulo-preparacao" style="color: var(--dourado);">Partida Pronta!</h1>
-            <p id="subtitulo-preparacao" style="font-family: sans-serif; font-weight: bold; font-size: 1.1rem; margin-top: 8px;"></p>
-        </header>
-        <div class="botoes-nav" style="width: 100%; max-width: 400px;">
-            <button class="btn-supercell btn-voltar" onclick="voltarConfigTemporario()">VOLTAR</button>
+    <div id="tela-entrega" class="screen tela-cheia">
+        <div class="topo-partida">
+            <span class="badge-progresso" id="entrega-progresso">1 de 3</span>
+            <h2 id="entrega-nome-jogador" style="color: var(--dourado);">Jogador 1</h2>
+            <div id="badge-papel" class="badge-papel oculto">DESLIZE PARA VER</div>
+        </div>
+
+        <div class="container-grade-entrega">
+            <div class="grade-cartas-9" id="grade-entrega"></div>
+
+            <div class="cobertura-grade" id="cobertura-grade">
+                <div class="carta-verso-grande">
+                    <div class="circulo-interrogacao-grande">?</div>
+                    <p id="texto-cobertura">Só você pode olhar!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="area-controle-entrega">
+            <div id="wrapper-slider" class="slider-wrapper">
+                <div class="slider-trilha" id="slider-trilha">
+                    <div class="slider-progresso" id="slider-progresso"></div>
+                    <span class="slider-texto" id="slider-texto">ARRASTE PARA REVELAR ➔</span>
+                    <div class="slider-botao" id="slider-botao">🕵️</div>
+                </div>
+            </div>
+
+            <button class="btn-supercell btn-iniciar btn-full" id="btn-proximo-entrega" style="display: none;" onclick="avancarEntrega()">PASSAR PARA O PRÓXIMO ➡️</button>
+        </div>
+    </div>
+
+    <div id="tela-debate" class="screen tela-cheia">
+        <div class="topo-partida">
+            <span class="badge-progresso">FASE DE DICAS</span>
+            <h1 style="color: var(--dourado); font-size: 2rem;">Discussão na Arena</h1>
+        </div>
+
+        <div class="game-card card-debate">
+            <div class="icone-debate">🗣️</div>
+            <p class="label-iniciante">Quem começa falando a 1ª dica:</p>
+            <h2 id="debate-primeiro-jogador" class="nome-destaque-debate">Jogador 1</h2>
+            <p class="instrucao-debate">Deem dicas sobre a carta sem entregá-la de graça. O <strong>Impostor</strong> precisa fingir que sabe qual é!</p>
+        </div>
+
+        <div class="area-controle-entrega">
+            <button class="btn-supercell btn-votar-acao btn-full" onclick="iniciarFaseVotacao()">IR PARA VOTAÇÃO 🗳️</button>
+        </div>
+    </div>
+
+    <div id="tela-votacao" class="screen tela-cheia">
+        <div class="topo-partida">
+            <span class="badge-progresso" id="votacao-progresso">VOTO 1 de 3</span>
+            <h2 id="votacao-nome-eleitor" style="color: var(--dourado);">Jogador 1</h2>
+            <p id="votacao-subtitulo" class="subtitulo-neutro">Passe o aparelho para este jogador votar</p>
+        </div>
+
+        <div id="votacao-passo-passe" class="box-central-votacao">
+            <div class="carta-verso-grande" style="max-height: 220px;">
+                <div class="circulo-interrogacao-grande">🗳️</div>
+                <p>Voto Secreto</p>
+            </div>
+            <button class="btn-supercell btn-iniciar btn-full" style="margin-top: 16px;" onclick="abrirOpcoesVoto()">VOTAR AGORA</button>
+        </div>
+
+        <div id="votacao-passo-lista" class="box-lista-votos" style="display: none;">
+            <div id="lista-candidatos-voto" class="grid-candidatos"></div>
+            <button class="btn-supercell btn-iniciar btn-full" id="btn-confirmar-voto" style="margin-top: 12px;" disabled onclick="confirmarVotoAtual()">CONFIRMAR VOTO ✔️</button>
+        </div>
+    </div>
+
+    <div id="tela-apuracao" class="screen tela-cheia">
+        <div class="topo-partida">
+            <span class="badge-progresso">RESULTADO DA VOTAÇÃO</span>
+            <h2 id="apuracao-titulo" style="color: var(--dourado);">Apuração dos Votos</h2>
+        </div>
+
+        <div id="lista-resultado-votos" class="lista-votos-apuracao"></div>
+
+        <div id="box-veredito-votacao" class="box-veredito"></div>
+
+        <div class="area-controle-entrega">
+            <button class="btn-supercell btn-full" id="btn-acao-apuracao" onclick="acaoPosApuracao()">CONTINUAR</button>
+        </div>
+    </div>
+
+    <div id="tela-golpe-final" class="screen tela-cheia">
+        <div class="topo-partida">
+            <span class="badge-papel impostor">GOLPE FINAL 🎯</span>
+            <h2 id="golpe-nome-impostor" style="color: var(--dourado);">Impostor</h2>
+            <p class="subtitulo-neutro">Você foi descoberto! Escolha a carta secreta para vencer junto com todos:</p>
+        </div>
+
+        <div class="container-grade-entrega">
+            <div class="grade-cartas-9 clicavel" id="grade-golpe-final"></div>
+        </div>
+
+        <div class="area-controle-entrega">
+            <button class="btn-supercell btn-iniciar btn-full" id="btn-confirmar-golpe" disabled onclick="confirmarGolpeFinal()">ARRIESCAR CARTA 🔍</button>
+        </div>
+    </div>
+
+    <div id="tela-resultado" class="screen tela-cheia">
+        <div class="topo-partida">
+            <h1 id="resultado-titulo-principal" style="font-size: 2rem;">FIM DE JOGO!</h1>
+            <p id="resultado-subtitulo" class="subtitulo-resultado"></p>
+        </div>
+
+        <div class="card-revelacao-final">
+            <div class="info-revelacao-topo">
+                <span>O Goblin Espião era:</span>
+                <strong id="resultado-nome-impostor" class="texto-impostor">Nome</strong>
+            </div>
+
+            <div class="carta-secreta-showcase" id="showcase-carta-final">
+                <img id="img-carta-secreta-final" src="" alt="Carta Secreta">
+            </div>
+            <p class="nome-carta-final" id="nome-carta-secreta-final">Carta Secreta</p>
+        </div>
+
+        <div class="botoes-nav" style="width: 100%; max-width: 400px; margin-top: 10px;">
+            <a href="../index.html" class="btn-supercell btn-voltar">SAIR</a>
+            <button class="btn-supercell btn-iniciar" onclick="jogarNovamente()">JOGAR DE NOVO</button>
         </div>
     </div>
 
