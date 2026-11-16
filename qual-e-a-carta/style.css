@@ -273,9 +273,12 @@ body.tema-vermelho {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
     pointer-events: none;
     user-select: none;
+}
+
+.moldura-carta img.animar-zoom {
+    transition: transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .feedback-box {

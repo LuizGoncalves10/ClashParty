@@ -54,6 +54,13 @@ function embaralhar(array) {
     return copia;
 }
 
+function obterNome(personagem) {
+    if (universoAtual === 'clash' && personagem.name_pt) {
+        return personagem.name_pt;
+    }
+    return personagem.name || '';
+}
+
 function obterImagem(personagem) {
     if (universoAtual === 'brawl' && personagem.imageUrl) {
         return personagem.imageUrl;
@@ -65,6 +72,13 @@ function obterImagem(personagem) {
         return personagem.iconUrls.medium;
     }
     return '';
+}
+
+function precarregarImagens(lista) {
+    lista.forEach(item => {
+        const img = new Image();
+        img.src = obterImagem(item);
+    });
 }
 
 function selecionarUniverso(universo) {
@@ -143,6 +157,8 @@ function iniciarPartida() {
     }
 
     baralhoPartida = embaralhar(baseDados).slice(0, totalCartasNecessarias);
+    precarregarImagens(baralhoPartida);
+
     pontuacao = { azul: 0, vermelho: 0 };
     rodadaAtual = 1;
     turnoAtual = 'azul';
@@ -164,12 +180,29 @@ function prepararTurno() {
     confirmacaoPassar = false;
 
     focoZoom = {
-        x: Math.floor(Math.random() * 41) + 30,
-        y: Math.floor(Math.random() * 41) + 30
+        x: Math.floor(Math.random() * 61) + 20,
+        y: Math.floor(Math.random() * 61) + 20
     };
 
     const img = document.getElementById('img-carta-zoom');
+    img.classList.remove('animar-zoom');
+    img.style.opacity = '0';
+
+    atualizarVisualZoom();
+
+    img.onload = () => {
+        requestAnimationFrame(() => {
+            img.style.opacity = '1';
+            setTimeout(() => {
+                img.classList.add('animar-zoom');
+            }, 50);
+        });
+    };
+
     img.src = obterImagem(personagemAtual);
+    if (img.complete) {
+        img.onload();
+    }
 
     if (modoJogoAtual === 'dupla') {
         aplicarTema(turnoAtual);
@@ -191,7 +224,6 @@ function prepararTurno() {
     document.getElementById('area-proximo-turno').style.display = 'none';
 
     atualizarPlacar();
-    atualizarVisualZoom();
 }
 
 function atualizarPlacar() {
@@ -256,7 +288,8 @@ function clicarPassar() {
         nivelZoomIndex++;
         atualizarVisualZoom();
     } else {
-        revelarResposta('revelado', `Era: ${personagemAtual.name}! (0 pts)`);
+        const nomeCorreto = obterNome(personagemAtual);
+        revelarResposta('revelado', `Era: ${nomeCorreto}! (0 pts)`);
     }
 }
 
@@ -288,12 +321,15 @@ function filtrarOpcoes() {
     }
 
     const baseDados = universoAtual === 'clash' ? todasAsCartasClash : todosOsBrawlers;
-    const filtrados = baseDados.filter(item => normalizarTexto(item.name).includes(termoDigitado));
+    const filtrados = baseDados.filter(item => {
+        const nomeExibicao = obterNome(item);
+        return normalizarTexto(nomeExibicao).includes(termoDigitado);
+    });
 
     filtrados.slice(0, 15).forEach(item => {
         const btn = document.createElement('button');
         btn.className = 'item-sugestao';
-        btn.innerText = item.name;
+        btn.innerText = obterNome(item);
         btn.onclick = () => confirmarChute(item);
         lista.appendChild(btn);
     });
@@ -301,19 +337,21 @@ function filtrarOpcoes() {
 
 function confirmarChute(itemEscolhido) {
     document.getElementById('area-busca-chute').style.display = 'none';
+    const nomeCorreto = obterNome(personagemAtual);
 
     if (itemEscolhido.id === personagemAtual.id) {
         const pontosGanhos = NIVEIS_ZOOM[nivelZoomIndex].pontos;
         pontuacao[turnoAtual] += pontosGanhos;
         atualizarPlacar();
-        revelarResposta('acerto', `ACERTOU! +${pontosGanhos} pts (${personagemAtual.name})`);
+        revelarResposta('acerto', `ACERTOU! +${pontosGanhos} pts (${nomeCorreto})`);
     } else {
-        revelarResposta('erro', `ERROU! Era: ${personagemAtual.name}`);
+        revelarResposta('erro', `ERROU! Era: ${nomeCorreto}`);
     }
 }
 
 function revelarResposta(tipo, mensagem) {
     const img = document.getElementById('img-carta-zoom');
+    img.classList.add('animar-zoom');
     img.style.transformOrigin = '50% 50%';
     img.style.transform = 'scale(1)';
 
