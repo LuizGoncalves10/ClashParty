@@ -11,6 +11,15 @@
     display: flex;
 }
 
+#tela-jogo.screen.active {
+    height: 100dvh;
+    max-height: 100dvh;
+    overflow: hidden;
+    justify-content: space-between;
+    padding: 8px 10px 10px 10px;
+    box-sizing: border-box;
+}
+
 body.tema-azul {
     background: radial-gradient(circle at top, #26436e, #0f1c30) !important;
     transition: background 0.5s ease;
@@ -147,39 +156,40 @@ button:disabled {
 
 .placar-topo {
     width: 100%;
-    max-width: 420px;
+    max-width: 380px;
     display: flex;
     justify-content: space-between;
-    gap: 10px;
-    margin-bottom: 12px;
+    gap: 8px;
+    margin-bottom: 4px;
+    flex-shrink: 0;
 }
 
 .placar-card {
     flex: 1;
     background: rgba(0, 0, 0, 0.55);
-    border: 3px solid #000;
+    border: 2.5px solid #000;
     border-radius: 10px;
-    padding: 8px 10px;
+    padding: 5px 8px;
     text-align: center;
     transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.3s, background 0.3s;
 }
 
 .placar-card.ativo-azul {
     border-color: #4da6ff;
-    transform: scale(1.05);
+    transform: scale(1.03);
     background: rgba(77, 166, 255, 0.25);
-    box-shadow: 0 0 12px rgba(77, 166, 255, 0.4);
+    box-shadow: 0 0 10px rgba(77, 166, 255, 0.4);
 }
 
 .placar-card.ativo-vermelho {
     border-color: #ff4d4d;
-    transform: scale(1.05);
+    transform: scale(1.03);
     background: rgba(255, 77, 77, 0.25);
-    box-shadow: 0 0 12px rgba(255, 77, 77, 0.4);
+    box-shadow: 0 0 10px rgba(255, 77, 77, 0.4);
 }
 
 .placar-nome {
-    font-size: 1rem;
+    font-size: 0.9rem;
     display: block;
     white-space: nowrap;
     overflow: hidden;
@@ -187,54 +197,66 @@ button:disabled {
 }
 
 .placar-valor {
-    font-size: 1.45rem;
+    font-size: 1.2rem;
     color: var(--dourado);
     text-shadow: 1px 1px 0 #000;
 }
 
 .info-turno {
     text-align: center;
-    margin-bottom: 14px;
+    margin-bottom: 6px;
     width: 100%;
-    max-width: 420px;
+    max-width: 380px;
+    flex-shrink: 0;
 }
 
 .info-turno h2 {
-    font-size: 1.65rem;
+    font-size: clamp(1.15rem, 3.2vh, 1.45rem);
+    margin: 0;
+    line-height: 1.15;
     transition: transform 0.25s ease;
 }
 
 .subtitulo-turno {
     font-family: sans-serif;
     font-weight: bold;
-    font-size: 0.95rem;
+    font-size: clamp(0.8rem, 2vh, 0.9rem);
     color: #fff;
-    margin-top: 4px;
+    margin-top: 2px;
+    margin-bottom: 0;
     text-shadow: 1px 1px 0 #000;
 }
 
 .arena-memoria {
     width: 100%;
-    max-width: 420px;
+    max-width: min(360px, 54vh);
+    flex: 1;
+    min-height: 0;
     background: rgba(0, 0, 0, 0.35);
     border: 3px solid #000;
-    border-radius: 16px;
-    padding: 12px 10px;
+    border-radius: 14px;
+    padding: 8px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    gap: clamp(4px, 0.9vh, 7px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    box-sizing: border-box;
+}
+
+.arena-memoria.modo-brawl {
+    max-width: min(380px, 60vh);
 }
 
 .fileira-cartas {
     display: flex;
     justify-content: center;
-    gap: 8px;
+    gap: clamp(4px, 0.9vh, 7px);
     width: 100%;
 }
 
 .carta-memoria {
-    width: calc((100% - 24px) / 4);
+    width: min(calc((100% - 21px) / 4), 9.2vh);
     aspect-ratio: 3/4;
     perspective: 900px;
     cursor: pointer;
@@ -243,6 +265,7 @@ button:disabled {
 }
 
 .arena-memoria.modo-brawl .carta-memoria {
+    width: min(calc((100% - 21px) / 4), 11.2vh);
     aspect-ratio: 1/1;
 }
 
@@ -270,7 +293,7 @@ button:disabled {
 }
 
 .carta-memoria:not(.virada):not(.encontrada):hover .carta-inner {
-    transform: translateY(-3px) scale(1.03);
+    transform: translateY(-2px) scale(1.03);
 }
 
 .carta-memoria.virada .carta-inner,
@@ -307,9 +330,9 @@ button:disabled {
 
 @keyframes erroShake {
     0%, 100% { transform: rotateY(180deg) translateX(0); }
-    25% { transform: rotateY(180deg) translateX(-5px); }
-    50% { transform: rotateY(180deg) translateX(5px); }
-    75% { transform: rotateY(180deg) translateX(-4px); }
+    25% { transform: rotateY(180deg) translateX(-4px); }
+    50% { transform: rotateY(180deg) translateX(4px); }
+    75% { transform: rotateY(180deg) translateX(-3px); }
 }
 
 .carta-face {
@@ -319,10 +342,10 @@ button:disabled {
     height: 100%;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    border-radius: 10px;
-    border: 2.5px solid #000;
+    border-radius: 8px;
+    border: 2px solid #000;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
 }
 
 .carta-verso {
@@ -336,29 +359,29 @@ button:disabled {
 .carta-verso::before {
     content: '';
     position: absolute;
-    inset: 4px;
-    border: 2px dashed rgba(255, 204, 0, 0.35);
-    border-radius: 6px;
+    inset: 3px;
+    border: 1.5px dashed rgba(255, 204, 0, 0.35);
+    border-radius: 5px;
 }
 
 .circulo-interrogacao {
-    width: 38px;
-    height: 38px;
+    width: clamp(24px, 4.2vh, 32px);
+    height: clamp(24px, 4.2vh, 32px);
     border-radius: 50%;
     background: radial-gradient(circle at 30% 30%, #ffe066, var(--dourado));
-    border: 2.5px solid #000;
-    box-shadow: 0 3px 0 var(--dourado-sombra), inset 0 2px 3px rgba(255, 255, 255, 0.6);
+    border: 2px solid #000;
+    box-shadow: 0 2px 0 var(--dourado-sombra), inset 0 1px 2px rgba(255, 255, 255, 0.6);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.45rem;
+    font-size: clamp(0.95rem, 2.2vh, 1.25rem);
     color: #ffffff;
     text-shadow:
-        -1.5px -1.5px 0 #000,
-         1.5px -1.5px 0 #000,
-        -1.5px  1.5px 0 #000,
-         1.5px  1.5px 0 #000,
-         0px    2.5px 0 #000;
+        -1px -1px 0 #000,
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000,
+         0px  2px 0 #000;
     z-index: 1;
 }
 
@@ -378,12 +401,12 @@ button:disabled {
 
 .carta-memoria.encontrada .carta-frente {
     border-color: #4CAF50;
-    box-shadow: 0 0 15px #4CAF50;
+    box-shadow: 0 0 12px #4CAF50;
 }
 
 .carta-memoria.erro .carta-frente {
     border-color: #ff4444;
-    box-shadow: 0 0 12px #ff4444;
+    box-shadow: 0 0 10px #ff4444;
 }
 
 .header-vitoria {
