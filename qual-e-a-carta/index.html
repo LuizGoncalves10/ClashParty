@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qual é a Carta? | Clash Party</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="tela-config" class="screen active">
+        <header style="margin-bottom: 20px; text-align: center;">
+            <h1 style="color: var(--dourado);">Qual é a Carta?</h1>
+            <p style="font-family: sans-serif; font-weight: bold; font-size: 1.2rem; margin-top: 5px;">Desafio Visual</p>
+        </header>
+
+        <main class="games-container">
+            <div class="game-card">
+                <div class="seletor-modo">
+                    <label>Modo de Jogo:</label>
+                    <div class="botoes-modo">
+                        <button class="btn-modo-jogo active" id="btn-modo-dupla" onclick="selecionarModoJogo('dupla')">👥 Em Dupla</button>
+                        <button class="btn-modo-jogo" id="btn-modo-sozinho" onclick="selecionarModoJogo('sozinho')">👤 Sozinho</button>
+                    </div>
+                </div>
+
+                <div class="botoes-nav">
+                    <a href="../index.html" class="btn-supercell btn-voltar">VOLTAR</a>
+                    <button class="btn-supercell btn-iniciar" onclick="avancarConfig()">AVANÇAR</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="tela-jogo" class="screen">
+        <header style="text-align: center;">
+            <h1 id="titulo-jogo" style="color: var(--dourado);">Preparando...</h1>
+        </header>
+        <div class="botoes-nav" style="width: 100%; max-width: 400px;">
+            <button class="btn-supercell btn-voltar" onclick="voltarConfig()">VOLTAR</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

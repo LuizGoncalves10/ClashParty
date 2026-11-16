@@ -1,4 +1,3 @@
-/* Importa a fonte cartunesca no estilo Clash Royale */
 @import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
 
 :root {
@@ -28,7 +27,6 @@ body {
     padding: 20px;
 }
 
-/* Tipografia 3D pesada */
 h1, h2 {
     text-transform: uppercase;
     letter-spacing: 1.5px;
@@ -57,7 +55,6 @@ h1 {
     font-size: 2.2rem;
 }
 
-/* Container de Jogos Mobile-First - ATUALIZADO PARA SUPORTAR VÁRIOS CARDS */
 .games-container {
     width: 100%;
     max-width: 400px;
@@ -66,7 +63,6 @@ h1 {
     gap: 20px;
 }
 
-/* O Card do Jogo (Estilo Madeira) */
 .game-card {
     background-color: var(--madeira);
     border: 4px solid var(--madeira-escura);
@@ -91,7 +87,6 @@ h1 {
     text-shadow: 1px 1px 2px #000;
 }
 
-/* Botão estilo Supercell */
 .btn-supercell {
     display: inline-block;
     background-color: var(--dourado);
