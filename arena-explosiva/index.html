@@ -25,18 +25,32 @@
                     </div>
                 </div>
 
-                <div class="seletor-grupo" style="margin-bottom: 8px;">
+                <div class="seletor-grupo">
                     <label>Modo de Jogo:</label>
                     <div class="botoes-grupo">
                         <button class="btn-opcao active" id="btn-modo-sabotagem" onclick="selecionarModo('sabotagem')">💣 Sabotagem</button>
                         <button class="btn-opcao" id="btn-modo-campo" onclick="selecionarModo('campo')">💥 Campo Minado</button>
                     </div>
-                    <p id="descricao-modo" class="texto-desc-modo">Cada time esconde 3 bombas em tabuleiros separados. Quem perder 3 vidas primeiro perde!</p>
+                    <p id="descricao-modo" class="texto-desc-modo">Cada time esconde 3 bombas na mesma grade em tabuleiros separados. Quem perder 3 vidas primeiro perde!</p>
+                </div>
+
+                <div class="area-nomes">
+                    <div class="input-group">
+                        <label style="color: #4da6ff;">Nome do Rei Azul:</label>
+                        <input type="text" id="input-nome-azul" placeholder="Digite o nome..." autocomplete="off" maxlength="16" oninput="validarNomes()">
+                    </div>
+
+                    <div class="input-group">
+                        <label style="color: #ff4d4d;">Nome do Rei Vermelho:</label>
+                        <input type="text" id="input-nome-vermelho" placeholder="Digite o nome..." autocomplete="off" maxlength="16" oninput="validarNomes()">
+                    </div>
+
+                    <div id="erro-nomes" class="error-msg"></div>
                 </div>
 
                 <div class="botoes-nav">
                     <a href="../index.html" class="btn-supercell btn-voltar">VOLTAR</a>
-                    <button class="btn-supercell btn-iniciar" onclick="iniciarPartida()">JOGAR</button>
+                    <button class="btn-supercell btn-iniciar" id="btn-jogar" onclick="iniciarPartida()" disabled>JOGAR</button>
                 </div>
             </div>
         </main>
@@ -70,7 +84,7 @@
 
         <div class="game-card card-passe-turno">
             <div class="icone-passe">🛡️</div>
-            <p class="label-passe">Agora é a vez do:</p>
+            <p class="label-passe">Agora é a vez de:</p>
             <h2 id="passe-nome-time" class="nome-time-passe">Rei Vermelho</h2>
             <p id="passe-instrucao" class="instrucao-passe">Garanta que o adversário não esteja olhando a tela antes de continuar.</p>
         </div>
@@ -83,7 +97,7 @@
     <div id="tela-batalha" class="screen tela-cheia">
         <div class="placar-duelo">
             <div class="box-time azul" id="hud-time-azul">
-                <span class="nome-hud">REI AZUL</span>
+                <span class="nome-hud" id="hud-nome-azul">REI AZUL</span>
                 <div class="vidas-hud" id="vidas-azul">❤️❤️❤️</div>
             </div>
 
@@ -93,7 +107,7 @@
             </div>
 
             <div class="box-time vermelho" id="hud-time-vermelho">
-                <span class="nome-hud">REI VERMELHO</span>
+                <span class="nome-hud" id="hud-nome-vermelho">REI VERMELHO</span>
                 <div class="vidas-hud" id="vidas-vermelho">❤️❤️❤️</div>
             </div>
         </div>
@@ -104,7 +118,7 @@
 
         <div class="area-controle-rodape">
             <div class="barra-status-batalha" id="status-batalha">
-                Rei Azul: toque em uma carta para testar!
+                Toque em uma carta para testar!
             </div>
         </div>
     </div>
@@ -119,12 +133,12 @@
         <div class="card-resumo-final">
             <div class="placar-final-comparativo">
                 <div class="coluna-final">
-                    <span class="label-final-azul">REI AZUL</span>
+                    <span class="label-final-azul" id="final-label-azul">REI AZUL</span>
                     <div class="vidas-final" id="final-vidas-azul">❤️❤️❤️</div>
                 </div>
                 <div class="vs-final">VS</div>
                 <div class="coluna-final">
-                    <span class="label-final-vermelho">REI VERMELHO</span>
+                    <span class="label-final-vermelho" id="final-label-vermelho">REI VERMELHO</span>
                     <div class="vidas-final" id="final-vidas-vermelho">🖤🖤🖤</div>
                 </div>
             </div>

@@ -27,6 +27,9 @@ Jogo da memoria competitivo em dupla com alternancia dinamica de turnos e temas 
 **Goblin Espiao**
 Jogo social de blefe e deducao para grupos de tres a dez participantes. Cada jogador desliza a cobertura secreta para visualizar uma grade de nove cartas: os aliados veem a carta secreta destacada, enquanto o impostor visualiza todas as opcoes de forma neutra. Apos a rodada de dicas e a votacao secreta, o impostor vence se escapar ou se acertar a carta secreta no golpe final apos ser descoberto.
 
+**Arena Explosiva**
+Jogo de estrategia, psicologia e sobrevivencia em dupla com suporte aos universos de Clash Royale e Brawl Stars em uma grade aberta de dezesseis cartas. No modo Sabotagem, cada jogador esconde secretamente tres bombas na mesma formacao de tabuleiro em grades independentes, disputando turnos com tres vidas cada. No modo Campo Minado, ambos compartilham uma unica grade com quatro bombas aleatorias e duas vidas para decidir quem sobrevive ate o final.
+
 ## Tecnologias e Ferramentas Utilizadas
 O projeto foi inteiramente construido com tecnologias web nativas, priorizando a performance e a simplicidade arquitetural.
 
@@ -48,6 +51,7 @@ A arvore de arquivos foi desenhada para separar claramente o escopo de cada jogo
 - **/qual-e-a-carta:** Modulo independente do desafio visual com niveis progressivos de zoom e autocompletar.
 - **/combinacao-real:** Modulo independente do jogo da memoria em dupla com animacoes de rotacao em grade simetrica.
 - **/goblin-espiao:** Modulo independente do jogo de blefe em grupo com revelacao por deslize, votacao secreta e golpe final.
+- **/arena-explosiva:** Modulo independente contendo os modos Sabotagem e Campo Minado em grade aberta com animacoes de verificacao e explosao.
 - **todas_as_cartas.json:** Fonte de dados unificada das cartas do Clash Royale consumida pelos modulos.
 - **todos_os_brawlers.json:** Fonte de dados unificada dos personagens do Brawl Stars consumida pelos modulos.
 

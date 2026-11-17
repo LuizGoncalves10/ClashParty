@@ -4,6 +4,9 @@ let todosOsBrawlers = [];
 let universoAtual = 'clash';
 let modoAtual = 'sabotagem';
 
+let nomeReiAzul = 'Rei Azul';
+let nomeReiVermelho = 'Rei Vermelho';
+
 let etapaPlantio = 1;
 let bombasSelecionadasTemp = new Set();
 
@@ -87,14 +90,37 @@ function selecionarModo(modo) {
 
     const desc = document.getElementById('descricao-modo');
     if (modo === 'sabotagem') {
-        desc.innerText = 'Cada time esconde 3 bombas em tabuleiros separados. Quem perder 3 vidas primeiro perde!';
+        desc.innerText = 'Cada time esconde 3 bombas na mesma grade em tabuleiros separados. Quem perder 3 vidas primeiro perde!';
     } else {
         desc.innerText = 'Tabuleiro único com 4 bombas aleatórias. Quem perder 2 vidas primeiro perde!';
     }
 }
 
-function gerarDeck16(baseDados) {
-    const sorteadas = embaralhar(baseDados).slice(0, 16);
+function validarNomes() {
+    const azul = document.getElementById('input-nome-azul').value.trim();
+    const vermelho = document.getElementById('input-nome-vermelho').value.trim();
+    const erroBox = document.getElementById('erro-nomes');
+    const btnJogar = document.getElementById('btn-jogar');
+
+    if (azul === '' || vermelho === '') {
+        erroBox.style.display = 'none';
+        btnJogar.disabled = true;
+        return false;
+    }
+
+    if (azul.toLowerCase() === vermelho.toLowerCase()) {
+        erroBox.innerText = 'Os dois jogadores não podem ter o mesmo nome!';
+        erroBox.style.display = 'block';
+        btnJogar.disabled = true;
+        return false;
+    }
+
+    erroBox.style.display = 'none';
+    btnJogar.disabled = false;
+    return true;
+}
+
+function gerarDeck16(sorteadas) {
     return sorteadas.map((item, idx) => ({
         index: idx,
         id: item.id,
@@ -106,22 +132,29 @@ function gerarDeck16(baseDados) {
 }
 
 function iniciarPartida() {
+    if (!validarNomes()) return;
+
     const baseDados = universoAtual === 'clash' ? todasAsCartasClash : todosOsBrawlers;
     if (baseDados.length < 16) {
         alert('Aguarde o carregamento das cartas e tente novamente.');
         return;
     }
 
+    nomeReiAzul = document.getElementById('input-nome-azul').value.trim();
+    nomeReiVermelho = document.getElementById('input-nome-vermelho').value.trim();
+
     animandoJogada = false;
     turnoAtual = 'azul';
+
+    const cartasSorteadas16 = embaralhar(baseDados).slice(0, 16);
 
     if (modoAtual === 'sabotagem') {
         vidasMaximas = 3;
         vidasAzul = 3;
         vidasVermelho = 3;
 
-        tabuleiroParaVermelho = gerarDeck16(baseDados);
-        tabuleiroParaAzul = gerarDeck16(baseDados);
+        tabuleiroParaVermelho = gerarDeck16(cartasSorteadas16);
+        tabuleiroParaAzul = gerarDeck16(cartasSorteadas16);
 
         etapaPlantio = 1;
         prepararTelaPlantar();
@@ -131,7 +164,7 @@ function iniciarPartida() {
         vidasAzul = 2;
         vidasVermelho = 2;
 
-        tabuleiroCompartilhado = gerarDeck16(baseDados);
+        tabuleiroCompartilhado = gerarDeck16(cartasSorteadas16);
         const indicesBomba = embaralhar([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]).slice(0, 4);
         indicesBomba.forEach(i => {
             tabuleiroCompartilhado[i].temBomba = true;
@@ -156,16 +189,16 @@ function prepararTelaPlantar() {
     if (etapaPlantio === 1) {
         aplicarTemaTurno('azul');
         etapaBadge.innerText = 'PREPARAÇÃO 1 de 2';
-        titulo.innerText = 'Rei Azul';
+        titulo.innerText = nomeReiAzul;
         titulo.style.color = '#4da6ff';
-        instrucao.innerText = 'Escolha 3 cartas onde o Rei Vermelho vai pisar!';
+        instrucao.innerText = `Escolha 3 cartas onde ${nomeReiVermelho} vai pisar!`;
         deckAtual = tabuleiroParaVermelho;
     } else {
         aplicarTemaTurno('vermelho');
         etapaBadge.innerText = 'PREPARAÇÃO 2 de 2';
-        titulo.innerText = 'Rei Vermelho';
+        titulo.innerText = nomeReiVermelho;
         titulo.style.color = '#ff5252';
-        instrucao.innerText = 'Escolha 3 cartas onde o Rei Azul vai pisar!';
+        instrucao.innerText = `Escolha 3 cartas onde ${nomeReiAzul} vai pisar!`;
         deckAtual = tabuleiroParaAzul;
     }
 
@@ -206,7 +239,7 @@ function confirmarBombasPlantadas() {
             tabuleiroParaVermelho[idx].temBomba = true;
         });
 
-        abrirTelaPasse('vermelho', 'Agora o Rei Vermelho vai esconder suas 3 bombas.', () => {
+        abrirTelaPasse('vermelho', `Agora ${nomeReiVermelho} vai esconder suas 3 bombas.`, () => {
             etapaPlantio = 2;
             prepararTelaPlantar();
             mostrarTela('tela-plantar');
@@ -216,7 +249,7 @@ function confirmarBombasPlantadas() {
             tabuleiroParaAzul[idx].temBomba = true;
         });
 
-        abrirTelaPasse('azul', 'As bombas foram plantadas! O Rei Azul começa a partida.', () => {
+        abrirTelaPasse('azul', `As bombas foram plantadas! ${nomeReiAzul} começa a partida.`, () => {
             turnoAtual = 'azul';
             iniciarFaseBatalha();
         });
@@ -229,10 +262,10 @@ function abrirTelaPasse(proximoTime, mensagem, callback) {
 
     const nomeEl = document.getElementById('passe-nome-time');
     if (proximoTime === 'azul') {
-        nomeEl.innerText = 'Rei Azul';
+        nomeEl.innerText = nomeReiAzul;
         nomeEl.style.color = '#4da6ff';
     } else {
-        nomeEl.innerText = 'Rei Vermelho';
+        nomeEl.innerText = nomeReiVermelho;
         nomeEl.style.color = '#ff5252';
     }
 
@@ -248,6 +281,9 @@ function confirmarPasseTela() {
 
 function iniciarFaseBatalha() {
     document.getElementById('hud-nome-modo').innerText = modoAtual === 'sabotagem' ? 'SABOTAGEM' : 'CAMPO MINADO';
+    document.getElementById('hud-nome-azul').innerText = nomeReiAzul.toUpperCase();
+    document.getElementById('hud-nome-vermelho').innerText = nomeReiVermelho.toUpperCase();
+
     atualizarHudBatalha();
     renderizarGradeBatalha();
     mostrarTela('tela-batalha');
@@ -276,13 +312,13 @@ function atualizarHudBatalha() {
         hudAzul.classList.add('ativo');
         hudVermelho.classList.remove('ativo');
         turnoTexto.innerText = 'VEZ DO AZUL';
-        barraStatus.innerText = 'Rei Azul: escolha uma carta para verificar!';
+        barraStatus.innerText = `${nomeReiAzul}: escolha uma carta para verificar!`;
         barraStatus.style.color = '#7cc0ff';
     } else {
         hudVermelho.classList.add('ativo');
         hudAzul.classList.remove('ativo');
         turnoTexto.innerText = 'VEZ DO VERMELHO';
-        barraStatus.innerText = 'Rei Vermelho: escolha uma carta para verificar!';
+        barraStatus.innerText = `${nomeReiVermelho}: escolha uma carta para verificar!`;
         barraStatus.style.color = '#ff8080';
     }
 }
@@ -405,17 +441,19 @@ function mostrarResultadoFinal(vencedor) {
     badgeModo.innerText = modoAtual === 'sabotagem' ? 'MODO SABOTAGEM' : 'MODO CAMPO MINADO';
 
     if (vencedor === 'azul') {
-        titulo.innerText = '👑 VITÓRIA DO REI AZUL! 👑';
+        titulo.innerText = `👑 VITÓRIA DE ${nomeReiAzul.toUpperCase()}! 👑`;
         titulo.style.color = '#4da6ff';
-        subtitulo.innerText = 'O Rei Vermelho ficou sem vidas na arena!';
-        frase.innerText = 'Estratégia impecável do Time Azul!';
+        subtitulo.innerText = `${nomeReiVermelho} ficou sem vidas na arena!`;
+        frase.innerText = `Estratégia impecável de ${nomeReiAzul}!`;
     } else {
-        titulo.innerText = '👑 VITÓRIA DO REI VERMELHO! 👑';
+        titulo.innerText = `👑 VITÓRIA DE ${nomeReiVermelho.toUpperCase()}! 👑`;
         titulo.style.color = '#ff4d4d';
-        subtitulo.innerText = 'O Rei Azul ficou sem vidas na arena!';
-        frase.innerText = 'Domínio total do Time Vermelho!';
+        subtitulo.innerText = `${nomeReiAzul} ficou sem vidas na arena!`;
+        frase.innerText = `Domínio total de ${nomeReiVermelho}!`;
     }
 
+    document.getElementById('final-label-azul').innerText = nomeReiAzul.toUpperCase();
+    document.getElementById('final-label-vermelho').innerText = nomeReiVermelho.toUpperCase();
     document.getElementById('final-vidas-azul').innerText = gerarCoracoes(vidasAzul, vidasMaximas);
     document.getElementById('final-vidas-vermelho').innerText = gerarCoracoes(vidasVermelho, vidasMaximas);
 
@@ -424,5 +462,6 @@ function mostrarResultadoFinal(vencedor) {
 
 function voltarConfig() {
     aplicarTemaTurno(null);
+    validarNomes();
     mostrarTela('tela-config');
 }
