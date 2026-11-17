@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nível Secreto | Clash Party</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="tela-config" class="screen active">
+        <header style="margin-bottom: 18px; text-align: center;">
+            <h1 style="color: var(--dourado);">Nível Secreto</h1>
+            <p style="font-family: sans-serif; font-weight: bold; font-size: 1.15rem; margin-top: 4px;">Ordenação Cooperativa</p>
+        </header>
+
+        <main class="games-container">
+            <div class="game-card">
+                <div class="seletor-grupo">
+                    <label>Escolha o Universo:</label>
+                    <div class="botoes-grupo">
+                        <button class="btn-opcao active" id="btn-uni-clash" onclick="selecionarUniverso('clash')">👑 Clash Royale</button>
+                        <button class="btn-opcao" id="btn-uni-brawl" onclick="selecionarUniverso('brawl')">⭐ Brawl Stars</button>
+                    </div>
+                </div>
+
+                <div class="seletor-grupo" style="margin-bottom: 10px;">
+                    <label>Jogadores (3 a 10):</label>
+                    <p class="texto-regra-topo">Definam o tema da lista entre vocês antes de começar. Cada um receberá um número secreto de 1 a 100!</p>
+                </div>
+
+                <div class="lista-inputs-jogadores" id="lista-inputs-jogadores"></div>
+
+                <button type="button" class="btn-adicionar-jogador" id="btn-add-jogador" onclick="adicionarCampoJogador()">+ ADICIONAR JOGADOR</button>
+
+                <div id="erro-jogadores" class="error-msg"></div>
+
+                <div class="botoes-nav">
+                    <a href="../index.html" class="btn-supercell btn-voltar">VOLTAR</a>
+                    <button class="btn-supercell btn-iniciar" id="btn-jogar" onclick="iniciarPartida()" disabled>JOGAR</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="tela-turno" class="screen tela-cheia">
+        <div class="topo-partida">
+            <span class="badge-progresso" id="turno-progresso">JOGADOR 1 de 3</span>
+            <h2 id="turno-nome-jogador" style="color: var(--dourado);">Jogador</h2>
+            <p class="subtitulo-neutro">Arraste a cobertura para ver seu nível secreto!</p>
+        </div>
+
+        <div class="area-carta-secreta">
+            <div class="carta-secreta-box" id="carta-secreta-box">
+                <div class="conteudo-nota-secreta">
+                    <span class="label-nivel-carta">SEU NÍVEL SECRETO</span>
+                    <div class="valor-nota-grande" id="valor-nota-secreta">50</div>
+                    <span class="dica-escala-carta">Escala de 1 a 100</span>
+                </div>
+                <div class="cobertura-deslizante" id="cobertura-deslizante">
+                    <div class="icone-cadeado">🔒</div>
+                    <span class="titulo-cobertura">NÍVEL OCULTO</span>
+                    <span class="instrucao-arrastar">⬆️ Arraste para revelar ⬆️</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="area-escolha-carta">
+            <div class="box-autocomplete">
+                <input type="text" id="input-busca-carta" placeholder="Digite o nome da carta (mín. 2 letras)..." autocomplete="off" disabled oninput="filtrarSugestoes()">
+                <div class="lista-sugestoes" id="lista-sugestoes"></div>
+            </div>
+
+            <div class="carta-confirmada-pill" id="pill-carta-escolhida">
+                <span>Selecionada:</span>
+                <strong id="texto-carta-escolhida">-</strong>
+            </div>
+
+            <button class="btn-supercell btn-iniciar btn-full" id="btn-proximo-jogador" disabled onclick="confirmarEscolhaJogador()">PASSAR PARA O PRÓXIMO ➡️</button>
+        </div>
+    </div>
+
+    <div id="tela-passe" class="screen tela-cheia">
+        <div class="topo-partida">
+            <span class="badge-progresso">TROCA DE TURNO</span>
+            <h1 style="color: var(--dourado); font-size: clamp(1.6rem, 4.5vh, 2.1rem);">Passe o Aparelho</h1>
+        </div>
+
+        <div class="game-card card-passe-turno">
+            <div class="icone-passe">🤫</div>
+            <p class="label-passe">Agora é a vez de:</p>
+            <h2 id="passe-nome-proximo" class="nome-time-passe">Próximo</h2>
+            <p class="instrucao-passe">Não deixe ninguém ver seu nível secreto de 1 a 100!</p>
+        </div>
+
+        <div class="area-controle-rodape">
+            <button class="btn-supercell btn-iniciar btn-full" onclick="abrirTurnoAtual()">ESTOU PRONTO ➡️</button>
+        </div>
+    </div>
+
+    <div id="tela-ordenar" class="screen tela-cheia">
+        <div class="topo-partida">
+            <span class="badge-progresso">FASE EM EQUIPE</span>
+            <h2 style="color: var(--dourado);">Ordenem a Lista</h2>
+            <p class="subtitulo-neutro">Arraste do menor nível (topo) para o maior (base)</p>
+        </div>
+
+        <div class="container-lista-ordenacao" id="container-lista-ordenacao">
+            <div class="marcador-extremo topo">⬇️ MENOR NÍVEL (1)</div>
+            <div class="lista-arrastavel" id="lista-arrastavel"></div>
+            <div class="marcador-extremo base">⬆️ MAIOR NÍVEL (100)</div>
+        </div>
+
+        <div class="area-controle-rodape">
+            <button class="btn-supercell btn-iniciar btn-full" onclick="finalizarOrdenacao()">CONFIRMAR ORDEM ✔️</button>
+        </div>
+    </div>
+
+    <div id="tela-resultado" class="screen tela-cheia">
+        <div class="topo-partida">
+            <span class="badge-progresso">RESULTADO FINAL</span>
+            <h1 id="resultado-titulo" style="font-size: clamp(1.65rem, 4.5vh, 2.2rem); margin-top: 2px;">VITÓRIA DA EQUIPE!</h1>
+            <p id="resultado-subtitulo" class="subtitulo-resultado">Vocês acertaram toda a sequência!</p>
+        </div>
+
+        <div class="card-comparativo-final">
+            <div class="comparativo-grid">
+                <div class="coluna-tabela">
+                    <div class="cabecalho-coluna grupo">ORDEM DO GRUPO</div>
+                    <div class="corpo-coluna" id="coluna-ordem-grupo"></div>
+                </div>
+
+                <div class="coluna-tabela">
+                    <div class="cabecalho-coluna correta">ORDEM CORRETA</div>
+                    <div class="corpo-coluna" id="coluna-ordem-correta"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="botoes-nav" style="width: 100%; max-width: 440px; margin-top: 10px;">
+            <a href="../index.html" class="btn-supercell btn-voltar">SAIR</a>
+            <button class="btn-supercell btn-iniciar" onclick="jogarNovamente()">JOGAR NOVAMENTE</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
