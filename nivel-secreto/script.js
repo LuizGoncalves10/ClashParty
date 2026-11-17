@@ -436,7 +436,7 @@ function atualizarDomDuranteArraste() {
 }
 
 function finalizarOrdenacao() {
-    const ordemCorreta = [...rodadasJogadores].sort((a, b) => a.nota - b.nota);
+    const ordemCorreta = [...rodadasJogadores].sort((a, b) => b.nota - a.nota);
 
     let venceu = true;
     for (let i = 0; i < rodadasJogadores.length; i++) {
@@ -452,7 +452,7 @@ function finalizarOrdenacao() {
     if (venceu) {
         titulo.innerText = '👑 VITÓRIA DA EQUIPE! 👑';
         titulo.style.color = '#69f0ae';
-        subtitulo.innerText = 'Ordem crescente perfeita do menor para o maior!';
+        subtitulo.innerText = 'Ordem decrescente perfeita do maior para o menor!';
     } else {
         titulo.innerText = '💥 ORDEM INCORRETA! 💥';
         titulo.style.color = '#ff5252';
